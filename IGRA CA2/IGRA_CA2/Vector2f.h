@@ -19,6 +19,11 @@ public:
 
     // Sets the x and y values of an existing Vector2f with the new specified ones.
     void Set(float x, float y);
+
+    Vector2f operator+=(const Vector2f &other);
+    Vector2f operator-=(const Vector2f &other);
+    Vector2f operator*=(float multiplier);
+    Vector2f operator/=(float divisor);
 };
 
 // Negates a vector.
