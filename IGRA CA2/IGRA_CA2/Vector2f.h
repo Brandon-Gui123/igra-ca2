@@ -12,5 +12,8 @@ public:
     Vector2f(float x, float y);
 
     ~Vector2f();
+
+    // Sets an existing Vector2f with the specified values.
+    void Set(float x, float y);
 };
 
