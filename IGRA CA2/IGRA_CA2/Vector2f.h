@@ -10,5 +10,7 @@ public:
 
     // Constructs a Vector2f with the specified arguments.
     Vector2f(float x, float y);
+
+    ~Vector2f();
 };
 
