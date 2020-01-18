@@ -8,3 +8,7 @@ Vector3f::Vector3f(float x, float y, float z) : x{x}, y{y}, z{z}
 
 Vector3f::~Vector3f()
 {}
+
+void Vector3f::Set(float x, float y, float z)
+{
+}
