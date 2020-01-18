@@ -49,4 +49,5 @@ Vector2f Vector2f::operator/=(float divisor)
 
 Vector2f operator-(const Vector2f &vector)
 {
+    return Vector2f(-vector.x, -vector.y);
 }
