@@ -18,16 +18,36 @@ void Vector3f::Set(float x, float y, float z)
 
 Vector3f Vector3f::operator+=(const Vector3f &vector)
 {
+    this->x += vector.x;
+    this->y += vector.y;
+    this->z += vector.z;
+
+    return Vector3f(*this);
 }
 
 Vector3f Vector3f::operator-=(const Vector3f &vector)
 {
+    this->x -= vector.x;
+    this->y -= vector.y;
+    this->z -= vector.z;
+
+    return Vector3f(*this);
 }
 
 Vector3f Vector3f::operator*=(float multiplier)
 {
+    this->x *= multiplier;
+    this->y *= multiplier;
+    this->z *= multiplier;
+
+    return Vector3f(*this);
 }
 
 Vector3f Vector3f::operator/=(float divisor)
 {
+    this->x /= divisor;
+    this->y /= divisor;
+    this->z /= divisor;
+
+    return Vector3f(*this);
 }
