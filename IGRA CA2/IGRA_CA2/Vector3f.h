@@ -35,6 +35,9 @@ public:
     
     // Divides a vector with a scalar. This also returns the quotient.
     Vector3f operator/=(float divisor);
+
+    // Implicity converts a Vector3f to a Vector2f, discarding the z member field in the process.
+    operator Vector2f() const;
 };
 
 // Negates a vector.
