@@ -20,6 +20,34 @@ void Vector2f::Set(float x, float y)
     this->y = y;
 }
 
+Vector2f Vector2f::operator+=(const Vector2f &other)
+{
+    this->x += other.x;
+    this->y += other.y;
+    return Vector2f(*this);
+}
+
+Vector2f Vector2f::operator-=(const Vector2f &other)
+{
+    this->x -= other.x;
+    this->y -= other.y;
+    return Vector2f(*this);
+}
+
+Vector2f Vector2f::operator*=(float multiplier)
+{
+    this->x *= multiplier;
+    this->y *= multiplier;
+    return Vector2f(*this);
+}
+
+Vector2f Vector2f::operator/=(float divisor)
+{
+    this->x /= divisor;
+    this->y /= divisor;
+    return Vector2f(*this);
+}
+
 Vector2f operator-(const Vector2f &vector)
 {
     return Vector2f(-vector.x, -vector.y);
