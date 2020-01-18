@@ -14,3 +14,8 @@ Vector2f::Vector2f(float x, float y) : x{values[0]}, y{values[1]}
 Vector2f::~Vector2f()
 {}
 
+void Vector2f::Set(float x, float y)
+{
+    this->x = x;
+    this->y = y;
+}
