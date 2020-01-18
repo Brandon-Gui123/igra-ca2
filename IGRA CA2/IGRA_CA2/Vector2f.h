@@ -14,4 +14,7 @@ public:
 
     // Constructs a Vector2f with the specified x and y values.
     Vector2f(float x, float y);
+
+    ~Vector2f();
+
 };
