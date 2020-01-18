@@ -46,3 +46,7 @@ Vector2f Vector2f::operator/=(float divisor)
 
     return Vector2f(*this);
 }
+
+Vector2f operator-(const Vector2f &vector)
+{
+}
