@@ -32,3 +32,18 @@ public:
 
 // Negates a vector.
 Vector3f operator-(const Vector3f& vector);
+
+// Adds two vectors and returns the sum.
+Vector3f operator+(const Vector3f& left, const Vector3f& right);
+
+// Subtracts the right vector from the left vector and returns the difference.
+Vector3f operator-(const Vector3f& left, const Vector3f& right);
+
+// Multiplies a vector with a number and returns the product.
+Vector3f operator*(const Vector3f& vector, float multiplier);
+
+// Multiplies a vector with a number and returns the product.
+Vector3f operator*(float multiplier, const Vector3f& vector);   // same as overload for operator*(Vector3f, float), but this is for when the order of arguments is flipped
+
+// Divides a vector with a number and returns the quotient.
+Vector3f operator/(const Vector3f& vector, float divisor);
