@@ -59,20 +59,25 @@ Vector3f operator-(const Vector3f &vector)
 
 Vector3f operator+(const Vector3f &left, const Vector3f &right)
 {
+    return Vector3f(left.x + right.x, left.y + right.y, left.z + right.z);
 }
 
 Vector3f operator-(const Vector3f &left, const Vector3f &right)
 {
+    return Vector3f(left.x - right.x, left.y - right.y, left.z - right.z);
 }
 
 Vector3f operator*(const Vector3f &vector, float multiplier)
 {
+    return Vector3f(vector.x * multiplier, vector.y * multiplier, vector.z * multiplier);
 }
 
 Vector3f operator*(float multiplier, const Vector3f &vector)
 {
+    return Vector3f(vector.x * multiplier, vector.y * multiplier, vector.z * multiplier);
 }
 
 Vector3f operator/(const Vector3f &vector, float divisor)
 {
+    return Vector3f(vector.x / divisor, vector.y / divisor, vector.z / divisor);
 }
