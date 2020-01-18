@@ -1,4 +1,11 @@
 #pragma once
+
+// since we are casting from Vector2f to Vector3f and vice versa, Vector2f needs to know Vector3f
+// but Vector3f also needs to know Vector2f.
+// Without this forward declaration of the Vector3f class, the compiler cannot escape the infinite loop
+// of finding out what Vector3f is.
+class Vector3f;
+
 class Vector2f
 {
 public:
@@ -27,6 +34,9 @@ public:
 
     // Divides a vector with a scalar. This also returns the quotient.
     Vector2f operator/=(float divisor);
+
+    // Implicitly converts a Vector2f to a Vector3f, with the z member field set to 0.
+    operator Vector3f() const;
 };
 
 // Negates a vector.
