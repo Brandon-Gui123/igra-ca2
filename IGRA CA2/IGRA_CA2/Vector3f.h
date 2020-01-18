@@ -13,5 +13,8 @@ public:
     Vector3f(float x, float y, float z);
 
     ~Vector3f();
+
+    // Sets an existing Vector3f with the specified values.
+    void Set(float x, float y, float z);
 };
 
