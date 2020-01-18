@@ -20,9 +20,16 @@ public:
     // Sets the x and y values of an existing Vector2f with the new specified ones.
     void Set(float x, float y);
 
+    // Adds a vector to the current one. This also returns a vector representing the sum.
     Vector2f operator+=(const Vector2f &other);
+
+    // Subtrats the current vector with another one. This also returns a vector representing the difference.
     Vector2f operator-=(const Vector2f &other);
+
+    // Multiplies the current vector with a scalar. This also returns a vector representing the product.
     Vector2f operator*=(float multiplier);
+
+    // Divides the current vector with a divisor. This also returns a vector representing the quotient.
     Vector2f operator/=(float divisor);
 };
 
