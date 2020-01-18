@@ -1,5 +1,7 @@
 #include "Vector3f.h"
 
+#include "Vector2f.h"   // for knowing how to construct a Vector2f in the process of casting Vector3f to Vector2f
+
 Vector3f::Vector3f() : x{0}, y{0}, z{0}
 {}
 
@@ -54,6 +56,7 @@ Vector3f Vector3f::operator/=(float divisor)
 
 Vector3f::operator Vector2f() const
 {
+    return Vector2f(this->x, this->y);
 }
 
 Vector3f operator-(const Vector3f &vector)
