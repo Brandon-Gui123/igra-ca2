@@ -30,3 +30,5 @@ public:
     Vector3f operator/=(float divisor);
 };
 
+// Negates a vector.
+Vector3f operator-(const Vector3f& vector);
