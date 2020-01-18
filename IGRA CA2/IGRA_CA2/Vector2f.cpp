@@ -51,3 +51,23 @@ Vector2f operator-(const Vector2f &vector)
 {
     return Vector2f(-vector.x, -vector.y);
 }
+
+Vector2f operator+(const Vector2f &left, const Vector2f &right)
+{
+}
+
+Vector2f operator-(const Vector2f &left, const Vector2f &right)
+{
+}
+
+Vector2f operator*(const Vector2f &vector, float multiplier)
+{
+}
+
+Vector2f operator*(float multiplier, const Vector2f &vector)
+{
+}
+
+Vector2f operator/(const Vector2f &vector, float divisor)
+{
+}
