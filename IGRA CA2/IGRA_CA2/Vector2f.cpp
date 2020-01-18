@@ -14,3 +14,19 @@ void Vector2f::Set(float x, float y)
     this->x = x;
     this->y = y;
 }
+
+Vector2f Vector2f::operator+=(const Vector2f &vector)
+{
+}
+
+Vector2f Vector2f::operator-=(const Vector2f &vector)
+{
+}
+
+Vector2f Vector2f::operator*=(float multiplier)
+{
+}
+
+Vector2f Vector2f::operator/=(float divisor)
+{
+}
