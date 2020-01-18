@@ -54,4 +54,5 @@ Vector3f Vector3f::operator/=(float divisor)
 
 Vector3f operator-(const Vector3f &vector)
 {
+    return Vector3f(-vector.x, -vector.y, -vector.z);
 }
