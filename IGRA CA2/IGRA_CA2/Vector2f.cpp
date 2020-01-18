@@ -19,3 +19,8 @@ void Vector2f::Set(float x, float y)
     this->x = x;
     this->y = y;
 }
+
+Vector2f operator-(const Vector2f &vector)
+{
+    return Vector2f(-vector.x, -vector.y);
+}
