@@ -56,3 +56,23 @@ Vector3f operator-(const Vector3f &vector)
 {
     return Vector3f(-vector.x, -vector.y, -vector.z);
 }
+
+Vector3f operator+(const Vector3f &left, const Vector3f &right)
+{
+}
+
+Vector3f operator-(const Vector3f &left, const Vector3f &right)
+{
+}
+
+Vector3f operator*(const Vector3f &vector, float multiplier)
+{
+}
+
+Vector3f operator*(float multiplier, const Vector3f &vector)
+{
+}
+
+Vector3f operator/(const Vector3f &vector, float divisor)
+{
+}
