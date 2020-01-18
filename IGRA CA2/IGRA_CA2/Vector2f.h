@@ -22,3 +22,9 @@ public:
 };
 
 Vector2f operator-(const Vector2f &vector);
+
+Vector2f operator+(const Vector2f &left, const Vector2f &right);
+Vector2f operator-(const Vector2f &left, const Vector2f &right);
+Vector2f operator*(const Vector2f &vector, float multiplier);
+Vector2f operator*(float multiplier, const Vector2f &vector);       // same as previous overloaded operator*, but the multiplier comes first
+Vector2f operator/(const Vector2f &vector, float divisor);
