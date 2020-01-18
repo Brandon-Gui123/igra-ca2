@@ -11,3 +11,6 @@ Vector2f::Vector2f(float x, float y) : x{values[0]}, y{values[1]}
     values[1] = y;
 }
 
+Vector2f::~Vector2f()
+{}
+
