@@ -11,4 +11,6 @@ Vector2f::~Vector2f()
 
 void Vector2f::Set(float x, float y)
 {
+    this->x = x;
+    this->y = y;
 }
