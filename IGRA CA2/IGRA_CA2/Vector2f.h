@@ -29,3 +29,5 @@ public:
     Vector2f operator/=(float divisor);
 };
 
+// Negates a vector.
+Vector2f operator-(const Vector2f& vector);
