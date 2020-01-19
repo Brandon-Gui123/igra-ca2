@@ -42,4 +42,69 @@ namespace IGRAUnitTesting
 		}
 	};
 
+	TEST_CLASS(Vector2f_Binary_Operators_Test)
+	{
+	public:
+		
+		TEST_METHOD(Add_2_Vector2fs)
+		{
+			Vector2f left{12.0f, 86.0f};
+			Vector2f right{32.0f, 12.0f};
+
+			Vector2f sum{left + right};
+
+			// expected output: (44.0f, 98.0f)
+			Assert::AreEqual(44.0f, sum.x, 1e-8f);
+			Assert::AreEqual(98.0f, sum.y, 1e-8f);
+		}
+
+		TEST_METHOD(Subtract_Vector2f_From_Vector2f)
+		{
+			Vector2f left{100.0f, 90.0f};
+			Vector2f right{50.0f, 31.0f};
+
+			Vector2f difference{left - right};
+
+			// expected output: (50.0f, 59.0f)
+			Assert::AreEqual(50.0f, difference.x, 1e-8f);
+			Assert::AreEqual(59.0f, difference.y, 1e-8f);
+		}
+
+		TEST_METHOD(Multiply_Vector2f_And_Scalar)
+		{
+			Vector2f vector{3.0f, 8.0f};
+			float multiplier{5.0f};
+
+			Vector2f product{vector * multiplier};
+
+			// expected output: (15.0f, 40.0f)
+			Assert::AreEqual(15.0f, product.x, 1e-8f);
+			Assert::AreEqual(40.0f, product.y, 1e-8f);
+		}
+
+		TEST_METHOD(Multiply_Scalar_And_Vector2f)
+		{
+			Vector2f vector{3.0f, 8.0f};
+			float multiplier{5.0f};
+
+			Vector2f product{multiplier * vector};
+
+			// expected output: (15.0f, 40.0f)
+			Assert::AreEqual(15.0f, product.x, 1e-8f);
+			Assert::AreEqual(40.0f, product.y, 1e-8f);
+		}
+
+		TEST_METHOD(Divide_Vector2f_And_Scalar)
+		{
+			Vector2f vector{12.0f, 9.0f};
+			float divisor{4.0f};
+
+			Vector2f quotient{vector / divisor};
+
+			// expected output: (3.0f, 2.25f)
+			Assert::AreEqual(3.0f, quotient.x, 1e-8f);
+			Assert::AreEqual(2.25f, quotient.y, 1e-8f);
+		}
+	};
+
 }
