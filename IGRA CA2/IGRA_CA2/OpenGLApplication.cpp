@@ -384,5 +384,5 @@ void DrawGLScene()
         0, 0, 0,    // Camera's target to look at
         0, 1, 0     // Orientation of the camera
     );
-	SetWindowTextA(hWnd, std::to_string(Time::deltaTime).c_str()); //Debug to show DeltaTime Variable
+	SetWindowTextA(hWnd, std::to_string(Time::framesPerSecond()).c_str()); //Debug to show DeltaTime Variable
 }

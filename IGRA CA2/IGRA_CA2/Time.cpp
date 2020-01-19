@@ -11,6 +11,10 @@ void Time::setDeltaTime(double dt) {
 	deltaTime = dt;
 }
 
+double Time::framesPerSecond() {
+	return 1 / deltaTime;
+}
+
 Time::~Time()
 {
 }
