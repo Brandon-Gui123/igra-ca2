@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IGRA_CA2", "IGRA_CA2\IGRA_CA2.vcxproj", "{8B860FEF-9E8B-4DCA-92A0-20FEDEA50E03}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IGRA_Unit_Testing", "IGRA_Unit_Testing\IGRA_Unit_Testing.vcxproj", "{141CC6AD-9557-407E-8776-44A418749A7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{8B860FEF-9E8B-4DCA-92A0-20FEDEA50E03}.Release|x64.Build.0 = Release|x64
 		{8B860FEF-9E8B-4DCA-92A0-20FEDEA50E03}.Release|x86.ActiveCfg = Release|Win32
 		{8B860FEF-9E8B-4DCA-92A0-20FEDEA50E03}.Release|x86.Build.0 = Release|Win32
+		{141CC6AD-9557-407E-8776-44A418749A7B}.Debug|x64.ActiveCfg = Debug|x64
+		{141CC6AD-9557-407E-8776-44A418749A7B}.Debug|x64.Build.0 = Debug|x64
+		{141CC6AD-9557-407E-8776-44A418749A7B}.Debug|x86.ActiveCfg = Debug|Win32
+		{141CC6AD-9557-407E-8776-44A418749A7B}.Debug|x86.Build.0 = Debug|Win32
+		{141CC6AD-9557-407E-8776-44A418749A7B}.Release|x64.ActiveCfg = Release|x64
+		{141CC6AD-9557-407E-8776-44A418749A7B}.Release|x64.Build.0 = Release|x64
+		{141CC6AD-9557-407E-8776-44A418749A7B}.Release|x86.ActiveCfg = Release|Win32
+		{141CC6AD-9557-407E-8776-44A418749A7B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
