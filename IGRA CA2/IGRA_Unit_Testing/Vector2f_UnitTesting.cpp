@@ -170,4 +170,17 @@ namespace IGRAUnitTesting
 		}
 	};
 
+	TEST_CLASS(Vector2f_Casting)
+	{
+		TEST_METHOD(Cast_Vector2f_To_Vector3f)
+		{
+			Vector2f original{10.0, 32.0f};
+			Vector3f vector{original};
+
+			// vector should be (10.0f, 32.0f, 0.0f)
+			Assert::AreEqual(10.0f, vector.x, 1e-8f);
+			Assert::AreEqual(32.0f, vector.y, 1e-8f);
+			Assert::AreEqual(0.0f, vector.z, 1e-8f);
+		}
+	};
 }
