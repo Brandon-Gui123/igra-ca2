@@ -29,4 +29,17 @@ namespace IGRAUnitTesting
 		}
 	};
 
+	TEST_CLASS(Vector2f_Methods_Test)
+	{
+		TEST_METHOD(Vector2f_Set)
+		{
+			Vector2f current{5.0f, 12.0f};
+			current.Set(34.0f, 12.0f);
+
+			// current should now be: (34.0f, 12.0f)
+			Assert::AreEqual(34.0f, current.x, 1e-8f);
+			Assert::AreEqual(12.0f, current.y, 1e-8f);
+		}
+	};
+
 }
