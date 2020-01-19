@@ -11,10 +11,10 @@ Vector2f::Vector2f(float x, float y) : x{x}, y{y}
 Vector2f::~Vector2f()
 {}
 
-void Vector2f::Set(float x, float y)
+void Vector2f::Set(float newX, float newY)
 {
-    this->x = x;
-    this->y = y;
+    this->x = newX;
+    this->y = newY;
 }
 
 Vector2f Vector2f::operator+=(const Vector2f &vector)

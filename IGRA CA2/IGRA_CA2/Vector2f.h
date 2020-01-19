@@ -21,7 +21,7 @@ public:
     ~Vector2f();
 
     // Sets an existing Vector2f with the specified values.
-    void Set(float x, float y);
+    void Set(float newX, float newY);
 
     // Adds a vector to the current vector. This also returns the sum.
     Vector2f operator+=(const Vector2f &vector);
