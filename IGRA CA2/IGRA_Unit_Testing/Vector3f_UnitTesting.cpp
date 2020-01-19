@@ -200,4 +200,16 @@ namespace IGRAUnitTesting
         }
     };
 
+    TEST_CLASS(Vector3f_Casting)
+    {
+        TEST_METHOD(Cast_Vector3f_To_Vector2f)
+        {
+            Vector3f current{3.0f, 4.0f, 9.0f};
+            Vector2f casted{current};
+
+            // casted should be (3.0f, 4.0f). 9.0f should be discarded
+            Assert::AreEqual(3.0f, casted.x, 1e-8f);
+            Assert::AreEqual(4.0f, casted.y, 1e-8f);
+        }
+    };
 }
