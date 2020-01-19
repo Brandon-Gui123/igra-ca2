@@ -11,11 +11,11 @@ Vector3f::Vector3f(float x, float y, float z) : x{x}, y{y}, z{z}
 Vector3f::~Vector3f()
 {}
 
-void Vector3f::Set(float x, float y, float z)
+void Vector3f::Set(float newX, float newY, float newZ)
 {
-    this->x = x;
-    this->y = y;
-    this->z = z;
+    this->x = newX;
+    this->y = newY;
+    this->z = newZ;
 }
 
 Vector3f Vector3f::operator+=(const Vector3f &vector)

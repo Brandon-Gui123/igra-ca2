@@ -22,7 +22,7 @@ public:
     ~Vector3f();
 
     // Sets an existing Vector3f with the specified values.
-    void Set(float x, float y, float z);
+    void Set(float newX, float newY, float newZ);
 
     // Adds a vector to the current vector. This also returns the sum.
     Vector3f operator+=(const Vector3f &vector);
