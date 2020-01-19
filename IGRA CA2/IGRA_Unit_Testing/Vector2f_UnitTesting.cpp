@@ -42,6 +42,19 @@ namespace IGRAUnitTesting
 		}
 	};
 
+	TEST_CLASS(Vector2f_Unary_Operators_Test)
+	{
+		TEST_METHOD(Negate_Vector2f)
+		{
+			Vector2f current{-5.0f, 32.0f};
+			Vector2f negated{-current};
+
+			// negated should be (5.0f, -32.0f)
+			Assert::AreEqual(5.0f, negated.x, 1e-8f);
+			Assert::AreEqual(-32.0f, negated.y, 1e-8f);
+		}
+	};
+
 	TEST_CLASS(Vector2f_Binary_Operators_Test)
 	{
 	public:
