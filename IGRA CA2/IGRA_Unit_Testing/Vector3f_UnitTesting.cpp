@@ -31,4 +31,17 @@ namespace IGRAUnitTesting
         }
     };
 
+    TEST_CLASS(Vector3f_Methods_Test)
+    {
+        TEST_METHOD(Vector3f_Set)
+        {
+            Vector3f original{5.0f, 12.0f, 9.0f};
+            original.Set(1.0f, -3.0f, 12.0f);
+
+            // original should now be (1.0f, -3.0f, 12.0f)
+            Assert::AreEqual(1.0f, original.x, 1e-8f);
+            Assert::AreEqual(-3.0f, original.y, 1e-8f);
+            Assert::AreEqual(12.0f, original.z, 1e-8f);
+        }
+    };
 }
