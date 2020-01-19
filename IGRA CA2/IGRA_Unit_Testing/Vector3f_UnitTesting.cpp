@@ -117,4 +117,19 @@ namespace IGRAUnitTesting
             Assert::AreEqual(-35.5555f, quotient.z, 1e-4f);
         }
     };
+
+    TEST_CLASS(Vector3f_Unary_Operators_Test)
+    {
+        TEST_METHOD(Negate_Vector3f)
+        {
+            Vector3f current{0.0f, 32.0f, -87.5f};
+            Vector3f negated{-current};
+
+            // negated should be (0.0f, -32.0f, 87.5f)
+            Assert::AreEqual(0.0f, negated.x, 1e-8f);
+            Assert::AreEqual(-32.0f, negated.y, 1e-8f);
+            Assert::AreEqual(87.5f, negated.z, 1e-8f);
+        }
+    };
+
 }
