@@ -107,4 +107,67 @@ namespace IGRAUnitTesting
 		}
 	};
 
+	TEST_CLASS(Vector2f_Self_Assignment_OperatorsTest)
+	{
+		TEST_METHOD(Self_Add_Vector2f)
+		{
+			Vector2f current{1.0f, 5.0f};
+
+			// to also test the return value of +=
+			Vector2f sum{current += Vector2f{9.0f, 5.0f}};
+
+			// current and sum should now be equal
+			// expected: (10.0f, 10.0f)
+			Assert::AreEqual(10.0f, current.x, 1e-8f);
+			Assert::AreEqual(10.0f, current.y, 1e-8f);
+			Assert::AreEqual(10.0f, sum.x, 1e-8f);
+			Assert::AreEqual(10.0f, sum.y, 1e-8f);
+		}
+
+		TEST_METHOD(Self_Subtract_Vector2f)
+		{
+			Vector2f current{9.0f, 10.0f};
+
+			// also testing the return value of -=
+			Vector2f difference{current -= Vector2f{1.0f, 11.0f}};
+
+			// current and difference should now be equal
+			// expected: (8.0f, -1.0f)
+			Assert::AreEqual(8.0f, current.x, 1e-8f);
+			Assert::AreEqual(-1.0f, current.y, 1e-8f);
+			Assert::AreEqual(8.0f, difference.x, 1e-8f);
+			Assert::AreEqual(-1.0f, difference.y, 1e-8f);
+		}
+
+		TEST_METHOD(Self_Multiply_Vector2f)
+		{
+			Vector2f current{10.0f, 12.0f};
+
+			// also testing the return value of *=
+			Vector2f product{current *= -5.0f};
+
+			// current and product should now be equal
+			// expected: (-50.0f, -60.0f)
+			Assert::AreEqual(-50.0f, current.x, 1e-8f);
+			Assert::AreEqual(-60.0f, current.y, 1e-8f);
+			Assert::AreEqual(-50.0f, product.x, 1e-8f);
+			Assert::AreEqual(-60.0f, product.y, 1e-8f);
+		}
+
+		TEST_METHOD(Self_Divide_Vector2f)
+		{
+			Vector2f current{24.0f, 32.0f};
+
+			// also testing the return value of /=
+			Vector2f quotient{current /= 0.25f};
+
+			// current and quotient should now be equal
+			// expected: (96.0f, 128.0f)
+			Assert::AreEqual(96.0f, current.x, 1e-8f);
+			Assert::AreEqual(128.0f, current.y, 1e-8f);
+			Assert::AreEqual(96.0f, quotient.x, 1e-8f);
+			Assert::AreEqual(128.0f, quotient.y, 1e-8f);
+		}
+	};
+
 }
