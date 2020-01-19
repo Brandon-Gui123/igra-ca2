@@ -132,4 +132,72 @@ namespace IGRAUnitTesting
         }
     };
 
+    TEST_CLASS(Vector3f_Binary_Operators_Test)
+    {
+        TEST_METHOD(Add_2_Vector3fs)
+        {
+            Vector3f left{1.0f, 2.0f, 3.0f};
+            Vector3f right{9.0f, 8.0f, 7.1f};
+
+            Vector3f sum{left + right};
+
+            // sum should be (10.0f, 10.0f, 10.1f)
+            Assert::AreEqual(10.0f, sum.x, 1e-8f);
+            Assert::AreEqual(10.0f, sum.y, 1e-8f);
+            Assert::AreEqual(10.1f, sum.z, 1e-8f);
+        }
+
+        TEST_METHOD(Subtract_Vector3f_From_Vector3f)
+        {
+            Vector3f left{-9.0f, 12.0f, 3.0f};
+            Vector3f right{-9.0f, -12.0f, 8.0f};
+
+            Vector3f difference{left - right};
+
+            // difference should be (0.0f, 24.0f, -5.0f)
+            Assert::AreEqual(0.0f, difference.x, 1e-8f);
+            Assert::AreEqual(24.0f, difference.y, 1e-8f);
+            Assert::AreEqual(-5.0f, difference.z, 1e-8f);
+        }
+
+        TEST_METHOD(Multiply_Vector3f_With_Scalar)
+        {
+            Vector3f vector{12.0f, 12.0f, -5.0f};
+            float multiplier{0.5f};
+
+            Vector3f product{vector * multiplier};
+
+            // product should be (6.0f, 6.0f, -2.5f)
+            Assert::AreEqual(6.0f, product.x, 1e-8f);
+            Assert::AreEqual(6.0f, product.y, 1e-8f);
+            Assert::AreEqual(-2.5f, product.z, 1e-8f);
+        }
+
+        TEST_METHOD(Multiply_Scalar_With_Vector3f)
+        {
+            Vector3f vector{12.0f, 12.0f, -5.0f};
+            float multiplier{0.5f};
+
+            Vector3f product{multiplier * vector};
+
+            // product should be (6.0f, 6.0f, -2.5f)
+            Assert::AreEqual(6.0f, product.x, 1e-8f);
+            Assert::AreEqual(6.0f, product.y, 1e-8f);
+            Assert::AreEqual(-2.5f, product.z, 1e-8f);
+        }
+
+        TEST_METHOD(Division_Vector3f_With_Scalar)
+        {
+            Vector3f vector{12.0f, 64.0f, 32.0f};
+            float divisor{6.0f};
+
+            Vector3f quotient{vector / divisor};
+
+            // quotient should be (2.0f, 10.6666f, 5.3333f)
+            Assert::AreEqual(2.0f, quotient.x, 1e-4f);
+            Assert::AreEqual(10.6666f, quotient.y, 1e-4f);
+            Assert::AreEqual(5.3333f, quotient.z, 1e-4f);
+        }
+    };
+
 }
