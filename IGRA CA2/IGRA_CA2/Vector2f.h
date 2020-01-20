@@ -9,6 +9,16 @@ class Vector3f;
 class Vector2f
 {
 public:
+    static const Vector2f zero;     // Shorthand writing of Vector2f{0, 0}
+
+    static const Vector2f left;     // Shorthand writing of Vector2f{-1, 0}
+    static const Vector2f right;    // Shorthand writing of Vector2f{1, 0}
+
+    static const Vector2f up;       // Shorthand writing of Vector2f{0, 1}
+    static const Vector2f down;     // Shorthand writing of Vector2f{0, -1}
+
+    static const Vector2f one;      // Shorthand writing of Vector2f{1, 1}
+
     float x;
     float y;
 
