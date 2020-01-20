@@ -2,6 +2,13 @@
 
 #include "Vector3f.h"   // for knowing how to construct a Vector3f in the process of casting Vector2f to Vector3f
 
+const Vector2f Vector2f::zero   { 0,  0};
+const Vector2f Vector2f::left   {-1,  0};
+const Vector2f Vector2f::right  { 1,  0};
+const Vector2f Vector2f::up     { 0,  1};
+const Vector2f Vector2f::down   { 0, -1};
+const Vector2f Vector2f::one    { 1,  1};
+
 Vector2f::Vector2f() : x{0}, y{0}
 {}
 

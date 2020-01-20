@@ -8,6 +8,51 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace IGRAUnitTesting
 {
+	TEST_CLASS(Vector2f_Shorthand_Values_Test)
+	{
+		TEST_METHOD(Vector2f_zero)
+		{
+			// Vector2f::zero should be (0.0f, 0.0f)
+			Assert::AreEqual(0.0f, Vector2f::zero.x, 1e-8f);
+			Assert::AreEqual(0.0f, Vector2f::zero.y, 1e-8f);
+		}
+
+		TEST_METHOD(Vector2f_one)
+		{
+			// Vector2f::one should be (1.0f, 1.0f)
+			Assert::AreEqual(1.0f, Vector2f::one.x, 1e-8f);
+			Assert::AreEqual(1.0f, Vector2f::one.y, 1e-8f);
+		}
+
+		TEST_METHOD(Vector2f_left)
+		{
+			// Vector2f::left should be (-1.0f, 0.0f)
+			Assert::AreEqual(-1.0f, Vector2f::left.x, 1e-8f);
+			Assert::AreEqual(0.0f, Vector2f::left.y, 1e-8f);
+		}
+
+		TEST_METHOD(Vector2f_right)
+		{
+			// Vector2f::right should be (1.0f, 0.0f)
+			Assert::AreEqual(1.0f, Vector2f::right.x, 1e-8f);
+			Assert::AreEqual(0.0f, Vector2f::right.y, 1e-8f);
+		}
+
+		TEST_METHOD(Vector2f_up)
+		{
+			// Vector2f::up should be (0.0f, 1.0f)
+			Assert::AreEqual(0.0f, Vector2f::up.x, 1e-8f);
+			Assert::AreEqual(1.0f, Vector2f::up.y, 1e-8f);
+		}
+
+		TEST_METHOD(Vector2f_down)
+		{
+			// Vector2f::down should be (0.0f, -1.0f)
+			Assert::AreEqual(0.0f, Vector2f::down.x, 1e-8f);
+			Assert::AreEqual(-1.0f, Vector2f::down.y, 1e-8f);
+		}
+	};
+
 	TEST_CLASS(Vector2f_Constructors_Test)
 	{
 		TEST_METHOD(Vector2f_Default_Constructor)
