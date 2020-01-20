@@ -8,6 +8,73 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace IGRAUnitTesting
 {
+    TEST_CLASS(Vector3f_Shorthand_Values_Tests)
+    {
+        TEST_METHOD(Vector3f_Zero)
+        {
+            // Vector3f::zero should be {0, 0, 0}
+            Assert::AreEqual(0.0f, Vector3f::zero.x, 1e-8f);
+            Assert::AreEqual(0.0f, Vector3f::zero.y, 1e-8f);
+            Assert::AreEqual(0.0f, Vector3f::zero.z, 1e-8f);
+        }
+
+        TEST_METHOD(Vector3f_Left)
+        {
+            // Vector3f::one should be {-1, 0, 0}
+            Assert::AreEqual(-1.0f, Vector3f::left.x, 1e-8f);
+            Assert::AreEqual( 0.0f, Vector3f::left.y, 1e-8f);
+            Assert::AreEqual( 0.0f, Vector3f::left.z, 1e-8f);
+        }
+
+        TEST_METHOD(Vector3_Right)
+        {
+            // Vector3f::right should be {1, 0, 0}
+            Assert::AreEqual(1.0f, Vector3f::right.x, 1e-8f);
+            Assert::AreEqual(0.0f, Vector3f::right.y, 1e-8f);
+            Assert::AreEqual(0.0f, Vector3f::right.z, 1e-8f);
+        }
+
+        TEST_METHOD(Vector3f_Up)
+        {
+            // Vector3f::up should be {0, 1, 0}
+            Assert::AreEqual(0.0f, Vector3f::up.x, 1e-8f);
+            Assert::AreEqual(1.0f, Vector3f::up.y, 1e-8f);
+            Assert::AreEqual(0.0f, Vector3f::up.z, 1e-8f);
+        }
+
+        TEST_METHOD(Vector3f_Down)
+        {
+            // Vector3f::down should be {0, -1, 0}
+            Assert::AreEqual( 0.0f, Vector3f::down.x, 1e-8f);
+            Assert::AreEqual(-1.0f, Vector3f::down.y, 1e-8f);
+            Assert::AreEqual( 0.0f, Vector3f::down.z, 1e-8f);
+        }
+
+        TEST_METHOD(Vector3f_Forward)
+        {
+            // Vector3f::forward should be {0, 0, 1}
+            Assert::AreEqual(0.0f, Vector3f::forward.x, 1e-8f);
+            Assert::AreEqual(0.0f, Vector3f::forward.y, 1e-8f);
+            Assert::AreEqual(1.0f, Vector3f::forward.z, 1e-8f);
+        }
+
+        TEST_METHOD(Vector3f_Back)
+        {
+            // Vector3f::back should be {0, 0, -1}
+            Assert::AreEqual( 0.0f, Vector3f::back.x, 1e-8f);
+            Assert::AreEqual( 0.0f, Vector3f::back.y, 1e-8f);
+            Assert::AreEqual(-1.0f, Vector3f::back.z, 1e-8f);
+        }
+
+        TEST_METHOD(Vector3f_One)
+        {
+            // Vector3f::one back should be {1, 1, 1}
+            Assert::AreEqual(1.0f, Vector3f::one.x, 1e-8f);
+            Assert::AreEqual(1.0f, Vector3f::one.y, 1e-8f);
+            Assert::AreEqual(1.0f, Vector3f::one.z, 1e-8f);
+        }
+    };
+
     TEST_CLASS(Vector3f_Constructors_Test)
     {
         TEST_METHOD(Vector3f_Default_Constructor)
