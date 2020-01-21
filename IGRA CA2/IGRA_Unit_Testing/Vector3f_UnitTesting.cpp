@@ -131,6 +131,14 @@ namespace IGRAUnitTesting
             // distance between the two positions should be approx. 8.124038...f like above
             Assert::AreEqual(8.1240f, vector.GetMagnitude(), 1e-4f);
         }
+
+        TEST_METHOD(Vector3f_SqrMagnitude)
+        {
+            Vector3f vector{2.0f, 12.0f, 24.0f};
+
+            // square magnitude of the vector should be 724.0f
+            Assert::AreEqual(724.0f, Vector3f::SqrMagnitude(vector), 1e-4f);
+        }
     };
 
     TEST_CLASS(Vector3f_Self_Assignment_Operators_Test)
