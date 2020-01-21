@@ -96,6 +96,18 @@ namespace IGRAUnitTesting
 			// approx. 6.082762...
 			Assert::AreEqual(6.0827f, Vector2f::Distance(position1, position2), 1e-4f);
 		}
+
+		TEST_METHOD(Vector2f_GetMagnitude)
+		{
+			Vector2f position1{4.0f, 4.0f};
+			Vector2f position2{3.0f, 10.0f};
+
+			Vector2f delta{position2 - position1};
+
+			// the distance between the two points should again be:
+			// approx. 6.082762...
+			Assert::AreEqual(6.0827f, delta.GetMagnitude(), 1e-4f);
+		}
 	};
 
 	TEST_CLASS(Vector2f_Unary_Operators_Test)
