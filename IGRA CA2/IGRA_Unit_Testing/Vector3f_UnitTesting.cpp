@@ -139,6 +139,14 @@ namespace IGRAUnitTesting
             // square magnitude of the vector should be 724.0f
             Assert::AreEqual(724.0f, Vector3f::SqrMagnitude(vector), 1e-4f);
         }
+
+        TEST_METHOD(Vector3f_GetSqrMagnitude)
+        {
+            Vector3f vector{2.0f, 12.0f, 24.0f};
+
+            // square magnitude of the vector should be 724.0f
+            Assert::AreEqual(724.0f, vector.GetSqrMagnitude(), 1e-4f);
+        }
     };
 
     TEST_CLASS(Vector3f_Self_Assignment_Operators_Test)
