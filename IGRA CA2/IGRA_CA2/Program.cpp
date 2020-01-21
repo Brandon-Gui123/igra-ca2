@@ -7,6 +7,7 @@
 
 #include <iostream>   // std::cout
 #include <string>     // std::string, std::to_string
+#include <vector>
 
 
 Program::Program()
@@ -14,7 +15,7 @@ Program::Program()
 }
 
 void Program::Update() {
-
+	if (selectedScene) selectedScene->Update();
 	Draw();
 }
 
@@ -31,7 +32,7 @@ void Program::Draw() {
 		0, 1, 0     // Orientation of the camera
 	);
 
-
+	if (selectedScene) selectedScene->Draw();
 }
 
 Program::~Program()
