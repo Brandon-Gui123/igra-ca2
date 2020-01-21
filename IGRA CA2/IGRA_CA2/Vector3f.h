@@ -22,6 +22,9 @@ public:
 
     static const Vector3f one;      // Shorthand writing for Vector3f{1, 1, 1}
 
+    // Calculates the distance between 2 points.
+    static float Distance(const Vector3f &positoin1, const Vector3f &position2);
+
     float x;
     float y;
     float z;
