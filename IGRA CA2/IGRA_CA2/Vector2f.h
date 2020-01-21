@@ -19,6 +19,9 @@ public:
 
     static const Vector2f one;      // Shorthand writing of Vector2f{1, 1}
 
+    // Calculates the distance between two positions.
+    static float Distance(const Vector2f &position1, const Vector2f &position2);
+
     float x;
     float y;
 
@@ -32,6 +35,9 @@ public:
 
     // Sets an existing Vector2f with the specified values.
     void Set(float newX, float newY);
+
+    // Calculates and returns the magnitude of the vector.
+    float GetMagnitude();
 
     // Adds a vector to the current vector. This also returns the sum.
     Vector2f operator+=(const Vector2f &vector);

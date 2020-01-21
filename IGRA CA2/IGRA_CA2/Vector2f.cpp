@@ -1,6 +1,7 @@
 #include "Vector2f.h"
 
 #include "Vector3f.h"   // for knowing how to construct a Vector3f in the process of casting Vector2f to Vector3f
+#include <cmath>        // for std::sqrt (square root) and std::pow (power)
 
 const Vector2f Vector2f::zero   { 0,  0};
 const Vector2f Vector2f::left   {-1,  0};
@@ -8,6 +9,11 @@ const Vector2f Vector2f::right  { 1,  0};
 const Vector2f Vector2f::up     { 0,  1};
 const Vector2f Vector2f::down   { 0, -1};
 const Vector2f Vector2f::one    { 1,  1};
+
+float Vector2f::Distance(const Vector2f &position1, const Vector2f &position2)
+{
+    return std::sqrt(std::pow(position1.x - position2.x, 2.f) + std::pow(position1.y - position2.y, 2.f));
+}
 
 Vector2f::Vector2f() : x{0}, y{0}
 {}
@@ -22,6 +28,11 @@ void Vector2f::Set(float newX, float newY)
 {
     this->x = newX;
     this->y = newY;
+}
+
+float Vector2f::GetMagnitude()
+{
+    return std::sqrt(std::pow(this->x, 2.f) + std::pow(this->y, 2.f));
 }
 
 Vector2f Vector2f::operator+=(const Vector2f &vector)
