@@ -35,7 +35,7 @@ void Vector2f::Set(float newX, float newY)
     this->y = newY;
 }
 
-float Vector2f::GetMagnitude()
+float Vector2f::GetMagnitude() const
 {
     return std::sqrt(std::pow(this->x, 2.f) + std::pow(this->y, 2.f));
 }

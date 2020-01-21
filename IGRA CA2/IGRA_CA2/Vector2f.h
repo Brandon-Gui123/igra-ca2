@@ -40,7 +40,7 @@ public:
     void Set(float newX, float newY);
 
     // Calculates and returns the magnitude of the vector.
-    float GetMagnitude();
+    float GetMagnitude() const;
 
     // Calculates and returns the square magnitude of the vector.
     float GetSqrMagnitude() const;
