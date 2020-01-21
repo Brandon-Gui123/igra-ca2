@@ -2,6 +2,12 @@
 
 #include "framework.h"
 
+Timer::Timer()
+{}
+
+Timer::~Timer()
+{}
+
 void Timer::StartTimer()
 {
     __int64 currentTimeInCounts{};

@@ -7,6 +7,10 @@ private:
     __int64 countsPerSecond{0};
 
 public:
+
+    Timer();
+    ~Timer();
+
     void StartTimer();
     double GetTimePassedSinceLastTime();
     double GetTimePassedSinceStart();
