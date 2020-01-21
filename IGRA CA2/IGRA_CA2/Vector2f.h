@@ -36,6 +36,9 @@ public:
     // Sets an existing Vector2f with the specified values.
     void Set(float newX, float newY);
 
+    // Calculates and returns the magnitude of the vector.
+    float GetMagnitude();
+
     // Adds a vector to the current vector. This also returns the sum.
     Vector2f operator+=(const Vector2f &vector);
 
