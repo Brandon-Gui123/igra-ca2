@@ -48,6 +48,9 @@ public:
     // Calculates and returns the square magnitude of the vector.
     float GetSqrMagnitude() const;
 
+    // Calculates and returns a normalized version of the current vector. The original one is unchanged.
+    Vector2f GetNormalized() const;
+
     // Adds a vector to the current vector. This also returns the sum.
     Vector2f operator+=(const Vector2f &vector);
 
