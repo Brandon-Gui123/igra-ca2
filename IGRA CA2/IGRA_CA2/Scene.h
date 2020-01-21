@@ -5,7 +5,7 @@
 class Scene
 {
 public:
-	std::vector<GameObject> gameObjects;
+	std::vector<GameObject*> gameObjects;
 	void Draw();
 	void Update();
 

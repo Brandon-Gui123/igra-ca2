@@ -10,7 +10,7 @@ private:
 	void Draw();
 public:
 
-	std::vector<Scene> scenes;
+	std::vector<Scene*> scenes;
 	Scene *selectedScene;
 
 	void StartInternalTimer();

@@ -6,15 +6,15 @@
 
 void Scene::Draw()
 {
-	for (std::vector<GameObject>::iterator it = gameObjects.begin(); it != gameObjects.end(); ++it) {
-		it->Draw();
+	for (std::vector<GameObject*>::iterator it = gameObjects.begin(); it != gameObjects.end(); ++it) {
+		(*it)->Draw();
 	}
 }
 
 void Scene::Update()
 {
-	for (std::vector<GameObject>::iterator it = gameObjects.begin(); it != gameObjects.end(); ++it) {
-		it->Update();
+	for (std::vector<GameObject*>::iterator it = gameObjects.begin(); it != gameObjects.end(); ++it) {
+		(*it)->Update();
 	}
 }
 
