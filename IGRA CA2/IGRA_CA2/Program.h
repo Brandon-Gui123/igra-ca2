@@ -1,4 +1,6 @@
 #pragma once
+
+#include "Time.h"
 #include <vector>
 #include "Scene.h"
 
@@ -10,6 +12,10 @@ public:
 
 	std::vector<Scene> scenes;
 	Scene *selectedScene;
+
+	void StartInternalTimer();
+	void QueryDeltaTime();
+
 	Program();
 	~Program();
 

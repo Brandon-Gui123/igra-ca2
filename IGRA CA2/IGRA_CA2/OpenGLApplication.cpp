@@ -85,6 +85,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
+    program.StartInternalTimer();
+    
     // Main message loop:
     while (GetMessage(&msg, nullptr, 0, 0))
     {
@@ -95,6 +97,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 			program.Update();
             DrawGLScene();
             SwapBuffers(hDC);
+            program.QueryDeltaTime();
         }
     }
 
@@ -327,7 +330,10 @@ int InitOpenGL()
     return 1;
 }
 
+double test{};
+
 void DrawGLScene()
 {
-	//SetWindowTextA(hWnd, std::to_string(Time::framesPerSecond()).c_str()); //Debug to show DeltaTime Variable
-}
+    test += Time::deltaTime;
+
+	SetWindowTextA(hWnd, std::to_string(test).c_str()); // Debug to show the time elapsed

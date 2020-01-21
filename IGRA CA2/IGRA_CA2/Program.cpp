@@ -9,6 +9,15 @@
 #include <string>     // std::string, std::to_string
 #include <vector>
 
+void Program::StartInternalTimer()
+{
+	Time::internalTimer.StartTimer();
+}
+
+void Program::QueryDeltaTime()
+{
+	Time::m_deltaTime = Time::internalTimer.GetTimePassedSinceLastTime();
+}
 
 Program::Program()
 {
