@@ -7,10 +7,10 @@ class Time
 {
 private:
 	static Timer internalTimer;
-	static double m_deltaTime;
+	static double deltaTime;
 
 public:
-	static const double &deltaTime;
+	static double GetDeltaTime();
 
 	// we only want the Program class to get access to the private variables
 	// so Program will handle the internal timer

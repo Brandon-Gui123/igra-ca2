@@ -16,7 +16,7 @@ void Program::StartInternalTimer()
 
 void Program::QueryDeltaTime()
 {
-	Time::m_deltaTime = Time::internalTimer.GetTimePassedSinceLastTime();
+	Time::deltaTime = Time::internalTimer.GetTimePassedSinceLastTime();
 }
 
 Program::Program()

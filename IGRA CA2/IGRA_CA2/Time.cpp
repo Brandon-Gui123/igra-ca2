@@ -1,6 +1,9 @@
 #include "Time.h"
 
 Timer Time::internalTimer{};
-double Time::m_deltaTime{};
+double Time::deltaTime{};
 
-const double &Time::deltaTime{Time::m_deltaTime};
+double Time::GetDeltaTime()
+{
+    return deltaTime;
+}

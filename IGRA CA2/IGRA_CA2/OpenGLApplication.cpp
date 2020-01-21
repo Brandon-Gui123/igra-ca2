@@ -334,6 +334,7 @@ double test{};
 
 void DrawGLScene()
 {
-    test += Time::deltaTime;
+    test += Time::GetDeltaTime();
 
 	SetWindowTextA(hWnd, std::to_string(test).c_str()); // Debug to show the time elapsed
+}
