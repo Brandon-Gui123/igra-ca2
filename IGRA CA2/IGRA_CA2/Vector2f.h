@@ -22,6 +22,9 @@ public:
     // Calculates the distance between two positions.
     static float Distance(const Vector2f &position1, const Vector2f &position2);
 
+    // Calculates the square magnitude of a vector
+    static float SqrMagnitude(const Vector2f &vector);
+
     float x;
     float y;
 
@@ -38,6 +41,9 @@ public:
 
     // Calculates and returns the magnitude of the vector.
     float GetMagnitude();
+
+    // Calculates and returns the square magnitude of the vector.
+    float GetSqrMagnitude() const;
 
     // Adds a vector to the current vector. This also returns the sum.
     Vector2f operator+=(const Vector2f &vector);
