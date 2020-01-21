@@ -28,6 +28,9 @@ public:
     // Calculates the square magnitude of the given vector.
     static float SqrMagnitude(const Vector3f &vector);
 
+    // Normalizes the given vector.
+    static void Normalize(Vector3f &vector);
+
     float x;
     float y;
     float z;
@@ -48,6 +51,9 @@ public:
 
     // Calculates and returns the square magnitude of this vector.
     float GetSqrMagnitude() const;
+
+    // Calculates and returns the normalized version of this vector. The original vector is left unchanged.
+    Vector3f GetNormalized() const;
 
     // Adds a vector to the current vector. This also returns the sum.
     Vector3f operator+=(const Vector3f &vector);
