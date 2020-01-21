@@ -59,13 +59,7 @@ LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 void ReSizeGLScene(GLsizei width, GLsizei height);
 int InitOpenGL();
-void DrawGLScene();
-
-__int64 startTimeInCounts = 0;
-__int64 lastTimeInCounts = 0;
-__int64 countsPerSecond;void StartTimer();
-double GetTimePassedSinceLastTime();
-double GetTimePassedSinceStart();Program program;
+void DrawGLScene();Program program;
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
@@ -335,40 +329,6 @@ int InitOpenGL()
 
     return 1;
 }
-
-void StartTimer() {
-	__int64 currentTimeInCounts;
-	// countsPerSecond depends on your PC
-	if (!QueryPerformanceFrequency(
-		(LARGE_INTEGER *)&countsPerSecond)) {
-		MessageBox(NULL, L"QueryPerformanceFrequencyFailed.",L"ERROR",MB_OK | MB_ICONINFORMATION);
-			return;
-	}
-	QueryPerformanceCounter((LARGE_INTEGER *)&currentTimeInCounts);
-	startTimeInCounts = currentTimeInCounts;
-	lastTimeInCounts = currentTimeInCounts;
-}double GetTimePassedSinceStart() {
-	__int64 currentTimeInCounts;
-	double timePassedSeconds;
-	// Calculate time passed in seconds since timer was started
-	QueryPerformanceCounter((LARGE_INTEGER *)&currentTimeInCounts);
-	timePassedSeconds = (currentTimeInCounts - startTimeInCounts) /
-		(double)countsPerSecond;
-
-	return timePassedSeconds;
-}double GetTimePassedSinceLastTime() {
-	__int64 currentTimeInCounts, timePassedSinceLastTimeInCounts;
-	// Calculate time passed in seconds since last call to
-	// GetTimePassedSinceLastTime
-	QueryPerformanceCounter((LARGE_INTEGER *)&currentTimeInCounts);
-	timePassedSinceLastTimeInCounts =
-		currentTimeInCounts - lastTimeInCounts;
-	double timePassedSinceLastTimeInSeconds =
-		(currentTimeInCounts - lastTimeInCounts) /
-		(double)countsPerSecond;
-	lastTimeInCounts = currentTimeInCounts;
-	return timePassedSinceLastTimeInSeconds;
-}
 
 void DrawGLScene()
 {
