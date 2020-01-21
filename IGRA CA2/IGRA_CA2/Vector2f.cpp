@@ -20,6 +20,11 @@ float Vector2f::SqrMagnitude(const Vector2f &vector)
     return std::pow(vector.x, 2.f) + std::pow(vector.y, 2.f);
 }
 
+void Vector2f::Normalize(Vector2f &vector)
+{
+    vector /= vector.GetMagnitude();
+}
+
 Vector2f::Vector2f() : x{0}, y{0}
 {}
 
@@ -43,6 +48,11 @@ float Vector2f::GetMagnitude() const
 float Vector2f::GetSqrMagnitude() const
 {
     return std::pow(this->x, 2) + std::pow(this->y, 2);
+}
+
+Vector2f Vector2f::GetNormalized() const
+{
+    return (*this) / (*this).GetMagnitude();
 }
 
 Vector2f Vector2f::operator+=(const Vector2f &vector)
