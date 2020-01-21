@@ -22,6 +22,9 @@ public:
 
     static const Vector3f one;      // Shorthand writing for Vector3f{1, 1, 1}
 
+    // Calculates the distance between 2 points.
+    static float Distance(const Vector3f &positoin1, const Vector3f &position2);
+
     float x;
     float y;
     float z;
@@ -36,6 +39,9 @@ public:
 
     // Sets an existing Vector3f with the specified values.
     void Set(float newX, float newY, float newZ);
+    
+    // Calculates and returns the magnitude of this vector.
+    float GetMagnitude() const;
 
     // Adds a vector to the current vector. This also returns the sum.
     Vector3f operator+=(const Vector3f &vector);
