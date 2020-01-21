@@ -6,9 +6,10 @@ class Program
 {
 private:
 	void Draw();
+public:
+
 	std::vector<Scene> scenes;
 	Scene *selectedScene;
-public:
 	Program();
 	~Program();
 
