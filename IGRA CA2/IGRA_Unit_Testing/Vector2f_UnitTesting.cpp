@@ -138,6 +138,20 @@ namespace IGRAUnitTesting
 			Assert::AreEqual(0.8865f, vector.x, 1e-4f);
 			Assert::AreEqual(0.4625f, vector.y, 1e-4f);
 		}
+
+		TEST_METHOD(Vector2f_GetNormalized)
+		{
+			Vector2f vector{23.0f, 12.0f};
+			Vector2f normalized{vector.GetNormalized()};
+
+			// the magnitude of the vector has to be 1 after normalization
+			Assert::AreEqual(1.0f, normalized.GetMagnitude(), 1e-4f);
+
+			// the vector's magnitude should be 25.94224...f
+			// hence, its values are (0.8865848...f, 0.4625660...f)
+			Assert::AreEqual(0.8865f, normalized.x, 1e-4f);
+			Assert::AreEqual(0.4625f, normalized.y, 1e-4f);
+		}
 	};
 
 	TEST_CLASS(Vector2f_Unary_Operators_Test)
