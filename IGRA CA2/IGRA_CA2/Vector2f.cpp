@@ -15,6 +15,11 @@ float Vector2f::Distance(const Vector2f &position1, const Vector2f &position2)
     return std::sqrt(std::pow(position1.x - position2.x, 2.f) + std::pow(position1.y - position2.y, 2.f));
 }
 
+float Vector2f::SqrMagnitude(const Vector2f &vector)
+{
+    return std::pow(vector.x, 2.f) + std::pow(vector.y, 2.f);
+}
+
 Vector2f::Vector2f() : x{0}, y{0}
 {}
 
