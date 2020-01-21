@@ -43,6 +43,11 @@ float Vector3f::GetMagnitude() const
     return std::sqrt(std::pow(this->x, 2) + std::pow(this->y, 2) + std::pow(this->z, 2));
 }
 
+float Vector3f::GetSqrMagnitude() const
+{
+    return std::pow(this->x, 2) + std::pow(this->y, 2) + std::pow(this->z, 2);
+}
+
 Vector3f Vector3f::operator+=(const Vector3f &vector)
 {
     this->x += vector.x;
