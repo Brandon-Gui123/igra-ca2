@@ -3,7 +3,6 @@
 
 #include "framework.h"
 #include "OpenGLApplication.h"
-#include "Time.h"
 #include "Program.h"
 
 #include <gl/GL.h>  // OpenGL 32-bit library
@@ -252,8 +251,6 @@ void ReSizeGLScene(GLsizei width, GLsizei height)
 
     gluPerspective(45.0f, (GLfloat) width / (GLfloat) height, 0.1f, 100.0f);
 
-	StartTimer();
-
     // orthographic view - uncomment for use with 2D or with 3D isometric
     // gluOrtho2D(-1.0, 1.0, -1.0, 1.0);
 }
@@ -332,6 +329,5 @@ int InitOpenGL()
 
 void DrawGLScene()
 {
-	Time::setDeltaTime(GetTimePassedSinceLastTime());
-	SetWindowTextA(hWnd, std::to_string(Time::framesPerSecond()).c_str()); //Debug to show DeltaTime Variable
+	//SetWindowTextA(hWnd, std::to_string(Time::framesPerSecond()).c_str()); //Debug to show DeltaTime Variable
 }
