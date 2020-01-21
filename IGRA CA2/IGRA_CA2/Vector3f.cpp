@@ -22,6 +22,11 @@ float Vector3f::SqrMagnitude(const Vector3f &vector)
     return std::pow(vector.x, 2) + std::pow(vector.y, 2) + std::pow(vector.z, 2);
 }
 
+void Vector3f::Normalize(Vector3f &vector)
+{
+    vector /= vector.GetMagnitude();
+}
+
 Vector3f::Vector3f() : x{0}, y{0}, z{0}
 {}
 
