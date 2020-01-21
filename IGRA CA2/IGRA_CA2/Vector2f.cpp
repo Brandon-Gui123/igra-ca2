@@ -40,6 +40,11 @@ float Vector2f::GetMagnitude()
     return std::sqrt(std::pow(this->x, 2.f) + std::pow(this->y, 2.f));
 }
 
+float Vector2f::GetSqrMagnitude() const
+{
+    return std::pow(this->x, 2) + std::pow(this->y, 2);
+}
+
 Vector2f Vector2f::operator+=(const Vector2f &vector)
 {
     this->x += vector.x;
