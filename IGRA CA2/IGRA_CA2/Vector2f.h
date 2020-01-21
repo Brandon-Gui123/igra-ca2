@@ -25,6 +25,9 @@ public:
     // Calculates the square magnitude of a vector
     static float SqrMagnitude(const Vector2f &vector);
 
+    // Normalizes the given vector.
+    static void Normalize(Vector2f &vector);
+
     float x;
     float y;
 
