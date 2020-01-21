@@ -123,6 +123,14 @@ namespace IGRAUnitTesting
             // approx. 8.124038...f
             Assert::AreEqual(8.1240f, Vector3f::Distance(position1, position2), 1e-4f);
         }
+
+        TEST_METHOD(Vector3f_GetMagnitude)
+        {
+            Vector3f vector{8.0f, 1.0f, 1.0f};
+
+            // distance between the two positions should be approx. 8.124038...f like above
+            Assert::AreEqual(8.1240f, vector.GetMagnitude(), 1e-4f);
+        }
     };
 
     TEST_CLASS(Vector3f_Self_Assignment_Operators_Test)
