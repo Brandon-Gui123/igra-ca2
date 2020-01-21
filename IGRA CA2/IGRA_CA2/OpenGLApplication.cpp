@@ -4,6 +4,7 @@
 #include "framework.h"
 #include "OpenGLApplication.h"
 #include "Time.h"
+#include "Program.h"
 
 #include <gl/GL.h>  // OpenGL 32-bit library
 #include <gl/GLU.h> // OpenGL Utilities 32-bit library
@@ -64,7 +65,7 @@ __int64 startTimeInCounts = 0;
 __int64 lastTimeInCounts = 0;
 __int64 countsPerSecond;void StartTimer();
 double GetTimePassedSinceLastTime();
-double GetTimePassedSinceStart();
+double GetTimePassedSinceStart();Program program;
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
@@ -98,7 +99,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
-
+			program.Update();
             DrawGLScene();
             SwapBuffers(hDC);
         }
@@ -163,7 +164,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    UpdateWindow(hWnd);
 
    ReSizeGLScene(width, height);
-
+   SetTimer(hWnd, NULL, USER_TIMER_MINIMUM, NULL);
    return TRUE;
 }
 
@@ -372,17 +373,5 @@ void StartTimer() {
 void DrawGLScene()
 {
 	Time::setDeltaTime(GetTimePassedSinceLastTime());
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glClearColor(0.5f, 0.f, 0.8f, 1);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-
-    // we need to do this because our camera is originally positioned at the origin so we won't see anything
-    // position the camera at (1, 1, 1), then look at the origin
-    gluLookAt(
-        5, 4, 5, // Camera's position (we move the camera further down the z-axis to see our cube)
-        0, 0, 0,    // Camera's target to look at
-        0, 1, 0     // Orientation of the camera
-    );
 	SetWindowTextA(hWnd, std::to_string(Time::framesPerSecond()).c_str()); //Debug to show DeltaTime Variable
 }
