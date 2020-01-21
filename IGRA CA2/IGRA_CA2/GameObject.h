@@ -4,7 +4,7 @@
 class GameObject
 {
 public:
-	std::vector<Component> components;
+	std::vector<Component*> components;
 	void Draw();
 	void Update();
 	GameObject();
