@@ -50,19 +50,19 @@ public:
 };
 
 // Negates a vector.
-Vector2f operator-(const Vector2f& vector);
+Vector2f operator-(const Vector2f &vector);
 
 // Adds two vectors and returns the sum.
-Vector2f operator+(const Vector2f& left, const Vector2f& right);
+Vector2f operator+(const Vector2f &left, const Vector2f &right);
 
 // Subtracts the right vector from the left vector and returns the difference.
-Vector2f operator-(const Vector2f& left, const Vector2f& right);
+Vector2f operator-(const Vector2f &left, const Vector2f &right);
 
 // Multiplies a vector with a number and returns the product.
-Vector2f operator*(const Vector2f& vector, float multiplier);
+Vector2f operator*(const Vector2f &vector, float multiplier);
 
 // Multiplies a vector with a number and returns the product.
-Vector2f operator*(float multiplier, const Vector2f& vector);   // same as overload for operator*(Vector2f, float), but this is for when the order of arguments is flipped
+Vector2f operator*(float multiplier, const Vector2f &vector);   // same as overload for operator*(Vector2f, float), but this is for when the order of arguments is flipped
 
 // Divides a vector with a number and returns the quotient.
-Vector2f operator/(const Vector2f& vector, float divisor);
+Vector2f operator/(const Vector2f &vector, float divisor);
