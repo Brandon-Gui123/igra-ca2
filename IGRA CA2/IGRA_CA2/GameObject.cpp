@@ -1,6 +1,5 @@
 #include "GameObject.h"
-
-
+#include "Component.h"
 
 void GameObject::Draw()
 {
