@@ -110,6 +110,19 @@ namespace IGRAUnitTesting
             Assert::AreEqual(-3.0f, original.y, 1e-8f);
             Assert::AreEqual(12.0f, original.z, 1e-8f);
         }
+
+        TEST_METHOD(Vector3f_Distance)
+        {
+            Vector3f position1{4.0f, 9.0f, 1.0f};
+            Vector3f position2{12.0f, 8.0f, 2.0f};
+
+            // distance between the two positions should be as follows:
+            // sqrt((-8)^2 + (1)^2 + (-1)^2) =
+            // sqrt(64 + 1 + 1) =
+            // sqrt(66)
+            // approx. 8.124038...f
+            Assert::AreEqual(8.1240f, Vector3f::Distance(position1, position2), 1e-4f);
+        }
     };
 
     TEST_CLASS(Vector3f_Self_Assignment_Operators_Test)
