@@ -108,6 +108,14 @@ namespace IGRAUnitTesting
 			// approx. 6.082762...
 			Assert::AreEqual(6.0827f, delta.GetMagnitude(), 1e-4f);
 		}
+
+		TEST_METHOD(Vector2f_SqrMagnitude)
+		{
+			Vector2f vector{12.0f, 24.0f};
+
+			// the square magnitude of this vector should be 720.0f
+			Assert::AreEqual(720.0f, Vector2f::SqrMagnitude(vector), 1e-8f);
+		}
 	};
 
 	TEST_CLASS(Vector2f_Unary_Operators_Test)
