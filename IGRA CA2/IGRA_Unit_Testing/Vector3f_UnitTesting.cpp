@@ -176,6 +176,11 @@ namespace IGRAUnitTesting
             Assert::AreEqual(0.2248f, normalized.x, 1e-4f);
             Assert::AreEqual(0.3747f, normalized.y, 1e-4f);
             Assert::AreEqual(0.8994f, normalized.z, 1e-4f);
+
+            // the original vector should be left unchanged
+            Assert::AreEqual(3.0f, vector.x, 1e-8f);
+            Assert::AreEqual(5.0f, vector.y, 1e-8f);
+            Assert::AreEqual(12.0f, vector.z, 1e-8f);
         }
     };
 
