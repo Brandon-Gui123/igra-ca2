@@ -6,6 +6,6 @@ class Component
 {
 public:
 	GameObject &gameObject;
-	Component();
+	Component(GameObject &go);
 	~Component();
 };
