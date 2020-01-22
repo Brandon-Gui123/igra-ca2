@@ -58,7 +58,9 @@ LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 void ReSizeGLScene(GLsizei width, GLsizei height);
 int InitOpenGL();
-void DrawGLScene();Program program;
+void DrawGLScene();
+
+Program program;
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
