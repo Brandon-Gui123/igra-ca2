@@ -25,7 +25,6 @@ Program::Program()
 
 void Program::Update() {
 	if (selectedScene) selectedScene->Update();
-	Draw();
 }
 
 void Program::Draw() {

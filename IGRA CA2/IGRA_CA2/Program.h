@@ -7,7 +7,6 @@
 class Program
 {
 private:
-	void Draw();
 public:
 
 	std::vector<Scene*> scenes;
@@ -19,6 +18,7 @@ public:
 	Program();
 	~Program();
 
+	void Draw();
 	void Update();
 };
 

@@ -340,5 +340,7 @@ void DrawGLScene()
 
 	//SetWindowTextA(hWnd, std::to_string(test).c_str()); // Debug to show the time elapsed
 
+    program.Draw();
+
 	SetWindowTextA(hWnd, std::to_string(Time::GetGameTime()).c_str()); // Debug to show the time elapsed
 }
