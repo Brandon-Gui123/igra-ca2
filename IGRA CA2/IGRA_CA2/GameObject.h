@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Component.h"	// for Component class
-
 #include <vector>		// for std::vector
 
 // GameObject and Component has a circular dependency between each other 
