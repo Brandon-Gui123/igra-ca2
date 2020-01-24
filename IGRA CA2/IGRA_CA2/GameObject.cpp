@@ -8,6 +8,11 @@ GameObject::GameObject()
 GameObject::~GameObject()
 {}
 
+int GameObject::GetComponentCount()
+{
+    return components.size();
+}
+
 void GameObject::Draw()
 {}
 
