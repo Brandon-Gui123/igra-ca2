@@ -146,5 +146,24 @@ namespace IGRAUnitTesting
 
             Assert::IsNotNull(foo);
         }
+
+        TEST_METHOD(Get_Abstract_Class_From_Derived)
+        {
+            GameObject go{};
+
+            go.AddComponent<FooComponent>();
+            go.AddComponent<FooDerivedComponent>();
+            go.AddComponent<SpeakerComponent>();
+            go.AddComponent<TestComponent>();
+
+            // we should be able to get a component that inherits from CanSpeak
+            CanSpeak *speakable{go.GetComponent<CanSpeak>()};
+
+            // should not be null
+            Assert::IsNotNull(speakable);
+
+            // and in our case, speakable should be able to be downcasted to SpeakerComponent
+            Assert::IsNotNull(dynamic_cast<SpeakerComponent*>(speakable));
+        }
     };
 }
