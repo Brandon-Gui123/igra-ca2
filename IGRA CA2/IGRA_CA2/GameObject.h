@@ -1,6 +1,9 @@
 #pragma once
-#include "Component.h"
-#include <vector>
+
+#include "Component.h"	// for Component class
+
+#include <vector>		// for std::vector
+
 class Component;
 
 class GameObject
