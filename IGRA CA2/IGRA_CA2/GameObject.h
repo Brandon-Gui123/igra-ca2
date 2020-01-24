@@ -9,10 +9,12 @@ private:
 	std::vector<Component*> components;
 
 public:
-	void Draw();
-	void Update();
-	void AddComponent(Component &co);
 	GameObject();
 	~GameObject();
+
+	void AddComponent(Component &co);
+
+	void Draw();
+	void Update();
 };
 
