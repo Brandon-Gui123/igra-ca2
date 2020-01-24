@@ -84,5 +84,17 @@ namespace IGRAUnitTesting
             // compare if first and second refer to the same object
             Assert::AreSame(first, second);
         }
+
+        TEST_METHOD(Getting_Component_On_Empty_GameObject)
+        {
+            GameObject go{};
+
+            // no components in GameObject, so this should be a null pointer
+            TestComponent *test{go.GetComponent<TestComponent>()};
+
+            // check if test is a null pointer
+            // if it isn't, fail the test
+            Assert::IsNull(test);
+        }
     };
 }
