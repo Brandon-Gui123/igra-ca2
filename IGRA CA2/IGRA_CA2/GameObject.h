@@ -5,8 +5,10 @@ class Component;
 
 class GameObject
 {
-public:
+private:
 	std::vector<Component*> components;
+
+public:
 	void Draw();
 	void Update();
 	void AddComponent(Component &co);
