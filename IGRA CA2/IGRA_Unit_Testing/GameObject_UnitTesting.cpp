@@ -5,6 +5,7 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 #include "TestComponent.h"              // for class TestComponent
+#include "FooComponent.h"               // for class FooComponent
 
 #include "../IGRA_CA2/GameObject.h"     // for class GameObject in IGRA CA2 project
 #include "../IGRA_CA2/Component.h"      // for class Component in IGRA CA2 project
@@ -95,6 +96,19 @@ namespace IGRAUnitTesting
             // check if test is a null pointer
             // if it isn't, fail the test
             Assert::IsNull(test);
+        }
+
+        TEST_METHOD(Getting_Component_On_GameObject_That_Lacks_It)
+        {
+            GameObject go{};
+            go.AddComponent<TestComponent>();
+
+            // get a component that doesn't exist in the GameObject
+            FooComponent *foo{go.GetComponent<FooComponent>()};
+
+            // check if foo is a null pointer
+            // if it isn't, fail the test
+            Assert::IsNull(foo);
         }
     };
 }
