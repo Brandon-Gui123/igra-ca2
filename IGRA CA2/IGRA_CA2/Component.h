@@ -11,5 +11,5 @@ class Component
 public:
 	GameObject &gameObject;
 	Component(GameObject &go);
-	~Component();
+	virtual ~Component();
 };

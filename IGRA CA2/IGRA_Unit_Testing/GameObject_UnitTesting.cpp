@@ -57,4 +57,20 @@ namespace IGRAUnitTesting
             Assert::AreEqual(1, go.GetComponentCount());
         }
     };
+
+    TEST_CLASS(GameObject_GetComponent_Test)
+    {
+        TEST_METHOD(Getting_A_Known_Component)
+        {
+            GameObject go{};
+            go.AddComponent<TestComponent>();
+
+            // we just added in TestComponent so we should be able to get it
+            TestComponent *test{go.GetComponent<TestComponent>()};
+
+            // test if we get a null pointer
+            // if we do, fail the test
+            Assert::IsNotNull(test);
+        }
+    };
 }
