@@ -110,5 +110,26 @@ namespace IGRAUnitTesting
             // if it isn't, fail the test
             Assert::IsNull(foo);
         }
+
+        TEST_METHOD(Get_First_Occurence_Of_Component_In_GameObject)
+        {
+            GameObject go{};
+
+            // add a bunch of components to simulate (possible) real-life use case
+            go.AddComponent<FooComponent>();
+            go.AddComponent<FooComponent>();
+            TestComponent &first{go.AddComponent<TestComponent>()};
+            go.AddComponent<FooComponent>();
+            TestComponent &second{go.AddComponent<TestComponent>()};
+            TestComponent &third{go.AddComponent<TestComponent>()};
+
+            TestComponent &test{*(go.GetComponent<TestComponent>())};
+
+            // test should be the first occurence of TestComponent
+            // and not the second or third!
+            Assert::AreSame(first, test);
+            Assert::AreNotSame(second, test);
+            Assert::AreNotSame(third, test);
+        }
     };
 }
