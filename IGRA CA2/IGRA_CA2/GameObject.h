@@ -17,6 +17,7 @@ public:
 	GameObject();
 	~GameObject();
 
+	// Returns the number of components attached to this GameObject.
 	int GetComponentCount();
 
 	void Draw();
