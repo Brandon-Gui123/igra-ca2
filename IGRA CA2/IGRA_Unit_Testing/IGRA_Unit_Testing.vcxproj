@@ -165,6 +165,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GameObject_UnitTesting.cpp" />
+    <ClCompile Include="TestComponent.cpp" />
     <ClCompile Include="Vector2f_UnitTesting.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -176,6 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="TestComponent.h" />
     <ClInclude Include="UserDefinedTemplateSpecializationsForToString.h" />
   </ItemGroup>
   <ItemGroup>
