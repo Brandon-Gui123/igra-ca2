@@ -17,6 +17,8 @@ public:
 	GameObject();
 	~GameObject();
 
+	int GetComponentCount();
+
 	void Draw();
 	void Update();
 };
