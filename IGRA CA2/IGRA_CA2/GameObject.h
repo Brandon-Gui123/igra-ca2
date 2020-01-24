@@ -45,7 +45,6 @@ inline T& GameObject::AddComponent()
 template<typename T>
 inline T* GameObject::GetComponent()
 {
-	// TODO Check if this works for classes that inherit from Component and another base class
 	for (Component *&component : components)
 	{
 		// attempt to downcast from Component to type T (casting to a more specific type)
