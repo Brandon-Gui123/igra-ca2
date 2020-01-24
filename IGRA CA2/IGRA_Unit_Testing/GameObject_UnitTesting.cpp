@@ -1,9 +1,12 @@
 #include "pch.h"
 #include "CppUnitTest.h"
+#include "UserDefinedTemplateSpecializationsForToString.h"  // for solving error C238
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 #include "TestComponent.h"              // for class TestComponent
+#include "FooComponent.h"               // for class FooComponent
+#include "FooDerivedComponent.h"        // for class FooDerivedComponent
 
 #include "../IGRA_CA2/GameObject.h"     // for class GameObject in IGRA CA2 project
 #include "../IGRA_CA2/Component.h"      // for class Component in IGRA CA2 project
@@ -71,6 +74,96 @@ namespace IGRAUnitTesting
             // test if we get a null pointer
             // if we do, fail the test
             Assert::IsNotNull(test);
+        }
+
+        TEST_METHOD(Compare_References_Of_Gotten_Components)
+        {
+            GameObject go{};
+
+            TestComponent &first    {  go.AddComponent<TestComponent>() };
+            TestComponent &second   {*(go.GetComponent<TestComponent>())};
+
+            // compare if first and second refer to the same object
+            Assert::AreSame(first, second);
+        }
+
+        TEST_METHOD(Getting_Component_On_Empty_GameObject)
+        {
+            GameObject go{};
+
+            // no components in GameObject, so this should be a null pointer
+            TestComponent *test{go.GetComponent<TestComponent>()};
+
+            // check if test is a null pointer
+            // if it isn't, fail the test
+            Assert::IsNull(test);
+        }
+
+        TEST_METHOD(Getting_Component_On_GameObject_That_Lacks_It)
+        {
+            GameObject go{};
+            go.AddComponent<TestComponent>();
+
+            // get a component that doesn't exist in the GameObject
+            FooComponent *foo{go.GetComponent<FooComponent>()};
+
+            // check if foo is a null pointer
+            // if it isn't, fail the test
+            Assert::IsNull(foo);
+        }
+
+        TEST_METHOD(Get_First_Occurence_Of_Component_In_GameObject)
+        {
+            GameObject go{};
+
+            // add a bunch of components to simulate (possible) real-life use case
+            go.AddComponent<FooComponent>();
+            go.AddComponent<FooComponent>();
+            TestComponent &first{go.AddComponent<TestComponent>()};
+            go.AddComponent<FooComponent>();
+            TestComponent &second{go.AddComponent<TestComponent>()};
+            TestComponent &third{go.AddComponent<TestComponent>()};
+
+            TestComponent &test{*(go.GetComponent<TestComponent>())};
+
+            // test should be the first occurence of TestComponent
+            // and not the second or third!
+            Assert::AreSame(first, test);
+            Assert::AreNotSame(second, test);
+            Assert::AreNotSame(third, test);
+        }
+
+        TEST_METHOD(Get_Base_Component_From_Derived)
+        {
+            GameObject go{};
+
+            // add dervied components
+            go.AddComponent<FooDerivedComponent>();
+
+            // get component but done with a base class
+            // we should get an object and not a null pointer
+            FooComponent *foo{go.GetComponent<FooComponent>()};
+
+            Assert::IsNotNull(foo);
+        }
+
+        TEST_METHOD(Get_Abstract_Class_From_Derived)
+        {
+            GameObject go{};
+
+            go.AddComponent<FooComponent>();
+            go.AddComponent<FooDerivedComponent>();
+            go.AddComponent<SpeakerComponent>();
+            go.AddComponent<TestComponent>();
+
+            // we should be able to get a component that inherits from CanSpeak
+            CanSpeak *speakable{go.GetComponent<CanSpeak>()};
+
+            // should not be null
+            Assert::IsNotNull(speakable);
+
+            // and in our case, speakable should be able to be downcasted to SpeakerComponent
+            Assert::IsNotNull(dynamic_cast<SpeakerComponent*>(speakable));
         }
     };
 }
