@@ -20,6 +20,7 @@ public:
 	// Returns the number of components attached to this GameObject.
 	int GetComponentCount();
 
+	// Adds the component of type T to this GameObject. T must be a type derived from the Component class.
 	template <typename T>
 	T& AddComponent();
 
