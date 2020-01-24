@@ -6,6 +6,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 #include "TestComponent.h"              // for class TestComponent
 #include "FooComponent.h"               // for class FooComponent
+#include "FooDerivedComponent.h"        // for class FooDerivedComponent
 
 #include "../IGRA_CA2/GameObject.h"     // for class GameObject in IGRA CA2 project
 #include "../IGRA_CA2/Component.h"      // for class Component in IGRA CA2 project
@@ -130,6 +131,20 @@ namespace IGRAUnitTesting
             Assert::AreSame(first, test);
             Assert::AreNotSame(second, test);
             Assert::AreNotSame(third, test);
+        }
+
+        TEST_METHOD(Get_Base_Component_From_Derived)
+        {
+            GameObject go{};
+
+            // add dervied components
+            go.AddComponent<FooDerivedComponent>();
+
+            // get component but done with a base class
+            // we should get an object and not a null pointer
+            FooComponent *foo{go.GetComponent<FooComponent>()};
+
+            Assert::IsNotNull(foo);
         }
     };
 }
