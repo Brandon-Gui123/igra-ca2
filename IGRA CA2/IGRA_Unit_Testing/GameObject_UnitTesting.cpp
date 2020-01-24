@@ -3,8 +3,10 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-#include "../IGRA_CA2/GameObject.h"
-#include "../IGRA_CA2/Component.h"
+#include "TestComponent.h"              // for class TestComponent
+
+#include "../IGRA_CA2/GameObject.h"     // for class GameObject in IGRA CA2 project
+#include "../IGRA_CA2/Component.h"      // for class Component in IGRA CA2 project
 
 namespace IGRAUnitTesting
 {
@@ -23,14 +25,6 @@ namespace IGRAUnitTesting
     {
         TEST_METHOD(Default_GameObject_Destructor)
         {
-            // declare a new kind of component
-            class TestComponent : public Component
-            {
-            public:
-                TestComponent(GameObject &go) : Component{go} {};
-                ~TestComponent() {};
-            };
-
             GameObject go{};
 
             // let's add a bunch of components!
@@ -54,14 +48,6 @@ namespace IGRAUnitTesting
     {
         TEST_METHOD(Adding_A_Component)
         {
-            // declare a new kind of component
-            class TestComponent : public Component
-            {
-            public:
-                TestComponent(GameObject &go) : Component{go} {};
-                ~TestComponent() {};
-            };
-
             GameObject go{};
 
             // add the new kind of component
