@@ -176,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="UserDefinedTemplateSpecializationsForToString.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IGRA_CA2\IGRA_CA2.vcxproj">
