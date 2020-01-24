@@ -27,3 +27,10 @@ public:
 	void Update();
 };
 
+template<typename T>
+inline T& GameObject::AddComponent()
+{
+	T* instance{new T{*this}};
+	components.push_back(instance);
+	return *instance;
+}
