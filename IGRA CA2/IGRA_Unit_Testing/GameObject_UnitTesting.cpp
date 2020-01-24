@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "CppUnitTest.h"
+#include "UserDefinedTemplateSpecializationsForToString.h"  // for solving error C238
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -71,6 +72,17 @@ namespace IGRAUnitTesting
             // test if we get a null pointer
             // if we do, fail the test
             Assert::IsNotNull(test);
+        }
+
+        TEST_METHOD(Compare_References_Of_Gotten_Components)
+        {
+            GameObject go{};
+
+            TestComponent &first    {  go.AddComponent<TestComponent>() };
+            TestComponent &second   {*(go.GetComponent<TestComponent>())};
+
+            // compare if first and second refer to the same object
+            Assert::AreSame(first, second);
         }
     };
 }
