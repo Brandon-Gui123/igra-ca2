@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Component.h"	// for class Component (resolve complete class type errors)
+
 #include <vector>		// for std::vector
 
 // GameObject and Component has a circular dependency between each other 
@@ -38,4 +40,27 @@ inline T& GameObject::AddComponent()
 	T* instance{new T{*this}};
 	components.push_back(instance);
 	return *instance;
+}
+
+template<typename T>
+inline T* GameObject::GetComponent()
+{
+	// TODO Check if this works for classes that inherit from Component and another base class
+	for (Component *&component : components)
+	{
+		// attempt to downcast from Component to type T (casting to a more specific type)
+		// if the downcast is successful, we will get the component as type T
+		// if the downcast fails, we will get a null pointer to type T
+		T* instance{dynamic_cast<T*>(component)};
+
+		if (instance != nullptr)
+		{
+			// we already found the component, so return it
+			return instance;
+		}
+	}
+
+	// if we managed to reach here, it means we've found nothing
+	// so we return a null pointer
+	return nullptr;
 }
