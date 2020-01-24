@@ -20,7 +20,17 @@ public:
 	// Returns the number of components attached to this GameObject.
 	int GetComponentCount();
 
+	template <typename T>
+	T& AddComponent();
+
 	void Draw();
 	void Update();
 };
 
+template<typename T>
+inline T& GameObject::AddComponent()
+{
+	T* instance{new T{*this}};
+	components.push_back(instance);
+	return *instance;
+}
