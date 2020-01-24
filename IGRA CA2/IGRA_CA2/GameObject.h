@@ -17,8 +17,6 @@ public:
 	GameObject();
 	~GameObject();
 
-	void AddComponent(Component &co);
-
 	void Draw();
 	void Update();
 };
