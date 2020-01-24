@@ -24,6 +24,10 @@ public:
 	template <typename T>
 	T& AddComponent();
 
+	// Gets the first occurence of a component of type T from this GameObject. T must be a type derived from the Component class.
+	template <typename T>
+	T* GetComponent();
+
 	void Draw();
 	void Update();
 };
