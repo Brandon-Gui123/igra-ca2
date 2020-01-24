@@ -53,5 +53,8 @@
     <ClInclude Include="FooDerivedComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CanSpeak.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

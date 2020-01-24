@@ -178,6 +178,7 @@
     <ClCompile Include="Vector3f_UnitTesting.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CanSpeak.h" />
     <ClInclude Include="FooComponent.h" />
     <ClInclude Include="FooDerivedComponent.h" />
     <ClInclude Include="pch.h" />
