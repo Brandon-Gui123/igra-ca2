@@ -164,6 +164,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FooComponent.cpp" />
     <ClCompile Include="GameObject_UnitTesting.cpp" />
     <ClCompile Include="TestComponent.cpp" />
     <ClCompile Include="Vector2f_UnitTesting.cpp" />
@@ -176,6 +177,7 @@
     <ClCompile Include="Vector3f_UnitTesting.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FooComponent.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="TestComponent.h" />
     <ClInclude Include="UserDefinedTemplateSpecializationsForToString.h" />
