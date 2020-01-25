@@ -19,12 +19,23 @@ void Program::QueryDeltaTime()
 	Time::deltaTime = Time::internalTimer.GetTimePassedSinceLastTime();
 }
 
-Program::Program()
-{
-}
+Program::Program(){}
 
 void Program::Update() {
 	if (selectedScene) selectedScene->Update();
+}
+
+void Program::SetupLight() {
+	glShadeModel(GL_SMOOTH);
+	GLfloat LightAmbient[] = { 0.5, 0.5, 0.5, 1 };
+	GLfloat LightDiffuse[] = { 0.5, 0.5, 0.5, 1 };
+	GLfloat LightSpecular[] = { 0.5, 0.5, 0.5, 1 };
+	GLfloat LightPosition[] = { 10, 10, 10, 0 };
+	glLightfv(GL_LIGHT0, GL_AMBIENT, LightAmbient);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, LightDiffuse);
+	glLightfv(GL_LIGHT0, GL_SPECULAR, LightSpecular);
+	glLightfv(GL_LIGHT0, GL_POSITION, LightPosition);
+	glEnable(GL_LIGHT0);
 }
 
 float cubeVertices[][3] = {
@@ -53,18 +64,7 @@ float cubeColors[][3] = {
 1, 1, 0, // Left is Yellow
 0, 0, 0, // Top is Black
 0.5, 0.5, 0.5 // Bottom is Grey
-};int cubeNormals[][3] = {	{0,0,1},	{0,0,-1},	{1,0,0},	{-1,0,0},	{0,1,0},	{0,-1,0},};void Program::SetupLight() {
-	glShadeModel(GL_SMOOTH);
-	GLfloat LightAmbient[] = { 0.5, 0.5, 0.5, 1 };
-	GLfloat LightDiffuse[] = { 0.5, 0.5, 0.5, 1 };
-	GLfloat LightSpecular[] = { 0.5, 0.5, 0.5, 1 };
-	GLfloat LightPosition[] = { 10, 10, 10, 0 };
-	glLightfv(GL_LIGHT0, GL_AMBIENT, LightAmbient);
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, LightDiffuse);
-	glLightfv(GL_LIGHT0, GL_SPECULAR, LightSpecular);
-	glLightfv(GL_LIGHT0, GL_POSITION, LightPosition);
-	glEnable(GL_LIGHT0);
-}
+};int cubeNormals[][3] = {	{0,0,1},	{0,0,-1},	{1,0,0},	{-1,0,0},	{0,1,0},	{0,-1,0},};
 
 void DrawCube() {  //For Testing Only
 
