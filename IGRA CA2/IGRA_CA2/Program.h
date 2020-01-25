@@ -14,6 +14,7 @@ public:
 
 	void StartInternalTimer();
 	void QueryDeltaTime();
+	void SetupLight();
 
 	Program();
 	~Program();

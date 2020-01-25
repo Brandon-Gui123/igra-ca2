@@ -328,6 +328,7 @@ int InitOpenGL()
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+	program.SetupLight();
 
     return 1;
 }
