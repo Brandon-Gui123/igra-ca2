@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Component.h"	// for class Component (resolve complete class type errors)
+#include "Vector3f.h"
 
 #include <vector>		// for std::vector
 
@@ -17,7 +18,13 @@ private:
 
 public:
 	GameObject();
+	GameObject(Vector3f, Vector3f, Vector3f);
 	~GameObject();
+
+	//Stores the Position of the Object
+	Vector3f position;
+	Vector3f rotation;
+	Vector3f scale;
 
 	// Returns the number of components attached to this GameObject.
 	int GetComponentCount();

@@ -5,6 +5,9 @@
 GameObject::GameObject()
 {}
 
+GameObject::GameObject(Vector3f pos, Vector3f rot, Vector3f sca) 
+	: position(pos), rotation(rot), scale(sca){}
+
 GameObject::~GameObject()
 {
     for (Component *&comp : components)
@@ -26,7 +29,9 @@ int GameObject::GetComponentCount()
 }
 
 void GameObject::Draw()
-{}
+{
+
+}
 
 void GameObject::Update()
 {}
