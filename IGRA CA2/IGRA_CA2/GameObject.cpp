@@ -2,8 +2,7 @@
 
 #include "Component.h"      // for Component class
 
-GameObject::GameObject()
-{}
+GameObject::GameObject(){}
 
 GameObject::GameObject(Vector3f pos, Vector3f rot, Vector3f sca) 
 	: position(pos), rotation(rot), scale(sca){}
@@ -30,8 +29,10 @@ int GameObject::GetComponentCount()
 
 void GameObject::Draw()
 {
-
+	mesh.Draw(position, rotation, scale);
 }
 
 void GameObject::Update()
-{}
+{
+
+}

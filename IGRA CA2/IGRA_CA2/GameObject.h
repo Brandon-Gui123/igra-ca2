@@ -2,6 +2,7 @@
 
 #include "Component.h"	// for class Component (resolve complete class type errors)
 #include "Vector3f.h"
+#include "Mesh.h"
 
 #include <vector>		// for std::vector
 
@@ -21,10 +22,13 @@ public:
 	GameObject(Vector3f, Vector3f, Vector3f);
 	~GameObject();
 
-	//Stores the Position of the Object
+	// Stores the Position of the Object
 	Vector3f position;
 	Vector3f rotation;
 	Vector3f scale;
+
+	// Stores the Mesh data of the Object
+	Mesh mesh;
 
 	// Returns the number of components attached to this GameObject.
 	int GetComponentCount();
