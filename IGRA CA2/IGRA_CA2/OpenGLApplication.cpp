@@ -20,8 +20,8 @@
 HINSTANCE hInst;                                // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
-int width = 400;
-int height = 400;
+int width = 800;
+int height = 600;
 
 GLuint PixelFormat; // GLuint is an OpenGL pre-defined unsigned int type. These ensure cross-platform compatibility.
 HDC hDC = NULL;     // A Handle to the Device Content (hence, HDC)

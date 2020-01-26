@@ -68,7 +68,6 @@ void Program::Draw() {
 	//ANYTHING BELOW THIS LINE IS FOR TESTING AND SHOULD BE REMOVED IN THE FINAL PRODUCT
 	//----------------------------------------------------------------------------------
 
-
 	glBegin(GL_LINES);
 	// Draw positive x-axis as red
 	glColor3f(1.0, 0.0, 0.0);
