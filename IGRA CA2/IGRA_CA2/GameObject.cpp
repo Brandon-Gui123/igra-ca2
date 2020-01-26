@@ -4,7 +4,7 @@
 
 GameObject::GameObject(){}
 
-GameObject::GameObject(Vector3f pos, Vector3f rot, Vector3f sca) 
+GameObject::GameObject(const Vector3f& pos, const Vector3f& rot, const Vector3f& sca) 
 	: position(pos), rotation(rot), scale(sca){}
 
 GameObject::~GameObject()

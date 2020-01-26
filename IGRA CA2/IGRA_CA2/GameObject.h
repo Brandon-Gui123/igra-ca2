@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Component.h"	// for class Component (resolve complete class type errors)
-#include "Vector3f.h"
-#include "Mesh.h"
+#include "Vector3f.h"	// for class Vector3f, which allows storing positions, rotations and scaling
+#include "Mesh.h"		// for class Mesh, which allows displaying the GameObject with shapes
 
 #include <vector>		// for std::vector
 
@@ -19,7 +19,7 @@ private:
 
 public:
 	GameObject();
-	GameObject(Vector3f, Vector3f, Vector3f);
+	GameObject(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca);
 	~GameObject();
 
 	// Stores the Position of the Object
