@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Vector3f.h";
+#include "Vector3f.h"
 class Mesh
 {
 public:
