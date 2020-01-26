@@ -19,7 +19,7 @@ private:
 
 public:
 	GameObject();
-	GameObject(Vector3f, Vector3f, Vector3f);
+	GameObject(const Vector3f&, const Vector3f&, const Vector3f&);
 	~GameObject();
 
 	// Stores the Position of the Object
