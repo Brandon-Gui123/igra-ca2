@@ -2,7 +2,10 @@
 
 #include "Component.h"      // for Component class
 
-GameObject::GameObject(){}
+GameObject::GameObject(){
+	Vector3f sca(1.0f, 1.0f, 1.0f); //Scale Defaults at 1 per axis
+	scale = sca;
+}
 
 GameObject::GameObject(const Vector3f& pos, const Vector3f& rot, const Vector3f& sca) 
 	: position(pos), rotation(rot), scale(sca){}

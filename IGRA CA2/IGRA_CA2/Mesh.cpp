@@ -46,7 +46,7 @@ float cubeColors[][3] = {
 	0.5, 0.5, 0.5 // Bottom is Grey
 };int cubeNormals[][3] = {	{0,0,1},	{0,0,-1},	{1,0,0},	{-1,0,0},	{0,1,0},	{0,-1,0},};
 
-void Mesh::Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca) //TODO, rot and scale
+void Mesh::Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca) //TODO, rot
 {
 	glEnable(GL_LIGHTING);
 	GLfloat blue[] = { 0, 0, 1, 0 };
@@ -64,9 +64,9 @@ void Mesh::Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca) /
 		//glColor3f(cubeColors[qd][0], cubeColors[qd][1], cubeColors[qd][2]);
 		glNormal3f(cubeNormals[qd][0], cubeNormals[qd][1], cubeNormals[qd][2]);
 		for (int v = 0; v < 4; v++) {// Four vertices for one quad
-			glVertex3f(cubeVertices[cubeIndices[index]][0] + pos.x,
-				cubeVertices[cubeIndices[index]][1] + pos.y,
-				cubeVertices[cubeIndices[index]][2] + pos.z);
+			glVertex3f(cubeVertices[cubeIndices[index]][0] * sca.x + pos.x,
+				cubeVertices[cubeIndices[index]][1] * sca.y + pos.y,
+				cubeVertices[cubeIndices[index]][2] * sca.z + pos.z);
 			index++; // Move to next vertex in quad
 		}
 
