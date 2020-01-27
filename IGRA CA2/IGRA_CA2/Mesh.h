@@ -6,6 +6,6 @@ class Mesh
 public:
 	Mesh();
 	~Mesh();
-	void Draw(Vector3f, Vector3f, Vector3f); //override this function
+	void Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca); //override this function
 };
 

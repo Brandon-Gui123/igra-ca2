@@ -46,7 +46,7 @@ float cubeColors[][3] = {
 	0.5, 0.5, 0.5 // Bottom is Grey
 };int cubeNormals[][3] = {	{0,0,1},	{0,0,-1},	{1,0,0},	{-1,0,0},	{0,1,0},	{0,-1,0},};
 
-void Mesh::Draw(Vector3f pos, Vector3f rot, Vector3f sca) //TODO, rot and scale
+void Mesh::Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca) //TODO, rot and scale
 {
 	glEnable(GL_LIGHTING);
 	GLfloat blue[] = { 0, 0, 1, 0 };
