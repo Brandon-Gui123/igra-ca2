@@ -54,6 +54,16 @@ void Program::SetupLight() {
 	selectedScene = &testScene;
 }
 
+void Program::SendKeyDown(const WPARAM &wParam)
+{
+	Input::SendKeyDown(wParam);
+}
+
+void Program::SendKeyUp(const WPARAM & wParam)
+{
+	Input::SendKeyUp(wParam);
+}
+
 void Program::Start() {
 	if (selectedScene) selectedScene->Start();
 }
