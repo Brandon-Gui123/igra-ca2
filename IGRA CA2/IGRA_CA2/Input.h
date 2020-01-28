@@ -15,6 +15,13 @@ private:
         bool isUp{false};
     };
 
+
+public:
+
+    static bool GetKey(KeyCode keyCode);
+    static bool GetKeyDown(KeyCode keyCode);
+    static bool GetKeyUp(KeyCode keyCode);
+
 private:
     static std::unordered_map<int, KeyStatus> inputKeys;
 };
