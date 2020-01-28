@@ -102,6 +102,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 			program.Update();
             DrawGLScene();
             SwapBuffers(hDC);
+            program.ResetInputKeyUpDownStatus();
             program.QueryDeltaTime();
         }
     }
@@ -213,6 +214,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             ReSizeGLScene(width, height);
             break;
         }
+    case WM_KEYDOWN:
+    {
+        program.SendKeyDown(wParam);
+        break;
+    }
+    case WM_KEYUP:
+    {
+        program.SendKeyUp(wParam);
+        break;
+    }
     case WM_DESTROY:
         PostQuitMessage(0);
         break;

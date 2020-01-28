@@ -3,6 +3,8 @@
 #include "Scene.h"
 #include "Time.h"
 
+#include "framework.h"
+
 #include <vector>
 
 class Program
@@ -16,6 +18,9 @@ public:
 	void StartInternalTimer();
 	void QueryDeltaTime();
 	void SetupLight();
+	void SendKeyDown(const WPARAM &wParam);
+	void SendKeyUp(const WPARAM &wParam);
+	void ResetInputKeyUpDownStatus();
 
 	Program();
 	~Program();

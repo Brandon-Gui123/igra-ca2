@@ -1,6 +1,7 @@
 #include "Program.h"
 
 #include "GameObject.h"
+#include "Input.h"			// for Input class
 #include "TestComponent.h"
 #include "Vector3f.h"
 
@@ -52,6 +53,21 @@ void Program::SetupLight() {
 	testGo.rotation = rot;
 	testGo.AddComponent<TestComponent>();
 	selectedScene = &testScene;
+}
+
+void Program::SendKeyDown(const WPARAM &wParam)
+{
+	Input::SendKeyDown(wParam);
+}
+
+void Program::SendKeyUp(const WPARAM & wParam)
+{
+	Input::SendKeyUp(wParam);
+}
+
+void Program::ResetInputKeyUpDownStatus()
+{
+	Input::ResetKeyDownUp();
 }
 
 void Program::Start() {
