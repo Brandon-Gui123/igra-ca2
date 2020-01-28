@@ -44,10 +44,23 @@ float cubeColors[][3] = {
 	1, 1, 0, // Left is Yellow
 	0, 0, 0, // Top is Black
 	0.5, 0.5, 0.5 // Bottom is Grey
-};int cubeNormals[][3] = {	{0,0,1},	{0,0,-1},	{1,0,0},	{-1,0,0},	{0,1,0},	{0,-1,0},};
+};
 
-void Mesh::Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca) //TODO, rot
+int cubeNormals[][3] = {
+	{0,0,1},
+	{0,0,-1},
+	{1,0,0},
+	{-1,0,0},
+	{0,1,0},
+	{0,-1,0},
+};
+
+void Mesh::Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca)
 {
+	glPushMatrix();
+	glRotatef(rot.x, 1, 0, 0);
+	glRotatef(rot.y, 0, 1, 0);
+	glRotatef(rot.z, 0, 0, 1);
 	glEnable(GL_LIGHTING);
 	GLfloat blue[] = { 0, 0, 1, 0 };
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, blue);
@@ -73,4 +86,5 @@ void Mesh::Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca) /
 		glEnd();
 	}
 	glDisable(GL_LIGHTING);
+	glPopMatrix();
 }

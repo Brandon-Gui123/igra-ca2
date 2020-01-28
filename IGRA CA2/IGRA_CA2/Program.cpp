@@ -9,6 +9,7 @@
 #include <string>     // std::string, std::to_string
 #include <vector>
 #include "GameObject.h"
+#include "Vector3f.h"
 
 Scene testScene;
 GameObject testGo;
@@ -46,6 +47,8 @@ void Program::SetupLight() {
 	//ANYTHING BELOW THIS LINE IS FOR TESTING AND SHOULD BE REMOVED IN THE FINAL PRODUCT
 	//----------------------------------------------------------------------------------
 	testScene.gameObjects.push_back(&testGo);
+	Vector3f rot(0, 45, 0);
+	testGo.rotation = rot;
 	selectedScene = &testScene;
 }
 
