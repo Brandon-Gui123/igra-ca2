@@ -213,6 +213,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             ReSizeGLScene(width, height);
             break;
         }
+    case WM_KEYDOWN:
+    {
+        program.SendKeyDown(wParam);
+        break;
+    }
+    case WM_KEYUP:
+    {
+        program.SendKeyUp(wParam);
+        break;
+    }
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
