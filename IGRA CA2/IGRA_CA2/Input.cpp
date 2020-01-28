@@ -4,6 +4,12 @@ void Input::SendKeyDown(const WPARAM &wParam)
 {
     KeyStatus &keyStatus{inputKeys.at(wParam)};
 
+    // check if the key is already held down to prevent keyboard repeating from happening
+    if (keyStatus.isHeldDown)
+    {
+        return;
+    }
+
     keyStatus.isDown = true;
     keyStatus.isHeldDown = true;
 
