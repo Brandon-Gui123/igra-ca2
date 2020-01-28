@@ -102,6 +102,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 			program.Update();
             DrawGLScene();
             SwapBuffers(hDC);
+            program.ResetInputKeyUpDownStatus();
             program.QueryDeltaTime();
         }
     }
