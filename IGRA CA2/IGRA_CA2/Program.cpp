@@ -10,6 +10,7 @@
 #include <vector>
 #include "GameObject.h"
 #include "Vector3f.h"
+#include "TestComponent.h"
 
 Scene testScene;
 GameObject testGo;
@@ -49,7 +50,12 @@ void Program::SetupLight() {
 	testScene.gameObjects.push_back(&testGo);
 	Vector3f rot(0, 45, 0);
 	testGo.rotation = rot;
+	testGo.AddComponent<TestComponent>();
 	selectedScene = &testScene;
+}
+
+void Program::Start() {
+	if (selectedScene) selectedScene->Start();
 }
 
 void Program::Draw() {

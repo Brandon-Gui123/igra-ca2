@@ -87,6 +87,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
+	program.Start();
+
     program.StartInternalTimer();
     
     // Main message loop:

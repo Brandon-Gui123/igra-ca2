@@ -58,10 +58,18 @@ int cubeNormals[][3] = {
 void Mesh::Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca)
 {
 	glPushMatrix();
+	glTranslatef(pos.x, pos.y, pos.z);
 	glRotatef(rot.x, 1, 0, 0);
 	glRotatef(rot.y, 0, 1, 0);
 	glRotatef(rot.z, 0, 0, 1);
+	glScalef(sca.x, sca.y, sca.z);
 	glEnable(GL_LIGHTING);
+	DrawShape();
+	glDisable(GL_LIGHTING);
+	glPopMatrix();
+}
+
+void Mesh::DrawShape() {
 	GLfloat blue[] = { 0, 0, 1, 0 };
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, blue);
 	glEnable(GL_CULL_FACE);
@@ -77,14 +85,12 @@ void Mesh::Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca)
 		//glColor3f(cubeColors[qd][0], cubeColors[qd][1], cubeColors[qd][2]);
 		glNormal3f(cubeNormals[qd][0], cubeNormals[qd][1], cubeNormals[qd][2]);
 		for (int v = 0; v < 4; v++) {// Four vertices for one quad
-			glVertex3f(cubeVertices[cubeIndices[index]][0] * sca.x + pos.x,
-				cubeVertices[cubeIndices[index]][1] * sca.y + pos.y,
-				cubeVertices[cubeIndices[index]][2] * sca.z + pos.z);
+			glVertex3f(cubeVertices[cubeIndices[index]][0],
+				cubeVertices[cubeIndices[index]][1],
+				cubeVertices[cubeIndices[index]][2]);
 			index++; // Move to next vertex in quad
 		}
 
 		glEnd();
 	}
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
 }

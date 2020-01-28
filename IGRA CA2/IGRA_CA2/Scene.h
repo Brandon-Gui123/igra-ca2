@@ -8,6 +8,7 @@ public:
 	std::vector<GameObject*> gameObjects;
 	void Draw();
 	void Update();
+	void Start();
 
 	Scene();
 	~Scene();

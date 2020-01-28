@@ -43,6 +43,7 @@ public:
 
 	void Draw();
 	void Update();
+	void Start();
 };
 
 template<typename T>
