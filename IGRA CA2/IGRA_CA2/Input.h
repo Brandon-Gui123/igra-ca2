@@ -1,6 +1,9 @@
 #pragma once
 
 #include "KeyCode.h"            // for KeyCode enum class
+#include "Program.h"            // for Program class
+
+#include "framework.h"          // for WPARAM, which contains the hex code of the key of interest
 
 #include <unordered_map>        // for std::unordered_map, similar to a C# dictionary
 
@@ -15,6 +18,8 @@ private:
         bool isUp{false};
     };
 
+    static void SendKeyDown(const WPARAM &wParam);
+    static void SendKeyUp(const WPARAM &wParam);
 
 public:
 
