@@ -6,6 +6,7 @@
 #include "framework.h"          // for WPARAM, which contains the hex code of the key of interest
 
 #include <unordered_map>        // for std::unordered_map, similar to a C# dictionary
+#include <vector>               // for std::vector
 
 class Input
 {
@@ -32,5 +33,6 @@ public:
 
 private:
     static std::unordered_map<int, KeyStatus> inputKeys;
+    static std::vector<KeyStatus*> keyStatusesToReset;
 };
 

@@ -20,3 +20,4 @@ void Input::SendKeyUp(const WPARAM &wParam)
     keyStatusesToReset.push_back(&keyStatus);
 }
 
+std::vector<Input::KeyStatus*> Input::keyStatusesToReset{};
