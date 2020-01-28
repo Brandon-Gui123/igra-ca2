@@ -50,4 +50,9 @@ bool Input::GetKeyUp(KeyCode keyCode)
     return inputKeys.at(static_cast<int>(keyCode)).isUp;
 }
 
+Input::Input()
+{}
+
+Input::~Input()
+{}
 std::vector<Input::KeyStatus*> Input::keyStatusesToReset{};
