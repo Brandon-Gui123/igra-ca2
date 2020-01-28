@@ -35,5 +35,7 @@ public:
 private:
     static std::unordered_map<int, KeyStatus> inputKeys;
     static std::vector<KeyStatus*> keyStatusesToReset;
+
+    friend class Program;
 };
 
