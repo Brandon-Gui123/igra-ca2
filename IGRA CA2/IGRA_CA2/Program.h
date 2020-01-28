@@ -1,8 +1,9 @@
 #pragma once
 
-#include "Time.h"
-#include <vector>
 #include "Scene.h"
+#include "Time.h"
+
+#include <vector>
 
 class Program
 {

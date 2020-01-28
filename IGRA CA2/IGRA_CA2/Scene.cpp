@@ -1,8 +1,8 @@
 #include "Scene.h"
 
-#include <vector>
 #include "GameObject.h"
 
+#include <vector>
 
 void Scene::Draw()
 {

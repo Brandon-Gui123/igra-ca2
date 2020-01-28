@@ -1,10 +1,11 @@
 // OpenGLApplication.cpp : Defines the entry point for the application.
 //
 
-#include "framework.h"
 #include "OpenGLApplication.h"
+
 #include "Program.h"
 
+#include "framework.h"
 #include <gl/GL.h>  // OpenGL 32-bit library
 #include <gl/GLU.h> // OpenGL Utilities 32-bit library
 

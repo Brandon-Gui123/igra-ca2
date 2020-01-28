@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Component.h"	// for class Component (resolve complete class type errors)
-#include "Vector3f.h"	// for class Vector3f, which allows storing positions, rotations and scaling
 #include "Mesh.h"		// for class Mesh, which allows displaying the GameObject with shapes
+#include "Vector3f.h"	// for class Vector3f, which allows storing positions, rotations and scaling
 
 #include <vector>		// for std::vector
 
