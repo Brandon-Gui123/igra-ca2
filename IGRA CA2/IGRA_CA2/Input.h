@@ -22,6 +22,9 @@ public:
     static bool GetKeyDown(KeyCode keyCode);
     static bool GetKeyUp(KeyCode keyCode);
 
+    Input();
+    ~Input();
+
 private:
     static std::unordered_map<int, KeyStatus> inputKeys;
 };
