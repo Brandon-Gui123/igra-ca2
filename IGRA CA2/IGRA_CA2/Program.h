@@ -20,6 +20,7 @@ public:
 	void SetupLight();
 	void SendKeyDown(const WPARAM &wParam);
 	void SendKeyUp(const WPARAM &wParam);
+	void ResetInputKeyUpDownStatus();
 
 	Program();
 	~Program();

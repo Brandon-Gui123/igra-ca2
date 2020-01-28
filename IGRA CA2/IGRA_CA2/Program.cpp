@@ -1,6 +1,7 @@
 #include "Program.h"
 
 #include "GameObject.h"
+#include "Input.h"			// for Input class
 #include "TestComponent.h"
 #include "Vector3f.h"
 
@@ -62,6 +63,11 @@ void Program::SendKeyDown(const WPARAM &wParam)
 void Program::SendKeyUp(const WPARAM & wParam)
 {
 	Input::SendKeyUp(wParam);
+}
+
+void Program::ResetInputKeyUpDownStatus()
+{
+	Input::ResetKeyDownUp();
 }
 
 void Program::Start() {
