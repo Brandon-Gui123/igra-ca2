@@ -1,7 +1,8 @@
 #include "TestComponent.h"
+
 #include "GameObject.h"
-#include "Vector3f.h"
 #include "Time.h"
+#include "Vector3f.h"
 
 TestComponent::TestComponent(GameObject &go) : Component(go)
 {

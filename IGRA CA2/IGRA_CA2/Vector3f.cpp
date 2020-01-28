@@ -1,6 +1,7 @@
 #include "Vector3f.h"
 
 #include "Vector2f.h"   // for knowing how to construct a Vector2f in the process of casting Vector3f to Vector2f
+
 #include <cmath>        // for std::sqrt (square root) and std::pow (power)
 
 const Vector3f Vector3f::zero       { 0,  0,  0};

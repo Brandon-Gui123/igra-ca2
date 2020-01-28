@@ -1,10 +1,10 @@
 #include "Mesh.h"
-#include "framework.h"
+
 #include "Vector3f.h"
 
+#include "framework.h"
 #include <gl/GL.h>  // OpenGL 32-bit library
 #include <gl/GLU.h> // OpenGL Utilities 32-bit library
-
 
 #include <iostream>   // std::cout
 #include <string>     // std::string, std::to_string
