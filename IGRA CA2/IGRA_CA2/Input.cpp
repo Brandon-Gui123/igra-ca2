@@ -35,4 +35,19 @@ void Input::ResetKeyDownUp()
     }
 }
 
+bool Input::GetKey(KeyCode keyCode)
+{
+    return inputKeys.at(static_cast<int>(keyCode)).isHeldDown;
+}
+
+bool Input::GetKeyDown(KeyCode keyCode)
+{
+    return inputKeys.at(static_cast<int>(keyCode)).isDown;
+}
+
+bool Input::GetKeyUp(KeyCode keyCode)
+{
+    return inputKeys.at(static_cast<int>(keyCode)).isUp;
+}
+
 std::vector<Input::KeyStatus*> Input::keyStatusesToReset{};
