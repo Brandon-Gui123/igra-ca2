@@ -21,6 +21,7 @@ private:
 
     static void SendKeyDown(const WPARAM &wParam);
     static void SendKeyUp(const WPARAM &wParam);
+    static void ResetKeyDownUp();
 
 public:
 
