@@ -21,6 +21,8 @@ public:
 	Program();
 	~Program();
 
+	void InitializeScenes();
+
 	void QueryDeltaTime();
 	void ResetInputKeyUpDownStatus();
 	void StartInternalTimer();
