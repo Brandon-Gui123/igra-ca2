@@ -3,9 +3,11 @@
 
 #include "OpenGLApplication.h"
 
+#include "Input.h"      // for Input class
 #include "Program.h"
 
 #include "framework.h"
+#include "Windowsx.h"   // for GET_X_LPARAM and GET_Y_LPARAM
 #include <gl/GL.h>  // OpenGL 32-bit library
 #include <gl/GLU.h> // OpenGL Utilities 32-bit library
 
@@ -224,6 +226,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_KEYUP:
     {
         program.SendKeyUp(wParam);
+        break;
+    }
+    case WM_MOUSEMOVE:
+    {
+        program.SendMousePosition(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
         break;
     }
     case WM_DESTROY:
