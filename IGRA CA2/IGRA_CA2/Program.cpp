@@ -16,6 +16,8 @@
 Scene testScene;
 GameObject testGo;
 
+GLubyte Program::placeholderTexture[64][64][3];
+
 void Program::StartInternalTimer()
 {
 	Time::internalTimer.StartTimer();
@@ -30,6 +32,56 @@ Program::Program(){}
 
 void Program::Update() {
 	if (selectedScene) selectedScene->Update();
+}
+
+void Program::CreateCheckerBoardTexture() {
+	int nrOfCheckersOnRow = 8;
+	float dim = 64.0 / nrOfCheckersOnRow;
+	int red = 0;
+	int green = 0;
+	int blue = 0;
+	for (int i = 0; i < 64; i++) {
+		for (int j = 0; j < 64; j++) {
+
+			// Calculate in which checkerboard
+			//rectangle the pixel falls
+			int row = (int)(i / dim);
+			int col = (int)(j / dim);
+			int c = 0;
+			if (row % 2 == 0) { // Even rows start with black
+				if (col % 2 == 0) {
+					// All even column will be black
+					red = green = blue = 0;
+				}
+				else {
+					green = 100;
+					blue = 0;
+					red = 255;
+				}
+			}
+			else {
+				// Odd rows start with red
+				if (col % 2 == 0) {
+					// All even column will be red
+					green = 100;
+					blue = 0;
+					red = 255;
+				}
+				else {
+					red = green = blue = 0;
+				}
+			}
+			// Drawing a green border around the image
+			if (i == 0 || i == 63 || j == 0 || j == 63) {
+				red = 0;
+				green = 255;
+				blue = 0;
+			}
+			placeholderTexture[i][j][0] = (GLubyte)red;
+			placeholderTexture[i][j][1] = (GLubyte)green;
+			placeholderTexture[i][j][2] = (GLubyte)blue;
+		}
+	}
 }
 
 void Program::SetupLight() {

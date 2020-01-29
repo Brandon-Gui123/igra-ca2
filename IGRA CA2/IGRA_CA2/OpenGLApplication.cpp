@@ -343,7 +343,7 @@ int InitOpenGL()
     glDepthFunc(GL_LEQUAL);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 	program.SetupLight();
-
+	Program::CreateCheckerBoardTexture();
     return 1;
 }
 

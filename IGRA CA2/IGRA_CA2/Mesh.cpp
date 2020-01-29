@@ -1,5 +1,6 @@
 #include "Mesh.h"
 
+#include "Program.h"
 #include "Vector3f.h"
 
 #include "framework.h"
@@ -9,6 +10,7 @@
 #include <iostream>   // std::cout
 #include <string>     // std::string, std::to_string
 #include <vector>
+
 
 Mesh::Mesh()
 {
@@ -55,6 +57,13 @@ int cubeNormals[][3] = {
 	{0,-1,0},
 };
 
+float cubeTextureMap[][2]{
+	{0,0},
+	{0,1.0},
+	{1.0,1.0},
+	{1.0,0}
+};
+
 void Mesh::Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca)
 {
 	glPushMatrix();
@@ -70,21 +79,28 @@ void Mesh::Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca)
 }
 
 void Mesh::DrawShape() {
-	GLfloat blue[] = { 0, 0, 1, 0 };
-	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, blue);
+	GLfloat matcolour[] = { 1, 1, 1, 1 };
+	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matcolour);
 	glEnable(GL_CULL_FACE);
 	glFrontFace(GL_CW); // Front face is clockwise
-	glPolygonMode(GL_FRONT, GL_FILL);
-	glColor3f(0.0, 0.0, 0.0);
+	glPolygonMode(GL_FRONT, GL_FILL);	
+	glEnable(GL_TEXTURE_2D);
+	//glColor3f(1, 1, 1);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB,
+		64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, Program::placeholderTexture);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T, GL_CLAMP);
+	glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	// The index in cubeIndices array
 	// points to next vertex to draw.
 	int index = 0;
 	// Draw the cube quad by quad
 	for (int qd = 0; qd < 6; qd++) {
-		glBegin(GL_QUADS);
-		//glColor3f(cubeColors[qd][0], cubeColors[qd][1], cubeColors[qd][2]);
+		glBegin(GL_POLYGON);
 		glNormal3f(cubeNormals[qd][0], cubeNormals[qd][1], cubeNormals[qd][2]);
 		for (int v = 0; v < 4; v++) {// Four vertices for one quad
+			glTexCoord2f(cubeTextureMap[v][0], cubeTextureMap[v][1]);
 			glVertex3f(cubeVertices[cubeIndices[index]][0],
 				cubeVertices[cubeIndices[index]][1],
 				cubeVertices[cubeIndices[index]][2]);
@@ -93,4 +109,6 @@ void Mesh::DrawShape() {
 
 		glEnd();
 	}
+	glDisable(GL_TEXTURE_2D);
+	glDisable(GL_CULL_FACE);
 }
