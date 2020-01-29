@@ -30,4 +30,19 @@ namespace IGRAUnitTesting
             Assert::AreEqual(87.f, color.blue, 1e-8f);
         }
     };
+
+    TEST_CLASS(Color3_Casting)
+    {
+        TEST_METHOD(Color3_Cast_To_Color4)
+        {
+            Color3<float> color3{0.f, 1.f, 2.f};
+            Color4<float> color4{color3};
+
+            // values of the Color4 should be 0, 1, 2, 0
+            Assert::AreEqual(0.f, color4.red, 1e-8f);
+            Assert::AreEqual(1.f, color4.green, 1e-8f);
+            Assert::AreEqual(2.f, color4.blue, 1e-8f);
+            Assert::AreEqual(0.f, color4.alpha, 1e-8f);
+        }
+    };
 }
