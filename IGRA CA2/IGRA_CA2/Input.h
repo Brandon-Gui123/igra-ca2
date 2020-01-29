@@ -2,6 +2,7 @@
 
 #include "KeyCode.h"            // for KeyCode enum class
 #include "Program.h"            // for Program class
+#include "Vector2f.h"           // for Vector2f class
 
 #include "framework.h"          // for WPARAM, which contains the hex code of the key of interest
 
@@ -13,6 +14,8 @@
 class Input
 {
 private:
+
+    static Vector2f windowsMousePosition;
 
     struct KeyStatus
     {

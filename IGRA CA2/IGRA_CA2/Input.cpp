@@ -2,6 +2,8 @@
 
 #include <stdexcept>    // for std::out_of_range exception
 
+Vector2f Input::windowsMousePosition{0, 0};
+
 void Input::SendKeyDown(const WPARAM &wParam)
 {
     try
