@@ -1,12 +1,14 @@
 #pragma once
 
-#include "Scene.h"
 #include "Time.h"
 
 #include "framework.h"
 #include <gl/GL.h>  // OpenGL 32-bit library
 
 #include <vector>
+
+// To break circular dependency between Scene and Program
+class Scene;
 
 class Program
 {

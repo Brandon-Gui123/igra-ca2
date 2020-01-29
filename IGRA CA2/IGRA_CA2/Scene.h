@@ -4,10 +4,15 @@
 
 #include <vector>
 
+// To break circular dependency between Scene and Program
+class Program;
+
 class Scene
 {
-public:
+private:
 	std::vector<GameObject*> gameObjects;
+
+public:
 
 	Scene();
 	virtual ~Scene();
@@ -15,5 +20,7 @@ public:
 	void Start();
 	void Update();
 	void Draw();
+
+	friend class Program;
 };
 
