@@ -1,5 +1,8 @@
 #pragma once
 
+// An enumeration mapped to the physical keys on a keyboard.
+// These key codes are typically used with the Input class to get the status
+// of a specific key.
 enum class KeyCode
 {
     // ASCII hex codes for the alphabet
