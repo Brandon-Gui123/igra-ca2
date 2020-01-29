@@ -4,10 +4,19 @@
 
 #include <vector>
 
-void Scene::Draw()
+Scene::Scene()
+{
+}
+
+
+Scene::~Scene()
+{
+}
+
+void Scene::Start()
 {
 	for (std::vector<GameObject*>::iterator it = gameObjects.begin(); it != gameObjects.end(); ++it) {
-		(*it)->Draw();
+		(*it)->Start();
 	}
 }
 
@@ -18,18 +27,9 @@ void Scene::Update()
 	}
 }
 
-void Scene::Start()
+void Scene::Draw()
 {
 	for (std::vector<GameObject*>::iterator it = gameObjects.begin(); it != gameObjects.end(); ++it) {
-		(*it)->Start();
+		(*it)->Draw();
 	}
-}
-
-Scene::Scene()
-{
-}
-
-
-Scene::~Scene()
-{
 }
