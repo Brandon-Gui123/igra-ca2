@@ -4,6 +4,7 @@
 #include "Time.h"
 
 #include "framework.h"
+#include <gl/GL.h>  // OpenGL 32-bit library
 
 #include <vector>
 
@@ -14,6 +15,8 @@ public:
 
 	std::vector<Scene*> scenes;
 	Scene *selectedScene;
+	static void CreateCheckerBoardTexture();
+	static GLubyte placeholderTexture[64][64][3];
 
 	Program();
 	~Program();
