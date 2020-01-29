@@ -133,4 +133,12 @@
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Color3.inl">
+      <Filter>Source Files\Core</Filter>
+    </None>
+    <None Include="Color4.inl">
+      <Filter>Source Files\Core</Filter>
+    </None>
+  </ItemGroup>
 </Project>
