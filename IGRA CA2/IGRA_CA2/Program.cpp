@@ -23,7 +23,18 @@ Program::Program()
 {}
 
 Program::~Program()
-{}
+{
+	for (Scene *&scenePtr : scenes)
+	{
+		// deallocate memory occupied by the scene pointer
+		// then set it to null pointer to prevent dangling pointers
+		delete scenePtr;
+		scenePtr = nullptr;
+	}
+
+	// clear the vector of scene pointers
+	scenes.clear();
+}
 
 void Program::InitializeScenes()
 {
