@@ -27,9 +27,6 @@
     <ClCompile Include="GameObject_UnitTesting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FooComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -45,15 +42,15 @@
     <ClCompile Include="Color4_UnitTesting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UnitTest_TestComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UserDefinedTemplateSpecializationsForToString.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TestComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FooComponent.h">
@@ -66,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SpeakerComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitTest_TestComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

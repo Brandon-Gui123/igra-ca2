@@ -4,7 +4,7 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-#include "TestComponent.h"              // for class TestComponent
+#include "UnitTest_TestComponent.h"     // for class UnitTest_TestComponent in this Unit Test Project
 #include "FooComponent.h"               // for class FooComponent
 #include "FooDerivedComponent.h"        // for class FooDerivedComponent
 
@@ -33,7 +33,7 @@ namespace IGRAUnitTesting
             // let's add a bunch of components!
             for (int i{0}; i < 10; ++i)
             {
-                go.AddComponent<TestComponent>();
+                go.AddComponent<UnitTest_TestComponent>();
             }
 
             // the GameObject should now have 10 components
@@ -54,7 +54,7 @@ namespace IGRAUnitTesting
             GameObject go{};
 
             // add the new kind of component
-            go.AddComponent<TestComponent>();
+            go.AddComponent<UnitTest_TestComponent>();
 
             // we now should have 1 component
             Assert::AreEqual(1, go.GetComponentCount());
@@ -66,10 +66,10 @@ namespace IGRAUnitTesting
         TEST_METHOD(Getting_A_Known_Component)
         {
             GameObject go{};
-            go.AddComponent<TestComponent>();
+            go.AddComponent<UnitTest_TestComponent>();
 
-            // we just added in TestComponent so we should be able to get it
-            TestComponent *test{go.GetComponent<TestComponent>()};
+            // we just added in UnitTest_TestComponent so we should be able to get it
+            UnitTest_TestComponent *test{go.GetComponent<UnitTest_TestComponent>()};
 
             // test if we get a null pointer
             // if we do, fail the test
@@ -80,8 +80,8 @@ namespace IGRAUnitTesting
         {
             GameObject go{};
 
-            TestComponent &first    {  go.AddComponent<TestComponent>() };
-            TestComponent &second   {*(go.GetComponent<TestComponent>())};
+            UnitTest_TestComponent &first    {  go.AddComponent<UnitTest_TestComponent>() };
+            UnitTest_TestComponent &second   {*(go.GetComponent<UnitTest_TestComponent>())};
 
             // compare if first and second refer to the same object
             Assert::AreSame(first, second);
@@ -92,7 +92,7 @@ namespace IGRAUnitTesting
             GameObject go{};
 
             // no components in GameObject, so this should be a null pointer
-            TestComponent *test{go.GetComponent<TestComponent>()};
+            UnitTest_TestComponent *test{go.GetComponent<UnitTest_TestComponent>()};
 
             // check if test is a null pointer
             // if it isn't, fail the test
@@ -102,7 +102,7 @@ namespace IGRAUnitTesting
         TEST_METHOD(Getting_Component_On_GameObject_That_Lacks_It)
         {
             GameObject go{};
-            go.AddComponent<TestComponent>();
+            go.AddComponent<UnitTest_TestComponent>();
 
             // get a component that doesn't exist in the GameObject
             FooComponent *foo{go.GetComponent<FooComponent>()};
@@ -119,14 +119,14 @@ namespace IGRAUnitTesting
             // add a bunch of components to simulate (possible) real-life use case
             go.AddComponent<FooComponent>();
             go.AddComponent<FooComponent>();
-            TestComponent &first{go.AddComponent<TestComponent>()};
+            UnitTest_TestComponent &first{go.AddComponent<UnitTest_TestComponent>()};
             go.AddComponent<FooComponent>();
-            TestComponent &second{go.AddComponent<TestComponent>()};
-            TestComponent &third{go.AddComponent<TestComponent>()};
+            UnitTest_TestComponent &second{go.AddComponent<UnitTest_TestComponent>()};
+            UnitTest_TestComponent &third{go.AddComponent<UnitTest_TestComponent>()};
 
-            TestComponent &test{*(go.GetComponent<TestComponent>())};
+            UnitTest_TestComponent &test{*(go.GetComponent<UnitTest_TestComponent>())};
 
-            // test should be the first occurence of TestComponent
+            // test should be the first occurence of UnitTest_TestComponent
             // and not the second or third!
             Assert::AreSame(first, test);
             Assert::AreNotSame(second, test);
@@ -154,7 +154,7 @@ namespace IGRAUnitTesting
             go.AddComponent<FooComponent>();
             go.AddComponent<FooDerivedComponent>();
             go.AddComponent<SpeakerComponent>();
-            go.AddComponent<TestComponent>();
+            go.AddComponent<UnitTest_TestComponent>();
 
             // we should be able to get a component that inherits from CanSpeak
             CanSpeak *speakable{go.GetComponent<CanSpeak>()};

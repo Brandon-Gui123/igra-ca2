@@ -105,7 +105,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)IGRA_CA2\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;Vector2f.obj;Vector3f.obj;GameObject.obj;Component.obj;Mesh.obj;Color3.obj;Color4.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;$(SolutionDir)IGRA_CA2\Debug\*.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -122,7 +122,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)IGRA_CA2\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;Vector2f.obj;Vector3f.obj;GameObject.obj;Component.obj;Mesh.obj;Color3.obj;Color4.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;$(SolutionDir)IGRA_CA2\Debug\*.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -143,7 +143,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)IGRA_CA2\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;Vector2f.obj;Vector3f.obj;GameObject.obj;Component.obj;Mesh.obj;Color3.obj;Color4.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;$(SolutionDir)IGRA_CA2\Debug\*.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -164,7 +164,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)IGRA_CA2\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;Vector2f.obj;Vector3f.obj;GameObject.obj;Component.obj;Mesh.obj;Color3.obj;Color4.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;$(SolutionDir)IGRA_CA2\Debug\*.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -174,7 +174,7 @@
     <ClCompile Include="FooDerivedComponent.cpp" />
     <ClCompile Include="GameObject_UnitTesting.cpp" />
     <ClCompile Include="SpeakerComponent.cpp" />
-    <ClCompile Include="TestComponent.cpp" />
+    <ClCompile Include="UnitTest_TestComponent.cpp" />
     <ClCompile Include="Vector2f_UnitTesting.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -190,7 +190,7 @@
     <ClInclude Include="FooDerivedComponent.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SpeakerComponent.h" />
-    <ClInclude Include="TestComponent.h" />
+    <ClInclude Include="UnitTest_TestComponent.h" />
     <ClInclude Include="UserDefinedTemplateSpecializationsForToString.h" />
   </ItemGroup>
   <ItemGroup>
