@@ -88,6 +88,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
+    program.InitializeScenes();
+
 	program.Start();
 
     program.StartInternalTimer();
