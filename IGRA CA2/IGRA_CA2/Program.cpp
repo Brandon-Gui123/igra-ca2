@@ -71,6 +71,11 @@ void Program::SendKeyUp(const WPARAM & wParam)
 	Input::SendKeyUp(wParam);
 }
 
+void Program::SendMousePosition(int x, int y)
+{
+	Input::windowsMousePosition.Set(x, y);
+}
+
 void Program::CreateCheckerBoardTexture() {
 	int nrOfCheckersOnRow = 8;
 	float dim = 64.0 / nrOfCheckersOnRow;
