@@ -1,8 +1,12 @@
 #pragma once
 
 #include "GameObject.h"
+#include "Program.h"
 
 #include <vector>
+
+// To break circular dependency between Scene and Program
+class Program;
 
 class Scene
 {
@@ -17,5 +21,7 @@ public:
 	void Start();
 	void Update();
 	void Draw();
+
+	friend class Program;
 };
 
