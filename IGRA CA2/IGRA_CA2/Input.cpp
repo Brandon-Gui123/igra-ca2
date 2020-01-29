@@ -1,29 +1,49 @@
 #include "Input.h"
 
+#include <stdexcept>    // for std::out_of_range exception
+
 void Input::SendKeyDown(const WPARAM &wParam)
 {
-    KeyStatus &keyStatus{inputKeys.at(wParam)};
-
-    // check if the key is already held down to prevent keyboard repeating from happening
-    if (keyStatus.isHeldDown)
+    try
     {
+        KeyStatus &keyStatus{inputKeys.at(wParam)};
+
+        // check if the key is already held down to prevent keyboard repeating from happening
+        if (keyStatus.isHeldDown)
+        {
+            return;
+        }
+
+        keyStatus.isDown = true;
+        keyStatus.isHeldDown = true;
+
+        keyStatusesToReset.push_back(&keyStatus);
+    }
+    catch (std::out_of_range ex)
+    {
+        // TODO Make it throw out a warning or something instead of being completely silent about it
+        // looks like we've not updated our key mappings in the inputKeys unordered_map
         return;
     }
-
-    keyStatus.isDown = true;
-    keyStatus.isHeldDown = true;
-
-    keyStatusesToReset.push_back(&keyStatus);
 }
 
 void Input::SendKeyUp(const WPARAM &wParam)
 {
-    KeyStatus &keyStatus{inputKeys.at(wParam)};
+    try
+    {
+        KeyStatus &keyStatus{inputKeys.at(wParam)};
 
-    keyStatus.isUp = true;
-    keyStatus.isHeldDown = false;
+        keyStatus.isUp = true;
+        keyStatus.isHeldDown = false;
 
-    keyStatusesToReset.push_back(&keyStatus);
+        keyStatusesToReset.push_back(&keyStatus);
+    }
+    catch (std::out_of_range ex)
+    {
+        // TODO Make it throw out a warning or something instead of being completely silent about it
+        // looks like we've not updated our key mappings in the inputKeys unordered_map
+        return;
+    }
 }
 
 void Input::ResetKeyDownUp()
