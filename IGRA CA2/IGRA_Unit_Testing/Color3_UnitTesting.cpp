@@ -8,4 +8,17 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace IGRAUnitTesting
 {
+    TEST_CLASS(Color3_Constructors_Test)
+    {
+        TEST_METHOD(Color3_Default_Constructor)
+        {
+            Color3<float> color{};
+            
+            // all values should be 0
+            Assert::AreEqual(0.f, color.red, 1e-8f);
+            Assert::AreEqual(0.f, color.green, 1e-8f);
+            Assert::AreEqual(0.f, color.blue, 1e-8f);
+        }
+
+    };
 }
