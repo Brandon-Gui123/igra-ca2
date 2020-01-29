@@ -10,7 +10,7 @@ public:
 	std::vector<GameObject*> gameObjects;
 
 	Scene();
-	~Scene();
+	virtual ~Scene();
 
 	void Start();
 	void Update();
