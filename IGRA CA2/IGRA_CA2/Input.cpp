@@ -1,6 +1,10 @@
 #include "Input.h"
 
+#include "Vector2f.h"   // for Vector2f class
+
 #include <stdexcept>    // for std::out_of_range exception
+
+Vector2f Input::windowsMousePosition{0, 0};
 
 void Input::SendKeyDown(const WPARAM &wParam)
 {
@@ -68,6 +72,11 @@ bool Input::GetKeyDown(KeyCode keyCode)
 bool Input::GetKeyUp(KeyCode keyCode)
 {
     return inputKeys.at(static_cast<int>(keyCode)).isUp;
+}
+
+Vector2f& Input::GetWindowsMousePosition()
+{
+    return windowsMousePosition; 
 }
 
 Input::Input()

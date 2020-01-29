@@ -2,6 +2,7 @@
 
 #include "KeyCode.h"            // for KeyCode enum class
 #include "Program.h"            // for Program class
+#include "Vector2f.h"           // for Vector2f class
 
 #include "framework.h"          // for WPARAM, which contains the hex code of the key of interest
 
@@ -13,6 +14,8 @@
 class Input
 {
 private:
+
+    static Vector2f windowsMousePosition;
 
     struct KeyStatus
     {
@@ -44,6 +47,9 @@ public:
     // Returns true if the key identified by the given key code is lifted up on this current frame.
     // Otherwise, it returns false.
     static bool GetKeyUp(KeyCode keyCode);
+
+    // Gets the position of the mouse cursor in window coordinates.
+    static Vector2f& GetWindowsMousePosition();
 
     Input();
     ~Input();
