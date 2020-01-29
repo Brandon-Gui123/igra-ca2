@@ -41,5 +41,9 @@ inline Color3<T>::operator Color4<T>() const
 }
 
 // define common types of Color3<T>
+
+// Color3 with GL floats used as the type for the member fields
 using Color3f = Color3<GLfloat>;
+
+// Color3 with GL unsigned bytes used as the type for the member fields
 using Color3ub = Color3<GLubyte>;
