@@ -16,20 +16,35 @@
 Scene testScene;
 GameObject testGo;
 
-void Program::StartInternalTimer()
-{
-	Time::internalTimer.StartTimer();
-}
+Program::Program()
+{}
+
+Program::~Program()
+{}
 
 void Program::QueryDeltaTime()
 {
 	Time::deltaTime = Time::internalTimer.GetTimePassedSinceLastTime();
 }
 
-Program::Program(){}
+void Program::ResetInputKeyUpDownStatus()
+{
+	Input::ResetKeyDownUp();
+}
 
-void Program::Update() {
-	if (selectedScene) selectedScene->Update();
+void Program::StartInternalTimer()
+{
+	Time::internalTimer.StartTimer();
+}
+
+void Program::SendKeyDown(const WPARAM &wParam)
+{
+	Input::SendKeyDown(wParam);
+}
+
+void Program::SendKeyUp(const WPARAM & wParam)
+{
+	Input::SendKeyUp(wParam);
 }
 
 void Program::SetupLight() {
@@ -55,23 +70,12 @@ void Program::SetupLight() {
 	selectedScene = &testScene;
 }
 
-void Program::SendKeyDown(const WPARAM &wParam)
-{
-	Input::SendKeyDown(wParam);
-}
-
-void Program::SendKeyUp(const WPARAM & wParam)
-{
-	Input::SendKeyUp(wParam);
-}
-
-void Program::ResetInputKeyUpDownStatus()
-{
-	Input::ResetKeyDownUp();
-}
-
 void Program::Start() {
 	if (selectedScene) selectedScene->Start();
+}
+
+void Program::Update() {
+	if (selectedScene) selectedScene->Update();
 }
 
 void Program::Draw() {
@@ -108,8 +112,4 @@ void Program::Draw() {
 	glVertex3f(0, 0, 100);
 
 	glEnd();
-}
-
-Program::~Program()
-{
 }

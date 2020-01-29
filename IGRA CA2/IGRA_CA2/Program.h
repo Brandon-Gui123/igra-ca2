@@ -15,18 +15,18 @@ public:
 	std::vector<Scene*> scenes;
 	Scene *selectedScene;
 
-	void StartInternalTimer();
-	void QueryDeltaTime();
-	void SetupLight();
-	void SendKeyDown(const WPARAM &wParam);
-	void SendKeyUp(const WPARAM &wParam);
-	void ResetInputKeyUpDownStatus();
-
 	Program();
 	~Program();
 
-	void Draw();
-	void Update();
+	void QueryDeltaTime();
+	void ResetInputKeyUpDownStatus();
+	void StartInternalTimer();
+	void SendKeyDown(const WPARAM &wParam);
+	void SendKeyUp(const WPARAM &wParam);
+	void SetupLight();
+
 	void Start();
+	void Update();
+	void Draw();
 };
 
