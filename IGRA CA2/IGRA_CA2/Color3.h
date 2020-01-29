@@ -26,19 +26,9 @@ public:
     operator Color4<T>() const;
 };
 
-template<typename T>
-inline Color3<T>::Color3() : red{0}, green{0}, blue{0}
-{}
-
-template<typename T>
-inline Color3<T>::Color3(T red, T green, T blue) : red{red}, green{green}, blue{blue}
-{}
-
-template<typename T>
-inline Color3<T>::operator Color4<T>() const
-{
-    return Color4<T>{red, green, blue, 0};
-}
+#include "Color3.inl"   // this will be replaced with Color3.inl's contents during compilation
+                        // I separated the inline template implemtations from this header file
+                        // for clarity and cleanliness purposes
 
 // define common types of Color3<T>
 
