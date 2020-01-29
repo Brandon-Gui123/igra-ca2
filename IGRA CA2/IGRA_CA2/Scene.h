@@ -6,8 +6,10 @@
 
 class Scene
 {
-public:
+private:
 	std::vector<GameObject*> gameObjects;
+
+public:
 
 	Scene();
 	virtual ~Scene();
