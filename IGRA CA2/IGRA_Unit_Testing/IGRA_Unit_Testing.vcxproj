@@ -168,6 +168,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Color3_UnitTesting.cpp" />
     <ClCompile Include="FooComponent.cpp" />
     <ClCompile Include="FooDerivedComponent.cpp" />
     <ClCompile Include="GameObject_UnitTesting.cpp" />
