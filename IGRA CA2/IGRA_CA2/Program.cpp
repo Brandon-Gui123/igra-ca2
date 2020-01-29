@@ -2,6 +2,7 @@
 
 #include "GameObject.h"
 #include "Input.h"			// for Input class
+#include "Scene.h"
 #include "TestComponent.h"
 #include "Vector3f.h"
 

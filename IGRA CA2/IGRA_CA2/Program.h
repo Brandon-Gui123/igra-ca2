@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Scene.h"
 #include "Time.h"
 
 #include "framework.h"
