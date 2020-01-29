@@ -14,9 +14,6 @@
 #include <string>     // std::string, std::to_string
 #include <vector>
 
-Scene testScene;
-GameObject testGo;
-
 GLubyte Program::placeholderTexture[64][64][3];
 
 Program::Program()
@@ -38,6 +35,15 @@ Program::~Program()
 
 void Program::InitializeScenes()
 {
+	Scene* testScene{new Scene{}};
+	scenes.push_back(testScene);
+
+	GameObject* testGameObject{new GameObject{Vector3f::zero, Vector3f{0, 45, 0}, Vector3f::one}};
+	testScene->gameObjects.push_back(testGameObject);
+
+	testGameObject->AddComponent<TestComponent>();
+
+	selectedScene = testScene;
 }
 
 void Program::QueryDeltaTime()
@@ -126,16 +132,6 @@ void Program::SetupLight() {
 	glLightfv(GL_LIGHT0, GL_SPECULAR, LightSpecular);
 	glLightfv(GL_LIGHT0, GL_POSITION, LightPosition);
 	glEnable(GL_LIGHT0);
-
-
-	//----------------------------------------------------------------------------------
-	//ANYTHING BELOW THIS LINE IS FOR TESTING AND SHOULD BE REMOVED IN THE FINAL PRODUCT
-	//----------------------------------------------------------------------------------
-	testScene.gameObjects.push_back(&testGo);
-	Vector3f rot(0, 45, 0);
-	testGo.rotation = rot;
-	testGo.AddComponent<TestComponent>();
-	selectedScene = &testScene;
 }
 
 void Program::Start() {
