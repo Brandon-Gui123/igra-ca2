@@ -8,6 +8,9 @@
 
 #include <vector>
 
+// To break circular dependency between Scene and Program
+class Scene;
+
 class Program
 {
 private:
