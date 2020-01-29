@@ -8,11 +8,12 @@ class Scene
 {
 public:
 	std::vector<GameObject*> gameObjects;
-	void Draw();
-	void Update();
-	void Start();
 
 	Scene();
-	~Scene();
+	virtual ~Scene();
+
+	void Start();
+	void Update();
+	void Draw();
 };
 

@@ -10,8 +10,10 @@ class Component
 {
 public:
 	GameObject &gameObject;
+
 	Component(GameObject &go);
-	virtual void Update();
-	virtual void Start();
 	virtual ~Component();
+
+	virtual void Start();
+	virtual void Update();
 };

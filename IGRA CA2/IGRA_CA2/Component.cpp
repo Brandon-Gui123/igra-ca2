@@ -5,13 +5,11 @@
 Component::Component(GameObject &go) : gameObject(go)
 {}
 
-void Component::Update()
-{
-}
+Component::~Component()
+{}
 
 void Component::Start()
-{
-}
+{}
 
-Component::~Component()
+void Component::Update()
 {}

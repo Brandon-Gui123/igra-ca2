@@ -18,9 +18,6 @@ private:
 	std::vector<Component*> components{};
 
 public:
-	GameObject();
-	GameObject(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca);
-	~GameObject();
 
 	// Stores the Position of the Object
 	Vector3f position;
@@ -29,6 +26,10 @@ public:
 
 	// Stores the Mesh data of the Object
 	Mesh mesh;
+
+	GameObject();
+	GameObject(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca);
+	~GameObject();
 
 	// Returns the number of components attached to this GameObject.
 	int GetComponentCount();
@@ -41,9 +42,9 @@ public:
 	template <typename T>
 	T* GetComponent();
 
-	void Draw();
-	void Update();
 	void Start();
+	void Update();
+	void Draw();
 };
 
 template<typename T>
