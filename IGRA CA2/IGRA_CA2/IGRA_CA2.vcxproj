@@ -159,6 +159,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Color3.h" />
+    <ClInclude Include="Color4.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameObject.h" />
@@ -177,6 +179,8 @@
     <ClInclude Include="Vector3f.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Color3.cpp" />
+    <ClCompile Include="Color4.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Input.cpp" />
