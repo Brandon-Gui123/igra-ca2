@@ -24,6 +24,10 @@ Program::Program()
 Program::~Program()
 {}
 
+void Program::InitializeScenes()
+{
+}
+
 void Program::QueryDeltaTime()
 {
 	Time::deltaTime = Time::internalTimer.GetTimePassedSinceLastTime();
