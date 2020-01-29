@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "Input.h"			// for Input class
 #include "TestComponent.h"
+#include "Player.h"
 #include "Vector3f.h"
 
 #include "framework.h"
@@ -118,7 +119,7 @@ void Program::SetupLight() {
 	testScene.gameObjects.push_back(&testGo);
 	Vector3f rot(0, 45, 0);
 	testGo.rotation = rot;
-	testGo.AddComponent<TestComponent>();
+	testGo.AddComponent<Player>();
 	selectedScene = &testScene;
 }
 
