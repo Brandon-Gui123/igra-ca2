@@ -48,6 +48,9 @@ public:
     // Otherwise, it returns false.
     static bool GetKeyUp(KeyCode keyCode);
 
+    // Gets the position of the mouse cursor in window coordinates.
+    static Vector2f& GetWindowsMousePosition();
+
     Input();
     ~Input();
 
