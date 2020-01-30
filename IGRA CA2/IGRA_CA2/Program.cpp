@@ -4,6 +4,7 @@
 #include "Input.h"			// for Input class
 #include "Scene.h"
 #include "TestComponent.h"
+#include "Player.h"
 #include "Vector3f.h"
 
 #include "framework.h"
