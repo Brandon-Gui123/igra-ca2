@@ -4,6 +4,7 @@
 #include "Input.h"
 #include "Time.h"
 #include "GameObject.h"
+#include "Math.h"
 
 Player::Player(GameObject &go) : Component(go)
 {
@@ -23,22 +24,26 @@ void Player::Update()
 	float left = 0;
 
 	if (Input::GetKey(KeyCode::A)) {
-		left++;
+		left += sin(45);
+		up -= sin(45);
 	}
 
 	if (Input::GetKey(KeyCode::D)) {
-		left--;
+		left -= sin(45);
+		up += sin(45);
 	}
 
 	if (Input::GetKey(KeyCode::W)) {
-		up++;
+		left += sin(45);
+		up += sin(45);
 	}
 
 	if (Input::GetKey(KeyCode::S)) {
-		up--;
+		left -= sin(45);
+		up -= sin(45);
 	}
 
-	Vector3f delta(left * Time::GetDeltaTime(), 0, up * Time::GetDeltaTime());
+	Vector3f delta(left * Time::GetDeltaTime() * speed, 0, up * Time::GetDeltaTime() * speed);
 	Vector3f newPos = delta + gameObject.position;
 	gameObject.position = newPos;
 }
