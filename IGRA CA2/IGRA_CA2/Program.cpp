@@ -42,7 +42,7 @@ void Program::InitializeScenes()
 	GameObject* testGameObject{new GameObject{Vector3f::zero, Vector3f{0, 45, 0}, Vector3f::one}};
 	testScene->gameObjects.push_back(testGameObject);
 
-	testGameObject->AddComponent<TestComponent>();
+	testGameObject->AddComponent<Player>();
 
 	selectedScene = testScene;
 }

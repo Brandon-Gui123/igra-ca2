@@ -3,6 +3,7 @@
 #include "Vector3f.h"
 #include "Input.h"
 #include "Time.h"
+#include "GameObject.h"
 
 Player::Player(GameObject &go) : Component(go)
 {
