@@ -105,6 +105,18 @@ void Input::SendMouseButtonUp(MouseButton mouseButton)
     }
 }
 
+void Input::ResetMouseButtonDownUp()
+{
+    leftMouseButtonStatus.isDown = false;
+    leftMouseButtonStatus.isUp = false;
+
+    middleMouseButtonStatus.isDown = false;
+    middleMouseButtonStatus.isUp = false;
+
+    rightMouseButtonStatus.isDown = false;
+    rightMouseButtonStatus.isUp = false;
+}
+
 bool Input::GetKey(KeyCode keyCode)
 {
     return inputKeys.at(static_cast<int>(keyCode)).isHeldDown;
