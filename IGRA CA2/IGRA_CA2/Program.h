@@ -1,5 +1,6 @@
 #pragma once
 
+#include "MouseButton.h"
 #include "Time.h"
 
 #include "framework.h"
@@ -27,6 +28,7 @@ public:
 
 	void QueryDeltaTime();
 	void ResetInputKeyUpDownStatus();
+	void ResetMouseButtonUpDownStatus();
 	void StartInternalTimer();
 	void SendKeyDown(const WPARAM &wParam);
 	void SendKeyUp(const WPARAM &wParam);

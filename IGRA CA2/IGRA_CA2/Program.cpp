@@ -57,6 +57,11 @@ void Program::ResetInputKeyUpDownStatus()
 	Input::ResetKeyDownUp();
 }
 
+void Program::ResetMouseButtonUpDownStatus()
+{
+	Input::ResetMouseButtonDownUp();
+}
+
 void Program::StartInternalTimer()
 {
 	Time::internalTimer.StartTimer();
