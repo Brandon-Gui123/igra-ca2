@@ -80,6 +80,10 @@ public:
     // Otherwise, it returns false.
     static bool GetMouseButtonDown(MouseButton mouseButton);
 
+    // Returns true if the mouse button is lifted up on this current frame.
+    // Otherwise, it returns false.
+    static bool GetMouseButtonUp(MouseButton mouseButton);
+
     Input();
     ~Input();
 

@@ -175,6 +175,23 @@ bool Input::GetMouseButtonDown(MouseButton mouseButton)
     }
 }
 
+bool Input::GetMouseButtonUp(MouseButton mouseButton)
+{
+    switch (mouseButton)
+    {
+        case MouseButton::Left:
+            return leftMouseButtonStatus.isUp;
+
+        case MouseButton::Middle:
+            return middleMouseButtonStatus.isUp;
+
+        case MouseButton::Right:
+            return rightMouseButtonStatus.isUp;
+
+        default:
+            // Unknown mouse button, so return false
+            return false;
+    }
 }
 
 Input::Input()
