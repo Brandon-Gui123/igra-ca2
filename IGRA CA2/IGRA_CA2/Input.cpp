@@ -63,6 +63,27 @@ void Input::ResetKeyDownUp()
     }
 }
 
+void Input::SendMouseButtonDown(MouseButton mouseButton)
+{
+    switch (mouseButton)
+    {
+        case MouseButton::Left:
+            leftMouseButtonStatus.isDown = true;
+            leftMouseButtonStatus.isHeldDown = true;
+            break;
+
+        case MouseButton::Middle:
+            middleMouseButtonStatus.isDown = true;
+            middleMouseButtonStatus.isHeldDown = true;
+            break;
+
+        case MouseButton::Right:
+            rightMouseButtonStatus.isDown = true;
+            rightMouseButtonStatus.isHeldDown = true;
+            break;
+    }
+}
+
 bool Input::GetKey(KeyCode keyCode)
 {
     return inputKeys.at(static_cast<int>(keyCode)).isHeldDown;

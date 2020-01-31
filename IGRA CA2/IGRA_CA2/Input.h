@@ -1,6 +1,7 @@
 #pragma once
 
 #include "KeyCode.h"            // for KeyCode enum class
+#include "MouseButton.h"        // for MouseButton enum class
 #include "Program.h"            // for Program class
 #include "Vector2f.h"           // for Vector2f class
 
@@ -44,6 +45,9 @@ private:
     // Resets the statuses of the keys that have been altered.
     // Only resets statuses that should only last for the current frame.
     static void ResetKeyDownUp();
+
+    // Sends the mouse button down event to the mapped mouse button keys, affecting the state of the mouse button that is pressed down.
+    static void SendMouseButtonDown(MouseButton mouseButton);
 
 public:
 
