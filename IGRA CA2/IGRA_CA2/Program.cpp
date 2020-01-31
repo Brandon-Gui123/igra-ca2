@@ -57,6 +57,11 @@ void Program::ResetInputKeyUpDownStatus()
 	Input::ResetKeyDownUp();
 }
 
+void Program::ResetMouseButtonUpDownStatus()
+{
+	Input::ResetMouseButtonDownUp();
+}
+
 void Program::StartInternalTimer()
 {
 	Time::internalTimer.StartTimer();
@@ -70,6 +75,16 @@ void Program::SendKeyDown(const WPARAM &wParam)
 void Program::SendKeyUp(const WPARAM & wParam)
 {
 	Input::SendKeyUp(wParam);
+}
+
+void Program::SendMouseButtonDown(MouseButton mouseButton)
+{
+	Input::SendMouseButtonDown(mouseButton);
+}
+
+void Program::SendMouseButtonUp(MouseButton mouseButton)
+{
+	Input::SendMouseButtonUp(mouseButton);
 }
 
 void Program::SendMousePosition(int x, int y)

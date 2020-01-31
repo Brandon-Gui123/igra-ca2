@@ -6,6 +6,10 @@
 
 Vector2f Input::windowsMousePosition{0, 0};
 
+Input::MouseButtonStatus Input::leftMouseButtonStatus{};
+Input::MouseButtonStatus Input::middleMouseButtonStatus{};
+Input::MouseButtonStatus Input::rightMouseButtonStatus{};
+
 void Input::SendKeyDown(const WPARAM &wParam)
 {
     try
@@ -59,6 +63,60 @@ void Input::ResetKeyDownUp()
     }
 }
 
+void Input::SendMouseButtonDown(MouseButton mouseButton)
+{
+    switch (mouseButton)
+    {
+        case MouseButton::Left:
+            leftMouseButtonStatus.isDown = true;
+            leftMouseButtonStatus.isHeldDown = true;
+            break;
+
+        case MouseButton::Middle:
+            middleMouseButtonStatus.isDown = true;
+            middleMouseButtonStatus.isHeldDown = true;
+            break;
+
+        case MouseButton::Right:
+            rightMouseButtonStatus.isDown = true;
+            rightMouseButtonStatus.isHeldDown = true;
+            break;
+    }
+}
+
+void Input::SendMouseButtonUp(MouseButton mouseButton)
+{
+    switch (mouseButton)
+    {
+        case MouseButton::Left:
+            leftMouseButtonStatus.isUp = true;
+            leftMouseButtonStatus.isHeldDown = false;
+            break;
+
+        case MouseButton::Middle:
+            middleMouseButtonStatus.isUp = true;
+            middleMouseButtonStatus.isHeldDown = false;
+            break;
+
+        case MouseButton::Right:
+            rightMouseButtonStatus.isUp = true;
+            rightMouseButtonStatus.isHeldDown = false;
+            break;
+    }
+}
+
+void Input::ResetMouseButtonDownUp()
+{
+    leftMouseButtonStatus.isDown = false;
+    leftMouseButtonStatus.isUp = false;
+
+    middleMouseButtonStatus.isDown = false;
+    middleMouseButtonStatus.isUp = false;
+
+    rightMouseButtonStatus.isDown = false;
+    rightMouseButtonStatus.isUp = false;
+}
+
 bool Input::GetKey(KeyCode keyCode)
 {
     return inputKeys.at(static_cast<int>(keyCode)).isHeldDown;
@@ -76,7 +134,64 @@ bool Input::GetKeyUp(KeyCode keyCode)
 
 Vector2f& Input::GetWindowsMousePosition()
 {
-    return windowsMousePosition; 
+    return windowsMousePosition;
+}
+
+bool Input::GetMouseButton(MouseButton mouseButton)
+{
+    switch (mouseButton)
+    {
+        case MouseButton::Left:
+            return leftMouseButtonStatus.isHeldDown;
+
+        case MouseButton::Middle:
+            return middleMouseButtonStatus.isHeldDown;
+
+        case MouseButton::Right:
+            return rightMouseButtonStatus.isHeldDown;
+
+        default:
+            // Unknown mouse button, so return false
+            return false;
+    }
+}
+
+bool Input::GetMouseButtonDown(MouseButton mouseButton)
+{
+    switch (mouseButton)
+    {
+        case MouseButton::Left:
+            return leftMouseButtonStatus.isDown;
+
+        case MouseButton::Middle:
+            return middleMouseButtonStatus.isDown;
+
+        case MouseButton::Right:
+            return rightMouseButtonStatus.isDown;
+
+        default:
+            // Unknown mouse button, so return false
+            return false;
+    }
+}
+
+bool Input::GetMouseButtonUp(MouseButton mouseButton)
+{
+    switch (mouseButton)
+    {
+        case MouseButton::Left:
+            return leftMouseButtonStatus.isUp;
+
+        case MouseButton::Middle:
+            return middleMouseButtonStatus.isUp;
+
+        case MouseButton::Right:
+            return rightMouseButtonStatus.isUp;
+
+        default:
+            // Unknown mouse button, so return false
+            return false;
+    }
 }
 
 Input::Input()

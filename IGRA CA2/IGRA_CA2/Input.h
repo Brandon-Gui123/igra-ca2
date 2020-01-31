@@ -1,6 +1,7 @@
 #pragma once
 
 #include "KeyCode.h"            // for KeyCode enum class
+#include "MouseButton.h"        // for MouseButton enum class
 #include "Program.h"            // for Program class
 #include "Vector2f.h"           // for Vector2f class
 
@@ -24,6 +25,17 @@ private:
         bool isUp{false};
     };
 
+    struct MouseButtonStatus
+    {
+        bool isHeldDown{false};
+        bool isDown{false};
+        bool isUp{false};
+    };
+
+    static MouseButtonStatus leftMouseButtonStatus;
+    static MouseButtonStatus middleMouseButtonStatus;
+    static MouseButtonStatus rightMouseButtonStatus;
+
     // Sends the key down event to the mapped input keys, affecting the state of the key that is pressed down.
     static void SendKeyDown(const WPARAM &wParam);
 
@@ -33,6 +45,15 @@ private:
     // Resets the statuses of the keys that have been altered.
     // Only resets statuses that should only last for the current frame.
     static void ResetKeyDownUp();
+
+    // Sends the mouse button down event to the mapped mouse button keys, affecting the state of the mouse button that is pressed down.
+    static void SendMouseButtonDown(MouseButton mouseButton);
+
+    // Sends the mouse button up event to the mapped mouse button keys, affecting the state of the mouse button that is pressed down.
+    static void SendMouseButtonUp(MouseButton mouseButton);
+
+    // Resets the statuses of all mouse buttons.
+    static void ResetMouseButtonDownUp();
 
 public:
 
@@ -50,6 +71,18 @@ public:
 
     // Gets the position of the mouse cursor in window coordinates.
     static Vector2f& GetWindowsMousePosition();
+
+    // Returns true if the mouse button is held down.
+    // Otherwise, it returns false.
+    static bool GetMouseButton(MouseButton mouseButton);
+
+    // Returns true if the mouse button is held down on this current frame.
+    // Otherwise, it returns false.
+    static bool GetMouseButtonDown(MouseButton mouseButton);
+
+    // Returns true if the mouse button is lifted up on this current frame.
+    // Otherwise, it returns false.
+    static bool GetMouseButtonUp(MouseButton mouseButton);
 
     Input();
     ~Input();

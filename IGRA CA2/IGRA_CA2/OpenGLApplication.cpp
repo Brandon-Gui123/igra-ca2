@@ -4,6 +4,7 @@
 #include "OpenGLApplication.h"
 
 #include "Input.h"      // for Input class
+#include "MouseButton.h"// for MouseButton enum class
 #include "Program.h"
 
 #include "framework.h"
@@ -107,6 +108,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             DrawGLScene();
             SwapBuffers(hDC);
             program.ResetInputKeyUpDownStatus();
+            program.ResetMouseButtonUpDownStatus();
             program.QueryDeltaTime();
         }
     }
@@ -231,6 +233,36 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_MOUSEMOVE:
     {
         program.SendMousePosition(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+        break;
+    }
+    case WM_LBUTTONDOWN:
+    {
+        program.SendMouseButtonDown(MouseButton::Left);
+        break;
+    }
+    case WM_LBUTTONUP:
+    {
+        program.SendMouseButtonUp(MouseButton::Left);
+        break;
+    }
+    case WM_MBUTTONDOWN:
+    {
+        program.SendMouseButtonDown(MouseButton::Middle);
+        break;
+    }
+    case WM_MBUTTONUP:
+    {
+        program.SendMouseButtonUp(MouseButton::Middle);
+        break;
+    }
+    case WM_RBUTTONDOWN:
+    {
+        program.SendMouseButtonDown(MouseButton::Right);
+        break;
+    }
+    case WM_RBUTTONUP:
+    {
+        program.SendMouseButtonUp(MouseButton::Right);
         break;
     }
     case WM_DESTROY:
