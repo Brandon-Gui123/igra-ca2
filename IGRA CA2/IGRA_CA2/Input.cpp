@@ -6,6 +6,10 @@
 
 Vector2f Input::windowsMousePosition{0, 0};
 
+Input::MouseButtonStatus Input::leftMouseButtonStatus{};
+Input::MouseButtonStatus Input::middleMouseButtonStatus{};
+Input::MouseButtonStatus Input::rightMouseButtonStatus{};
+
 void Input::SendKeyDown(const WPARAM &wParam)
 {
     try

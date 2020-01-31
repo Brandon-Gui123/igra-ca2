@@ -31,6 +31,10 @@ private:
         bool isUp{false};
     };
 
+    static MouseButtonStatus leftMouseButtonStatus;
+    static MouseButtonStatus middleMouseButtonStatus;
+    static MouseButtonStatus rightMouseButtonStatus;
+
     // Sends the key down event to the mapped input keys, affecting the state of the key that is pressed down.
     static void SendKeyDown(const WPARAM &wParam);
 
