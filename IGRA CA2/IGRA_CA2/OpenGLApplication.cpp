@@ -4,6 +4,7 @@
 #include "OpenGLApplication.h"
 
 #include "Input.h"      // for Input class
+#include "MouseButton.h"// for MouseButton enum class
 #include "Program.h"
 
 #include "framework.h"
@@ -107,6 +108,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             DrawGLScene();
             SwapBuffers(hDC);
             program.ResetInputKeyUpDownStatus();
+            program.ResetMouseButtonUpDownStatus();
             program.QueryDeltaTime();
         }
     }
