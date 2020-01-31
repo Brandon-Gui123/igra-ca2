@@ -77,6 +77,11 @@ void Program::SendKeyUp(const WPARAM & wParam)
 	Input::SendKeyUp(wParam);
 }
 
+void Program::SendMouseButtonDown(MouseButton mouseButton)
+{
+	Input::SendMouseButtonDown(mouseButton);
+}
+
 void Program::SendMousePosition(int x, int y)
 {
 	Input::windowsMousePosition.Set(x, y);

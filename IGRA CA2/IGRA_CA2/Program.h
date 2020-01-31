@@ -32,6 +32,7 @@ public:
 	void StartInternalTimer();
 	void SendKeyDown(const WPARAM &wParam);
 	void SendKeyUp(const WPARAM &wParam);
+	void SendMouseButtonDown(MouseButton mouseButton);
 	void SendMousePosition(int x, int y);
 	void SetupLight();
 
