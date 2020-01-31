@@ -167,6 +167,8 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="KeyCode.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="MouseButton.h" />
+    <ClInclude Include="MouseCode.h" />
     <ClInclude Include="OpenGLApplication.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Program.h" />
