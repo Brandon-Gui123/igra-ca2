@@ -24,6 +24,13 @@ private:
         bool isUp{false};
     };
 
+    struct MouseButtonStatus
+    {
+        bool isHeldDown{false};
+        bool isDown{false};
+        bool isUp{false};
+    };
+
     // Sends the key down event to the mapped input keys, affecting the state of the key that is pressed down.
     static void SendKeyDown(const WPARAM &wParam);
 
