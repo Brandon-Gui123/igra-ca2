@@ -134,7 +134,28 @@ bool Input::GetKeyUp(KeyCode keyCode)
 
 Vector2f& Input::GetWindowsMousePosition()
 {
-    return windowsMousePosition; 
+    return windowsMousePosition;
+}
+
+bool Input::GetMouseButton(MouseButton mouseButton)
+{
+    switch (mouseButton)
+    {
+        case MouseButton::Left:
+            return leftMouseButtonStatus.isHeldDown;
+
+        case MouseButton::Middle:
+            return middleMouseButtonStatus.isHeldDown;
+
+        case MouseButton::Right:
+            return rightMouseButtonStatus.isHeldDown;
+
+        default:
+            // Unknown mouse button, so return false
+            return false;
+    }
+}
+
 }
 
 Input::Input()

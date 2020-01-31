@@ -72,6 +72,10 @@ public:
     // Gets the position of the mouse cursor in window coordinates.
     static Vector2f& GetWindowsMousePosition();
 
+    // Returns true if the mouse button is held down.
+    // Otherwise, it returns false.
+    static bool GetMouseButton(MouseButton mouseButton);
+
     Input();
     ~Input();
 
