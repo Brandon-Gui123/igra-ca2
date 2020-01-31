@@ -250,6 +250,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         program.SendMouseButtonDown(MouseButton::Middle);
         break;
     }
+    case WM_MBUTTONUP:
+    {
+        program.SendMouseButtonUp(MouseButton::Middle);
+        break;
+    }
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
