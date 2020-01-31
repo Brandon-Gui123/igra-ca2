@@ -76,6 +76,10 @@ public:
     // Otherwise, it returns false.
     static bool GetMouseButton(MouseButton mouseButton);
 
+    // Returns true if the mouse button is held down on this current frame.
+    // Otherwise, it returns false.
+    static bool GetMouseButtonDown(MouseButton mouseButton);
+
     Input();
     ~Input();
 
