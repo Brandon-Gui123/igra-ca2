@@ -82,6 +82,11 @@ void Program::SendMouseButtonDown(MouseButton mouseButton)
 	Input::SendMouseButtonDown(mouseButton);
 }
 
+void Program::SendMouseButtonUp(MouseButton mouseButton)
+{
+	Input::SendMouseButtonUp(mouseButton);
+}
+
 void Program::SendMousePosition(int x, int y)
 {
 	Input::windowsMousePosition.Set(x, y);
