@@ -49,6 +49,9 @@ private:
     // Sends the mouse button down event to the mapped mouse button keys, affecting the state of the mouse button that is pressed down.
     static void SendMouseButtonDown(MouseButton mouseButton);
 
+    // Sends the mouse button up event to the mapped mouse button keys, affecting the state of the mouse button that is pressed down.
+    static void SendMouseButtonUp(MouseButton mouseButton);
+
 public:
 
     // Returns true if the key identified by the given key code is held down.
