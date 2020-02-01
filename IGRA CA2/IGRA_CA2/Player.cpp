@@ -20,30 +20,7 @@ void Player::Start()
 
 void Player::Update()
 {
-	float up = 0;
-	float left = 0;
-
-	if (Input::GetKey(KeyCode::A)) {
-		left += sin(45);
-		up -= sin(45);
-	}
-
-	if (Input::GetKey(KeyCode::D)) {
-		left -= sin(45);
-		up += sin(45);
-	}
-
-	if (Input::GetKey(KeyCode::W)) {
-		left += sin(45);
-		up += sin(45);
-	}
-
-	if (Input::GetKey(KeyCode::S)) {
-		left -= sin(45);
-		up -= sin(45);
-	}
-
-	Vector3f delta(left * Time::GetDeltaTime() * speed, 0, up * Time::GetDeltaTime() * speed);
-	Vector3f newPos = delta + gameObject.position;
+	Vector3f delta(Input::GetAxis(Input::x), 0, Input::GetAxis(Input::y));
+	Vector3f newPos = delta * speed * Time::GetDeltaTime() + gameObject.position;
 	gameObject.position = newPos;
 }

@@ -63,6 +63,9 @@ public:
 		float value;
 	};
 
+	static InputAxis x;
+	static InputAxis y;
+
 	static float GetAxis(InputAxis axis);
 
     // Returns true if the key identified by the given key code is held down.

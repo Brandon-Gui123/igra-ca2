@@ -10,6 +10,9 @@ Input::MouseButtonStatus Input::leftMouseButtonStatus{};
 Input::MouseButtonStatus Input::middleMouseButtonStatus{};
 Input::MouseButtonStatus Input::rightMouseButtonStatus{};
 
+Input::InputAxis Input::x{ KeyCode::A, KeyCode::D, 0 };
+Input::InputAxis Input::y{ KeyCode::W, KeyCode::S, 0 };
+
 void Input::SendKeyDown(const WPARAM &wParam)
 {
     try
@@ -119,8 +122,9 @@ void Input::ResetMouseButtonDownUp()
 
 float Input::GetAxis(InputAxis axis)
 {
-	if (GetKeyDown(axis.positive)) axis.value++;
-	if (GetKeyDown(axis.negative)) axis.value--;
+	axis.value = 0;
+	if (GetKey(axis.positive)) axis.value++;
+	if (GetKey(axis.negative)) axis.value--;
 	return axis.value;
 }
 
