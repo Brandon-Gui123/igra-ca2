@@ -25,7 +25,18 @@ float Vector3f::SqrMagnitude(const Vector3f &vector)
 
 void Vector3f::Normalize(Vector3f &vector)
 {
-    vector /= vector.GetMagnitude();
+    float magnitude{vector.GetMagnitude()};
+
+    // to avoid getting indeterminate values due to division by zero
+    // reasonable to do this way since the vector has no direction anyway
+    if (magnitude <= 0.f)
+    {
+        vector.Set(0.f, 0.f, 0.f);
+    }
+    else
+    {
+        vector /= vector.GetMagnitude();
+    }
 }
 
 Vector3f::Vector3f() : x{0}, y{0}, z{0}
