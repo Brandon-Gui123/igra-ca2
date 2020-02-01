@@ -312,4 +312,36 @@ namespace IGRAUnitTesting
 			Assert::AreEqual(0.0f, vector.z, 1e-8f);
 		}
 	};
+
+	TEST_CLASS(Vector2f_Special_Cases)
+	{
+		TEST_METHOD(Vector2f_Normalize_Zero)
+		{
+			Vector2f toNormalize{Vector2f::zero};
+
+			// our magnitude for toNormalize vector should be 0 before normalization
+			Assert::AreEqual(0.f, toNormalize.GetMagnitude(), 1e-4f);
+
+			Vector2f::Normalize(toNormalize);
+
+			// our magnitude for toNormalize vector should still be 0 after normalization
+			Assert::AreEqual(0.f, toNormalize.GetMagnitude(), 1e-4f);
+
+			// our values for the toNormalize vector should all be 0
+			Assert::AreEqual(0.f, toNormalize.x, 1e-4f);
+			Assert::AreEqual(0.f, toNormalize.y, 1e-4f);
+		}
+
+		TEST_METHOD(Vector2f_GetNormalized_Zero)
+		{
+			Vector2f normalized{Vector2f::zero.GetNormalized()};
+
+			// our magnitude for the normalized vector should be 0
+			Assert::AreEqual(0.f, normalized.GetMagnitude(), 1e-4f);
+
+			// our values for the normalized vector should all be 0
+			Assert::AreEqual(0.f, normalized.x, 1e-4f);
+			Assert::AreEqual(0.f, normalized.y, 1e-4f);
+		}
+	};
 }
