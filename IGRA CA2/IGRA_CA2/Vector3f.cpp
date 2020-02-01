@@ -67,7 +67,18 @@ float Vector3f::GetSqrMagnitude() const
 
 Vector3f Vector3f::GetNormalized() const
 {
-    return (*this) / (*this).GetMagnitude();
+    float magnitude{this->GetMagnitude()};
+
+    // to avoid getting indeterminate values due to division by zero
+    // reasonable to do this way since the vector has no direction anyway
+    if (magnitude <= 0.f)
+    {
+        return Vector3f::zero;
+    }
+    else
+    {
+        return (*this) / (*this).GetMagnitude();
+    }
 }
 
 Vector3f Vector3f::operator+=(const Vector3f &vector)
