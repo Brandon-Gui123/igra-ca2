@@ -351,4 +351,25 @@ namespace IGRAUnitTesting
             Assert::AreEqual(4.0f, casted.y, 1e-8f);
         }
     };
+
+    TEST_CLASS(Vector3f_Special_Cases)
+    {
+        TEST_METHOD(Vector3f_Normalize_Zero)
+        {
+            Vector3f toNormalize{Vector3f::zero};
+
+            // the magnitude of the toNormalize vector should be 0 before normalization
+            Assert::AreEqual(0.f, toNormalize.GetMagnitude(), 1e-4f);
+
+            Vector3f::Normalize(toNormalize);
+
+            // the magnitude of the toNormalize vector should remain 0 after normalization
+            Assert::AreEqual(0.f, toNormalize.GetMagnitude(), 1e-4f);
+            
+            // the values of the toNormalize vector should all be 0
+            Assert::AreEqual(0.f, toNormalize.x, 1e-4f);
+            Assert::AreEqual(0.f, toNormalize.y, 1e-4f);
+            Assert::AreEqual(0.f, toNormalize.z, 1e-4f);
+        }
+    };
 }
