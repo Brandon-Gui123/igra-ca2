@@ -36,6 +36,10 @@ Program::~Program()
 
 void Program::InitializeScenes()
 {
+	/////////////////////////////////INIT INPUT/////////////////////////////////
+
+
+	//////////////////////INIT SCENE OBJECTS AND COMPONENTS//////////////////////
 	Scene* testScene{new Scene{}};
 	scenes.push_back(testScene);
 

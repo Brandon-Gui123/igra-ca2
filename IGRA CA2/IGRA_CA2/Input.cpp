@@ -117,6 +117,13 @@ void Input::ResetMouseButtonDownUp()
     rightMouseButtonStatus.isUp = false;
 }
 
+float Input::GetAxis(InputAxis axis)
+{
+	if (GetKeyDown(axis.positive)) axis.value++;
+	if (GetKeyDown(axis.negative)) axis.value--;
+	return axis.value;
+}
+
 bool Input::GetKey(KeyCode keyCode)
 {
     return inputKeys.at(static_cast<int>(keyCode)).isHeldDown;

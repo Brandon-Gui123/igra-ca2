@@ -57,6 +57,14 @@ private:
 
 public:
 
+	struct InputAxis {
+		KeyCode positive;
+		KeyCode negative;
+		float value;
+	};
+
+	static float GetAxis(InputAxis axis);
+
     // Returns true if the key identified by the given key code is held down.
     // Otherwise, it returns false.
     static bool GetKey(KeyCode keyCode);
