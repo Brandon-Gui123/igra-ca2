@@ -64,7 +64,16 @@ float Vector2f::GetSqrMagnitude() const
 
 Vector2f Vector2f::GetNormalized() const
 {
-    return (*this) / (*this).GetMagnitude();
+    float magnitude{this->GetMagnitude()};
+
+    if (magnitude <= 0)
+    {
+        return Vector2f::zero;
+    }
+    else
+    {
+        return (*this) / (*this).GetMagnitude();
+    }
 }
 
 Vector2f Vector2f::operator+=(const Vector2f &vector)
