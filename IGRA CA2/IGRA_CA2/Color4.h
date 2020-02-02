@@ -18,7 +18,7 @@ public:
     Color4();
 
     // Constructs a Color4 with the specified values.
-    Color4(float red, float green, float blue, float alpha);
+    Color4(T red, T green, T blue, T alpha);
 };
 
 #include "Color4.inl"
