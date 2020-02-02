@@ -25,6 +25,12 @@
     <Filter Include="Source Files\Components">
       <UniqueIdentifier>{f0ab6546-d806-4bea-8eeb-7781523aeaf6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Meshes">
+      <UniqueIdentifier>{70249e4a-5bf8-431a-8ebf-e0b7dd1859b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Meshes">
+      <UniqueIdentifier>{c4474bf7-dd9c-4fd4-87cf-a5185a8fa345}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -84,10 +90,10 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="MouseCode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MouseButton.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseCode.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
   </ItemGroup>
