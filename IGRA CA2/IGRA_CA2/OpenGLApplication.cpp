@@ -399,6 +399,6 @@ void DrawGLScene()
     program.Draw();
 
 	//SetWindowTextA(hWnd, std::to_string(Time::GetGameTime()).c_str()); // Debug to show the time elapsed
-    Vector2f &mousePos{Input::GetWindowsMousePosition()};
+    const Vector2f &mousePos{Input::GetWindowsMousePosition()};
     SetWindowTextA(hWnd, ("(" + std::to_string(mousePos.x) + " , (" + std::to_string(mousePos.y) + ")").c_str());
 }
