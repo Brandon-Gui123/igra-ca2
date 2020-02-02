@@ -58,6 +58,8 @@ float cubeTextureMapA[][2]{
 
 void PlayerMesh::DrawShape()
 {
+	glPushMatrix();
+	glTranslatef(0, 0.8f, 0); //Offset
 	GLfloat matcolour[] = { 1, 1, 0, 1 };
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matcolour);
 	glEnable(GL_CULL_FACE);
@@ -204,6 +206,7 @@ void PlayerMesh::DrawShape()
 
 	glDisable(GL_TEXTURE_2D);
 	glDisable(GL_CULL_FACE);
+	glPopMatrix();
 }
 
 PlayerMesh::PlayerMesh()
