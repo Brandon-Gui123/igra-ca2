@@ -123,8 +123,9 @@ void Input::ResetMouseButtonDownUp()
 float Input::GetAxis(InputAxis axis)
 {
 	axis.value = 0;
-	if (GetKey(axis.positive)) axis.value++;
-	if (GetKey(axis.negative)) axis.value--;
+	if (GetKey(axis.positive)) axis.value = 1;
+	if (GetKey(axis.negative)) axis.value = -1;
+	if (GetKey(axis.positive) && GetKey(axis.negative)) axis.value = 0;
 	return axis.value;
 }
 

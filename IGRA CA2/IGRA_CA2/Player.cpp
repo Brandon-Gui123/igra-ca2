@@ -21,6 +21,6 @@ void Player::Start()
 void Player::Update()
 {
 	Vector3f delta(Input::GetAxis(Input::x), 0, Input::GetAxis(Input::y));
-	Vector3f newPos = delta * speed * Time::GetDeltaTime() + gameObject.position;
+	Vector3f newPos = delta.GetNormalized() * speed * Time::GetDeltaTime() + gameObject.position;
 	gameObject.position = newPos;
 }

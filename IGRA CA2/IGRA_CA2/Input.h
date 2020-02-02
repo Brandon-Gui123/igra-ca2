@@ -32,6 +32,12 @@ private:
         bool isUp{false};
     };
 
+	struct InputAxis {
+		KeyCode positive;
+		KeyCode negative;
+		float value;
+	};
+
     static MouseButtonStatus leftMouseButtonStatus;
     static MouseButtonStatus middleMouseButtonStatus;
     static MouseButtonStatus rightMouseButtonStatus;
@@ -56,12 +62,6 @@ private:
     static void ResetMouseButtonDownUp();
 
 public:
-
-	struct InputAxis {
-		KeyCode positive;
-		KeyCode negative;
-		float value;
-	};
 
 	static InputAxis x;
 	static InputAxis y;
