@@ -144,7 +144,7 @@ bool Input::GetKeyUp(KeyCode keyCode)
     return inputKeys.at(static_cast<int>(keyCode)).isUp;
 }
 
-Vector2f& Input::GetWindowsMousePosition()
+const Vector2f& Input::GetWindowsMousePosition()
 {
     return windowsMousePosition;
 }

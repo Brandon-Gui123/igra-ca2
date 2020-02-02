@@ -81,7 +81,7 @@ public:
     static bool GetKeyUp(KeyCode keyCode);
 
     // Gets the position of the mouse cursor in window coordinates.
-    static Vector2f& GetWindowsMousePosition();
+    static const Vector2f& GetWindowsMousePosition();
 
     // Returns true if the mouse button is held down.
     // Otherwise, it returns false.
