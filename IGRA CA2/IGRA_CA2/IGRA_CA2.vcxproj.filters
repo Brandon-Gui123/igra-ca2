@@ -93,9 +93,6 @@
     <ClInclude Include="MouseButton.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="MouseCode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerMesh.h">
       <Filter>Header Files\Meshes</Filter>
     </ClInclude>
