@@ -66,20 +66,142 @@ void PlayerMesh::DrawShape()
 	glEnable(GL_TEXTURE_2D);
 	int index = 0;
 
-	// Draw the cube quad by quad
+	/////////// HEAD ////////////
+
 	for (int qd = 0; qd < 6; qd++) {
 		glBegin(GL_POLYGON);
 		glNormal3f(cubeNormalsA[qd][0], cubeNormalsA[qd][1], cubeNormalsA[qd][2]);
 		for (int v = 0; v < 4; v++) {// Four vertices for one quad
 			glTexCoord2f(cubeTextureMapA[v][0], cubeTextureMapA[v][1]);
-			glVertex3f(cubeVerticesA[cubeIndicesA[index]][0],
-				cubeVerticesA[cubeIndicesA[index]][1],
-				cubeVerticesA[cubeIndicesA[index]][2]);
+			glVertex3f(cubeVerticesA[cubeIndicesA[index]][0] * 0.5,
+				cubeVerticesA[cubeIndicesA[index]][1] * 0.5 + 0.6,
+				cubeVerticesA[cubeIndicesA[index]][2] * 0.5 + 0.6);
 			index++; // Move to next vertex in quad
 		}
 
 		glEnd();
 	}
+
+	/////////// BODY ////////////
+	index = 0;
+
+	for (int qd = 0; qd < 6; qd++) {
+		glBegin(GL_POLYGON);
+		glNormal3f(cubeNormalsA[qd][0], cubeNormalsA[qd][1], cubeNormalsA[qd][2]);
+		for (int v = 0; v < 4; v++) {// Four vertices for one quad
+			glTexCoord2f(cubeTextureMapA[v][0], cubeTextureMapA[v][1]);
+			glVertex3f(cubeVerticesA[cubeIndicesA[index]][0] * 0.3,
+				cubeVerticesA[cubeIndicesA[index]][1] * 0.3,
+				cubeVerticesA[cubeIndicesA[index]][2] * 0.3);
+			index++; // Move to next vertex in quad
+		}
+
+		glEnd();
+	}
+
+	/////////// ORANGE ////////////
+
+	GLfloat matcolour2[] = { 1, 0.5, 0, 1 };
+	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matcolour2);
+	glEnable(GL_CULL_FACE);
+	glFrontFace(GL_CW); // Front face is clockwise
+	glPolygonMode(GL_FRONT, GL_FILL);
+	glEnable(GL_TEXTURE_2D);
+
+	/////////// BEAK ////////////
+	index = 0;
+
+	for (int qd = 0; qd < 6; qd++) {
+		glBegin(GL_POLYGON);
+		glNormal3f(cubeNormalsA[qd][0], cubeNormalsA[qd][1], cubeNormalsA[qd][2]);
+		for (int v = 0; v < 4; v++) {// Four vertices for one quad
+			glTexCoord2f(cubeTextureMapA[v][0], cubeTextureMapA[v][1]);
+			glVertex3f(cubeVerticesA[cubeIndicesA[index]][0] * 0.2,
+				cubeVerticesA[cubeIndicesA[index]][1] * 0.1 + 0.45,
+				cubeVerticesA[cubeIndicesA[index]][2] * 0.2 + 1.1);
+			index++; // Move to next vertex in quad
+		}
+
+		glEnd();
+	}
+
+	/////////// LEG1 ////////////
+	index = 0;
+
+	for (int qd = 0; qd < 6; qd++) {
+		glBegin(GL_POLYGON);
+		glNormal3f(cubeNormalsA[qd][0], cubeNormalsA[qd][1], cubeNormalsA[qd][2]);
+		for (int v = 0; v < 4; v++) {// Four vertices for one quad
+			glTexCoord2f(cubeTextureMapA[v][0], cubeTextureMapA[v][1]);
+			glVertex3f(cubeVerticesA[cubeIndicesA[index]][0] * 0.06 + 0.17,
+				cubeVerticesA[cubeIndicesA[index]][1] * 0.4 - 0.4,
+				cubeVerticesA[cubeIndicesA[index]][2] * 0.06);
+			index++; // Move to next vertex in quad
+		}
+
+		glEnd();
+	}
+
+	/////////// LEG2 ////////////
+	index = 0;
+
+	for (int qd = 0; qd < 6; qd++) {
+		glBegin(GL_POLYGON);
+		glNormal3f(cubeNormalsA[qd][0], cubeNormalsA[qd][1], cubeNormalsA[qd][2]);
+		for (int v = 0; v < 4; v++) {// Four vertices for one quad
+			glTexCoord2f(cubeTextureMapA[v][0], cubeTextureMapA[v][1]);
+			glVertex3f(cubeVerticesA[cubeIndicesA[index]][0] * 0.06 - 0.17,
+				cubeVerticesA[cubeIndicesA[index]][1] * 0.4 - 0.4,
+				cubeVerticesA[cubeIndicesA[index]][2] * 0.06);
+			index++; // Move to next vertex in quad
+		}
+
+		glEnd();
+	}
+
+	/////////// BLACK ////////////
+
+	GLfloat matcolour3[] = { 0, 0, 0, 1 };
+	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matcolour3);
+	glEnable(GL_CULL_FACE);
+	glFrontFace(GL_CW); // Front face is clockwise
+	glPolygonMode(GL_FRONT, GL_FILL);
+	glEnable(GL_TEXTURE_2D);
+
+	/////////// EYE1 ////////////
+	index = 0;
+
+	for (int qd = 0; qd < 6; qd++) {
+		glBegin(GL_POLYGON);
+		glNormal3f(cubeNormalsA[qd][0], cubeNormalsA[qd][1], cubeNormalsA[qd][2]);
+		for (int v = 0; v < 4; v++) {// Four vertices for one quad
+			glTexCoord2f(cubeTextureMapA[v][0], cubeTextureMapA[v][1]);
+			glVertex3f(cubeVerticesA[cubeIndicesA[index]][0] * 0.06 + 0.35,
+				cubeVerticesA[cubeIndicesA[index]][1] * 0.06 + 0.75,
+				cubeVerticesA[cubeIndicesA[index]][2] * 0.06 + 1.1);
+			index++; // Move to next vertex in quad
+		}
+
+		glEnd();
+	}
+
+	/////////// EYE2 ////////////
+	index = 0;
+
+	for (int qd = 0; qd < 6; qd++) {
+		glBegin(GL_POLYGON);
+		glNormal3f(cubeNormalsA[qd][0], cubeNormalsA[qd][1], cubeNormalsA[qd][2]);
+		for (int v = 0; v < 4; v++) {// Four vertices for one quad
+			glTexCoord2f(cubeTextureMapA[v][0], cubeTextureMapA[v][1]);
+			glVertex3f(cubeVerticesA[cubeIndicesA[index]][0] * 0.06 - 0.35,
+				cubeVerticesA[cubeIndicesA[index]][1] * 0.06 + 0.75,
+				cubeVerticesA[cubeIndicesA[index]][2] * 0.06 + 1.1);
+			index++; // Move to next vertex in quad
+		}
+
+		glEnd();
+	}
+
 	glDisable(GL_TEXTURE_2D);
 	glDisable(GL_CULL_FACE);
 }

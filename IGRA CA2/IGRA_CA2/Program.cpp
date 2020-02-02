@@ -178,7 +178,7 @@ void Program::Draw() {
 	// we need to do this because our camera is originally positioned at the origin so we won't see anything
 	// position the camera at (1, 1, 1), then look at the origin
 	gluLookAt(
-		0, 10, -10, // Camera's position (we move the camera further down the z-axis to see our cube)
+		10, 10, 10, // Camera's position (we move the camera further down the z-axis to see our cube)
 		0, 0, 0,    // Camera's target to look at
 		0, 1, 0     // Orientation of the camera
 	);
