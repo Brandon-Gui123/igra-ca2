@@ -5,6 +5,7 @@
 #include "Scene.h"
 #include "TestComponent.h"
 #include "Player.h"
+#include "PlayerMesh.h"
 #include "Vector3f.h"
 
 #include "framework.h"
@@ -43,10 +44,12 @@ void Program::InitializeScenes()
 	Scene* testScene{new Scene{}};
 	scenes.push_back(testScene);
 
-	GameObject* testGameObject{new GameObject{Vector3f::zero, Vector3f{0, 45, 0}, Vector3f::one}};
+	GameObject* testGameObject{new GameObject{Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one}};
 	testScene->gameObjects.push_back(testGameObject);
 
 	testGameObject->AddComponent<Player>();
+	PlayerMesh* playerMesh{ new PlayerMesh{}};
+	testGameObject->mesh = playerMesh;
 
 	selectedScene = testScene;
 }

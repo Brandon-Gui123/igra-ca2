@@ -47,5 +47,5 @@ void GameObject::Update()
 
 void GameObject::Draw()
 {
-	mesh.Draw(position, rotation, scale);
+	mesh->Draw(position, rotation, scale);
 }

@@ -94,7 +94,10 @@
       <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="MouseCode.h">
-      <Filter>Header Files\Core</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMesh.h">
+      <Filter>Header Files\Meshes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +139,9 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerMesh.cpp">
+      <Filter>Source Files\Meshes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -25,7 +25,7 @@ public:
 	Vector3f scale;
 
 	// Stores the Mesh data of the Object
-	Mesh mesh;
+	Mesh *mesh;
 
 	GameObject();
 	GameObject(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca);
