@@ -16,6 +16,9 @@ class Program
 private:
 public:
 
+	static constexpr int initialWindowWidth{800};
+	static constexpr int initialWindowHeight{600};
+
 	std::vector<Scene*> scenes;
 	Scene *selectedScene;
 	static void CreateCheckerBoardTexture();

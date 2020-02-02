@@ -24,8 +24,6 @@
 HINSTANCE hInst;                                // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
-int width = 800;
-int height = 600;
 
 GLuint PixelFormat; // GLuint is an OpenGL pre-defined unsigned int type. These ensure cross-platform compatibility.
 HDC hDC = NULL;     // A Handle to the Device Content (hence, HDC)
@@ -156,7 +154,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // Store instance handle in our global variable
 
-   hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW, 0, 0, width, height, nullptr, nullptr, hInstance, nullptr);
+   hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW, 0, 0, Program::initialWindowWidth, Program::initialWindowHeight, nullptr, nullptr, hInstance, nullptr);
 
    // uncomment and comment the text above to create a window suitable for mouse input
    // hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW, 0, 0, width + EXTRA_WIDTH, height + EXTRA_HEIGHT, nullptr, nullptr, hInstance, nullptr);
@@ -171,7 +169,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
-   ReSizeGLScene(width, height);
+   ReSizeGLScene(Program::initialWindowWidth, Program::initialWindowHeight);
    SetTimer(hWnd, NULL, USER_TIMER_MINIMUM, NULL);
    return TRUE;
 }
@@ -217,7 +215,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     case WM_SIZE:
         {
-            ReSizeGLScene(width, height);
+            ReSizeGLScene(Program::initialWindowWidth, Program::initialWindowHeight);
             break;
         }
     case WM_KEYDOWN:
