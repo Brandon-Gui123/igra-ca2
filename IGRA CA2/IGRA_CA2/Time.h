@@ -9,6 +9,7 @@ class Time
 private:
 	static Timer internalTimer;
 	static double deltaTime;
+	static double timeScale;
 
 public:
 	// Gets the time passed since the last frame, in seconds.
