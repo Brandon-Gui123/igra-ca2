@@ -182,6 +182,19 @@ namespace IGRAUnitTesting
             Assert::AreEqual(5.0f, vector.y, 1e-8f);
             Assert::AreEqual(12.0f, vector.z, 1e-8f);
         }
+        
+        TEST_METHOD(Vector3f_Lerp)
+        {
+            Vector3f start{0.f, 1.f, 2.f};
+            Vector3f end{1.f, 2.f, 3.f};
+
+            Vector3f lerp{Vector3f::Lerp(start, end, 0.5f)};
+
+            // the values should be (0.5f, 1.5f, 2.5f)
+            Assert::AreEqual(0.5f, lerp.x, 1e-4f);
+            Assert::AreEqual(1.5f, lerp.y, 1e-4f);
+            Assert::AreEqual(2.5f, lerp.z, 1e-4f);
+        }
     };
 
     TEST_CLASS(Vector3f_Self_Assignment_Operators_Test)
@@ -383,6 +396,58 @@ namespace IGRAUnitTesting
             Assert::AreEqual(0.f, normalized.x, 1e-4f);
             Assert::AreEqual(0.f, normalized.y, 1e-4f);
             Assert::AreEqual(0.f, normalized.z, 1e-4f);
+        }
+
+        TEST_METHOD(Vector3f_Lerp_Interpolant_1)
+        {
+            Vector3f start{23.0f, 12.0f, 9.0f};
+            Vector3f end{43.0f, 22.0f, 12.0f};
+
+            Vector3f lerp{Vector3f::Lerp(start, end, 1.0f)};
+
+            // lerp should be (43.0f, 22.0f, 12.0f)
+            Assert::AreEqual(43.0f, lerp.x, 1e-4f);
+            Assert::AreEqual(22.0f, lerp.y, 1e-4f);
+            Assert::AreEqual(12.0f, lerp.z, 1e-4f);
+        }
+
+        TEST_METHOD(Vector3f_Lerp_Interpolant_0)
+        {
+            Vector3f start{23.0f, 124.0f, 95.0f};
+            Vector3f end{53.0f, 22.0f, 12.0f};
+
+            Vector3f lerp{Vector3f::Lerp(start, end, 0.f)};
+
+            // lerp should be (23.0f, 124.0f, 95.0f)
+            Assert::AreEqual(23.0f, lerp.x, 1e-4f);
+            Assert::AreEqual(124.0f, lerp.y, 1e-4f);
+            Assert::AreEqual(95.0f, lerp.z, 1e-4f);
+        }
+
+        TEST_METHOD(Vector3f_Lerp_High_Interpolant)
+        {
+            Vector3f start{0.f, 0.f, 0.f};
+            Vector3f end{2.f, 2.f, 2.f};
+
+            Vector3f lerp{Vector3f::Lerp(start, end, 5.0f)};
+
+            // lerp should be (2.f, 2.f, 2.f)
+            Assert::AreEqual(2.f, lerp.x, 1e-4f);
+            Assert::AreEqual(2.f, lerp.y, 1e-4f);
+            Assert::AreEqual(2.f, lerp.z, 1e-4f);
+        }
+
+        TEST_METHOD(Vector3f_Lerp_Negative_Interpolant)
+        {
+            Vector3f start{0.f, 0.f, 0.f};
+            Vector3f end{2.f, 2.f, 2.f};
+
+            Vector3f lerp{Vector3f::Lerp(start, end, -5.0f)};
+
+            // lerp should be (0.f, 0.f, 0.f)
+            Assert::AreEqual(0.f, lerp.x, 1e-4f);
+            Assert::AreEqual(0.f, lerp.y, 1e-4f);
+            Assert::AreEqual(0.f, lerp.z, 1e-4f);
         }
     };
 }
