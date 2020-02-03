@@ -100,7 +100,7 @@
       <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="LilypadMesh.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Meshes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -150,7 +150,7 @@
       <Filter>Source Files\Core</Filter>
     </ClCompile>
     <ClCompile Include="LilypadMesh.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Meshes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
