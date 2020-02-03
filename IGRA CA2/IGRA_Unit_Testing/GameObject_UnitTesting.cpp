@@ -17,10 +17,13 @@ namespace IGRAUnitTesting
     {
         TEST_METHOD(Default_GameObject_Constructor)
         {
-            GameObject go{};
+            GameObject go{"Test"};
 
             // the constructed GameObject should not have any components in it
             Assert::AreEqual(0, go.GetComponentCount());
+
+            // the constructed GameObject should have the same name as given above
+            Assert::AreEqual("Test", go.name.c_str());
         }
     };
 
@@ -28,7 +31,7 @@ namespace IGRAUnitTesting
     {
         TEST_METHOD(Default_GameObject_Destructor)
         {
-            GameObject go{};
+            GameObject go{"Test"};
 
             // let's add a bunch of components!
             for (int i{0}; i < 10; ++i)
@@ -51,7 +54,7 @@ namespace IGRAUnitTesting
     {
         TEST_METHOD(Adding_A_Component)
         {
-            GameObject go{};
+            GameObject go{"Test"};
 
             // add the new kind of component
             go.AddComponent<UnitTest_TestComponent>();
@@ -65,7 +68,7 @@ namespace IGRAUnitTesting
     {
         TEST_METHOD(Getting_A_Known_Component)
         {
-            GameObject go{};
+            GameObject go{"Test"};
             go.AddComponent<UnitTest_TestComponent>();
 
             // we just added in UnitTest_TestComponent so we should be able to get it
@@ -78,7 +81,7 @@ namespace IGRAUnitTesting
 
         TEST_METHOD(Compare_References_Of_Gotten_Components)
         {
-            GameObject go{};
+            GameObject go{"Test"};
 
             UnitTest_TestComponent &first    {  go.AddComponent<UnitTest_TestComponent>() };
             UnitTest_TestComponent &second   {*(go.GetComponent<UnitTest_TestComponent>())};
@@ -89,7 +92,7 @@ namespace IGRAUnitTesting
 
         TEST_METHOD(Getting_Component_On_Empty_GameObject)
         {
-            GameObject go{};
+            GameObject go{"Test"};
 
             // no components in GameObject, so this should be a null pointer
             UnitTest_TestComponent *test{go.GetComponent<UnitTest_TestComponent>()};
@@ -101,7 +104,7 @@ namespace IGRAUnitTesting
 
         TEST_METHOD(Getting_Component_On_GameObject_That_Lacks_It)
         {
-            GameObject go{};
+            GameObject go{"Test"};
             go.AddComponent<UnitTest_TestComponent>();
 
             // get a component that doesn't exist in the GameObject
@@ -114,7 +117,7 @@ namespace IGRAUnitTesting
 
         TEST_METHOD(Get_First_Occurence_Of_Component_In_GameObject)
         {
-            GameObject go{};
+            GameObject go{"Test"};
 
             // add a bunch of components to simulate (possible) real-life use case
             go.AddComponent<FooComponent>();
@@ -135,7 +138,7 @@ namespace IGRAUnitTesting
 
         TEST_METHOD(Get_Base_Component_From_Derived)
         {
-            GameObject go{};
+            GameObject go{"Test"};
 
             // add dervied components
             go.AddComponent<FooDerivedComponent>();
@@ -149,7 +152,7 @@ namespace IGRAUnitTesting
 
         TEST_METHOD(Get_Abstract_Class_From_Derived)
         {
-            GameObject go{};
+            GameObject go{"Test"};
 
             go.AddComponent<FooComponent>();
             go.AddComponent<FooDerivedComponent>();
