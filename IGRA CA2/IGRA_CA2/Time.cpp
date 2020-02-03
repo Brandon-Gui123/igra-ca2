@@ -20,6 +20,16 @@ double Time::GetTimeScale()
     return timeScale;
 }
 
+double Time::GetUnscaledDeltaTime()
+{
+    return unscaledDeltaTime;
+}
+
+double Time::GetUnscaledGameTime()
+{
+    return internalTimer.GetTimePassedSinceStart();
+}
+
 void Time::SetTimeScale(double value)
 {
     timeScale = value;
