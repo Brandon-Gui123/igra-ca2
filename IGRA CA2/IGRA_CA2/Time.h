@@ -8,7 +8,7 @@ class Time
 {
 private:
 	static Timer internalTimer;
-	static double deltaTime;
+	static double unscaledDeltaTime;
 	static double timeScale;
 
 public:

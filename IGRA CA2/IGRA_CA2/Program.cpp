@@ -63,7 +63,7 @@ void Program::InitializeScenes()
 
 void Program::QueryDeltaTime()
 {
-	Time::deltaTime = Time::internalTimer.GetTimePassedSinceLastTime();
+	Time::unscaledDeltaTime = Time::internalTimer.GetTimePassedSinceLastTime();
 }
 
 void Program::ResetInputKeyUpDownStatus()

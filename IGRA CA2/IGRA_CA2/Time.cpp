@@ -2,12 +2,12 @@
 
 Timer Time::internalTimer{};
 
-double Time::deltaTime{0.0};
+double Time::unscaledDeltaTime{0.0};
 double Time::timeScale{1.0};
 
 double Time::GetDeltaTime()
 {
-    return deltaTime * timeScale;
+    return unscaledDeltaTime * timeScale;
 }
 
 double Time::GetGameTime()
