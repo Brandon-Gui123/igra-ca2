@@ -6,6 +6,7 @@
 #include "TestComponent.h"
 #include "Player.h"
 #include "PlayerMesh.h"
+#include "LilypadMesh.h"
 #include "Vector3f.h"
 
 #include "framework.h"
@@ -48,11 +49,14 @@ void Program::InitializeScenes()
 	scenes.push_back(testScene);
 
 	GameObject* testGameObject{new GameObject{"Player", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one}};
+	GameObject* testGameObject2{ new GameObject{"Lilypad", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one} };
 	testScene->gameObjects.push_back(testGameObject);
-
+	testScene->gameObjects.push_back(testGameObject2);
 	testGameObject->AddComponent<Player>();
-	PlayerMesh* playerMesh{ new PlayerMesh{}};
+	PlayerMesh* playerMesh{ new PlayerMesh{} };
 	testGameObject->mesh = playerMesh;
+	LilypadMesh* lilypadMesh{ new LilypadMesh{} };
+	testGameObject2->mesh = lilypadMesh;
 
 	selectedScene = testScene;
 }
@@ -175,7 +179,7 @@ void Program::Update() {
 
 void Program::Draw() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(0.5f, 0.f, 0.8f, 1);
+	glClearColor(0.1f, 0.4f, 1.0f, 1);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	// we need to do this because our camera is originally positioned at the origin so we won't see anything
