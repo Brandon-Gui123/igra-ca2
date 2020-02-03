@@ -49,3 +49,11 @@ void GameObject::Draw()
 {
 	mesh->Draw(position, rotation, scale);
 }
+
+void GameObject::OnMeshSelected()
+{
+    for (std::vector<Component*>::iterator it = components.begin(); it != components.end(); ++it)
+    {
+        (*it)->OnGameObjectSelected();
+    }
+}

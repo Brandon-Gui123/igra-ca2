@@ -45,6 +45,8 @@ public:
 	void Start();
 	void Update();
 	void Draw();
+
+	void OnMeshSelected();
 };
 
 template<typename T>
