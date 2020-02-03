@@ -39,6 +39,28 @@ void Vector3f::Normalize(Vector3f &vector)
     }
 }
 
+Vector3f Vector3f::Lerp(const Vector3f &start, const Vector3f &end, float interpolant)
+{
+    float clampedInterpolant{};
+
+    if (interpolant > 1.f)
+    {
+        clampedInterpolant = 1.f;
+    }
+    else if (interpolant < 0.f)
+    {
+        clampedInterpolant = 0.f;
+    }
+    else
+    {
+        clampedInterpolant = interpolant;
+    }
+
+    // linearly interpolate all 3 values
+    // and return the interpolated vector
+    return Vector3f{(end - start) * clampedInterpolant + start};
+}
+
 Vector3f::Vector3f() : x{0}, y{0}, z{0}
 {}
 
