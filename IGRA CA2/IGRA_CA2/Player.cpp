@@ -37,13 +37,20 @@ void Player::JumpStart(bool left) {
 
 void Player::Jump() {
 	if (jumpTimer < 1) {
-		jumpTimer += Time::GetDeltaTime() * 3;
 		float y = -4 * std::pow(jumpTimer, 2) + 4 * jumpTimer;
-		float m = 4 * std::pow((jumpTimer - 0.5), 3) + 0.5;
+		//float m = 4 * std::pow((jumpTimer - 0.5), 3) + 0.5;
+		float m;
+		if (jumpTimer >= 0.5) {
+			m = (-y + 2) / 2;
+		}
+		else {
+			m = y/2;
+		}
 		Vector3f mv = m * direction;
 		Vector3f delta(0, y, 0);
 		delta += mv;
 		gameObject.position = PrevPos + delta;
+		jumpTimer += Time::GetDeltaTime() * 3;
 	}
 	else {
 		isJumping = false;
