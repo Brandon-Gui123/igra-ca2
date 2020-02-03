@@ -20,6 +20,11 @@ double Time::GetTimeScale()
     return timeScale;
 }
 
+double Time::GetUnscaledDeltaTime()
+{
+    return unscaledDeltaTime;
+}
+
 void Time::SetTimeScale(double value)
 {
     timeScale = value;
