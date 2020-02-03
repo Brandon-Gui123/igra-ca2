@@ -99,6 +99,9 @@
     <ClInclude Include="PickableMesh.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
+    <ClInclude Include="LilypadMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Component.cpp">
@@ -145,6 +148,9 @@
     </ClCompile>
     <ClCompile Include="PickableMesh.cpp">
       <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="LilypadMesh.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
