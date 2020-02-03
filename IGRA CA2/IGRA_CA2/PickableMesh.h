@@ -3,6 +3,7 @@
 #include "Color4.h"     // for Color4ub type alias in Color4
 #include "GameObject.h" // for GameObject class
 #include "Mesh.h"       // for Mesh class
+#include "Program.h"    // for friending the Program class and giving it access to the pickableMeshes vector
 
 #include <vector>       // for std::vector class
 
@@ -25,4 +26,6 @@ public:
     
     virtual void DrawToBackBuffer() = 0;
 
+    friend class Program;
 };
+
