@@ -13,6 +13,8 @@ private:
 
     static std::vector<PickableMesh*> pickableMeshes;
 
+protected:
+
     Color4ub pickingColor;
 
 public:
