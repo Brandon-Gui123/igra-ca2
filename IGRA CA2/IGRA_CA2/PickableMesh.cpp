@@ -7,3 +7,8 @@ std::vector<PickableMesh*> PickableMesh::pickableMeshes{};
 PickableMesh::PickableMesh(GameObject &gameObject) : Mesh{}, gameObject{gameObject}
 {
 }
+
+PickableMesh::~PickableMesh()
+{}
+
+}
