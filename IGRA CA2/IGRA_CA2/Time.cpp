@@ -7,12 +7,12 @@ double Time::timeScale{1.0};
 
 double Time::GetDeltaTime()
 {
-    return deltaTime;
+    return deltaTime * timeScale;
 }
 
 double Time::GetGameTime()
 {
-    return internalTimer.GetTimePassedSinceStart();
+    return internalTimer.GetTimePassedSinceStart() * timeScale;
 }
 
 double Time::GetTimeScale()

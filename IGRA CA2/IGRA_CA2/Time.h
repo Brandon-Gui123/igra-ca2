@@ -12,10 +12,10 @@ private:
 	static double timeScale;
 
 public:
-	// Gets the time passed since the last frame, in seconds.
+	// Gets the time passed since the last frame, in seconds, with respect to time scale.
 	static double GetDeltaTime();
 
-	// Gets the time passed since the game starts, where everything is loaded.
+	// Gets the time passed since the game starts, where everything is loaded, with respect to time scale.
 	static double GetGameTime();
 
 	// Gets the scale at which time passes.
