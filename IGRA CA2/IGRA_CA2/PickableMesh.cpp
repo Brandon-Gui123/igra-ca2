@@ -24,4 +24,7 @@ PickableMesh::PickableMesh(GameObject &gameObject) : Mesh{}, gameObject{gameObje
 PickableMesh::~PickableMesh()
 {}
 
+void PickableMesh::Select()
+{
+    gameObject.OnMeshSelected();
 }
