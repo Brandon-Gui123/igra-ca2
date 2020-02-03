@@ -14,3 +14,9 @@ double Time::GetGameTime()
 {
     return internalTimer.GetTimePassedSinceStart();
 }
+
+double Time::GetTimeScale()
+{
+    return timeScale;
+}
+
