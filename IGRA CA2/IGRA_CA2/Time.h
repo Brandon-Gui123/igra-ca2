@@ -27,6 +27,9 @@ public:
 	// Gets the time passed since the last frame, in seconds, independent of time scale.
 	static double GetUnscaledDeltaTime();
 
+	// Gets the time passed since the game starts, after everything is loaded, independent of time scale.
+	static double GetUnscaledGameTime();
+
 	// Sets the scale at which time passes.
 	// When time scale is set to 1.0, time passes as fast as realtime.
 	// When time scale is set to 0.5, time passes two times slower than realtime.
