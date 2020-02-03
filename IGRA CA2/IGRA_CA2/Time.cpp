@@ -20,3 +20,7 @@ double Time::GetTimeScale()
     return timeScale;
 }
 
+void Time::SetTimeScale(double value)
+{
+    timeScale = value;
+}
