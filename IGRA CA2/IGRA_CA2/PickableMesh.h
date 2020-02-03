@@ -23,4 +23,6 @@ public:
 
     void Select();
     
+    virtual void DrawToBackBuffer() = 0;
+
 };
