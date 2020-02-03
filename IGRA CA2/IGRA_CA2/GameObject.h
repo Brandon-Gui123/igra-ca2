@@ -5,6 +5,7 @@
 #include "Vector3f.h"	// for class Vector3f, which allows storing positions, rotations and scaling
 
 #include <vector>		// for std::vector
+#include <string>
 
 // GameObject and Component has a circular dependency between each other 
 // where GameObject needs to know Component,
@@ -18,6 +19,9 @@ private:
 	std::vector<Component*> components{};
 
 public:
+	static GameObject* Find(std::string n);
+
+	std::string name;
 
 	// Stores the Position of the Object
 	Vector3f position;
@@ -27,8 +31,8 @@ public:
 	// Stores the Mesh data of the Object
 	Mesh *mesh;
 
-	GameObject();
-	GameObject(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca);
+	GameObject(std::string n);
+	GameObject(std::string n, const Vector3f &pos, const Vector3f &rot, const Vector3f &sca);
 	~GameObject();
 
 	// Returns the number of components attached to this GameObject.

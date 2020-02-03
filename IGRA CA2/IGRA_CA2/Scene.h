@@ -22,5 +22,6 @@ public:
 	void Draw();
 
 	friend class Program;
+	friend class GameObject;
 };
 

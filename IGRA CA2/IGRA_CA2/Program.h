@@ -10,11 +10,13 @@
 
 // To break circular dependency between Scene and Program
 class Scene;
+class Program;
 
 class Program
 {
 private:
 public:
+	static Program *program;
 
 	static constexpr int initialWindowWidth{800};
 	static constexpr int initialWindowHeight{600};

@@ -1,16 +1,30 @@
 #include "GameObject.h"
 
 #include "Component.h"      // for Component class
+#include "Program.h"
+#include "Scene.h"
 
 #include <vector>
+#include <string>
 
-GameObject::GameObject(){
+GameObject* GameObject::Find(std::string n)
+{
+	std::vector<GameObject*> &gos = Program::program->selectedScene->gameObjects;
+	for (std::vector<GameObject*>::iterator it = gos.begin(); it != gos.end(); ++it) {
+		if (n.compare((*it)->name)) {
+			return (*it);
+		}
+	}
+	return nullptr;
+}
+
+GameObject::GameObject(std::string n) : name(n){
 	Vector3f sca(1.0f, 1.0f, 1.0f); //Scale Defaults at 1 per axis
 	scale = sca;
 }
 
-GameObject::GameObject(const Vector3f& pos, const Vector3f& rot, const Vector3f& sca) 
-	: position(pos), rotation(rot), scale(sca){}
+GameObject::GameObject(std::string n, const Vector3f& pos, const Vector3f& rot, const Vector3f& sca)
+	: name(n), position(pos), rotation(rot), scale(sca){}
 
 GameObject::~GameObject()
 {
