@@ -13,3 +13,6 @@ void Component::Start()
 
 void Component::Update()
 {}
+
+void Component::OnGameObjectSelected()
+{}
