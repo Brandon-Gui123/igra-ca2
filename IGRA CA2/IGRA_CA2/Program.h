@@ -10,7 +10,6 @@
 
 // To break circular dependency between Scene and Program
 class Scene;
-class Program;
 
 class Program
 {
