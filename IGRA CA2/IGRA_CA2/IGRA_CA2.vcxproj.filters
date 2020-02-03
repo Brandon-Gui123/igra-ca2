@@ -96,6 +96,9 @@
     <ClInclude Include="PlayerMesh.h">
       <Filter>Header Files\Meshes</Filter>
     </ClInclude>
+    <ClInclude Include="PickableMesh.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Component.cpp">
@@ -139,6 +142,9 @@
     </ClCompile>
     <ClCompile Include="PlayerMesh.cpp">
       <Filter>Source Files\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="PickableMesh.cpp">
+      <Filter>Source Files\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
