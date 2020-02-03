@@ -355,5 +355,53 @@ namespace IGRAUnitTesting
 			Assert::AreEqual(0.f, normalized.x, 1e-4f);
 			Assert::AreEqual(0.f, normalized.y, 1e-4f);
 		}
+
+		TEST_METHOD(Vector2f_Lerp_Interpolant_1)
+		{
+			Vector2f start{2.4f, 49.f};
+			Vector2f end{39.f, 12.f};
+
+			Vector2f lerp{Vector2f::Lerp(start, end, 1)};
+
+			// lerp should be (39.f, 12.f)
+			Assert::AreEqual(39.f, lerp.x, 1e-4f);
+			Assert::AreEqual(12.f, lerp.y, 1e-4f);
+		}
+
+		TEST_METHOD(Vector2f_Lerp_Interpolant_0)
+		{
+			Vector2f start{2.4f, 49.f};
+			Vector2f end{39.f, 12.f};
+
+			Vector2f lerp{Vector2f::Lerp(start, end, 0)};
+
+			// lerp should be (2.4f, 49.f)
+			Assert::AreEqual(2.4f, lerp.x, 1e-4f);
+			Assert::AreEqual(49.f, lerp.y, 1e-4f);
+		}
+
+		TEST_METHOD(Vector2f_Lerp_High_Interpolant)
+		{
+			Vector2f start{23.f, 34.f};
+			Vector2f end{90.f, 12.f};
+
+			Vector2f lerp{Vector2f::Lerp(start, end, 5)};
+
+			// lerp should be (90.f, 12.f)
+			Assert::AreEqual(90.f, lerp.x, 1e-4f);
+			Assert::AreEqual(12.f, lerp.y, 1e-4f);
+		}
+
+		TEST_METHOD(Vector2f_Lerp_Negative_Interpolant)
+		{
+			Vector2f start{23.f, 34.f};
+			Vector2f end{90.f, 12.f};
+
+			Vector2f lerp{Vector2f::Lerp(start, end, -5)};
+
+			// lerp should be (23.f, 34.f)
+			Assert::AreEqual(23.f, lerp.x, 1e-4f);
+			Assert::AreEqual(34.f, lerp.y, 1e-4f);
+		}
 	};
 }
