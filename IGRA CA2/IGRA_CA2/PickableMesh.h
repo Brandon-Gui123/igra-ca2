@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Color4.h"     // for Color4ub type alias in Color4
+#include "GameObject.h" // for GameObject class
 #include "Mesh.h"       // for Mesh class
 
 #include <vector>       // for std::vector class
@@ -13,4 +14,7 @@ private:
 
     Color4ub pickingColor;
 
+public:
+
+    PickableMesh(GameObject &gameObject);
 };
