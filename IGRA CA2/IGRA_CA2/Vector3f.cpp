@@ -58,7 +58,7 @@ Vector3f Vector3f::Lerp(const Vector3f &start, const Vector3f &end, float interp
 
     // linearly interpolate all 3 values
     // and return the interpolated vector
-    return Vector3f{(end - start) * clampedInterpolant + start};
+    return (end - start) * clampedInterpolant + start;
 }
 
 Vector3f::Vector3f() : x{0}, y{0}, z{0}
