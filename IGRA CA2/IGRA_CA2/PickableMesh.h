@@ -19,4 +19,6 @@ public:
     PickableMesh(GameObject &gameObject);
     ~PickableMesh();
 
+    GameObject &gameObject;
+
 };
