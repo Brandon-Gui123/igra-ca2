@@ -9,7 +9,6 @@ Scene::Scene()
 {
 }
 
-
 Scene::~Scene()
 {
 	for (GameObject *&gameObjectPtr : gameObjects)
