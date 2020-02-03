@@ -3,6 +3,7 @@
 Timer Time::internalTimer{};
 
 double Time::deltaTime{0.0};
+double Time::timeScale{1.0};
 
 double Time::GetDeltaTime()
 {
@@ -12,4 +13,14 @@ double Time::GetDeltaTime()
 double Time::GetGameTime()
 {
     return internalTimer.GetTimePassedSinceStart();
+}
+
+double Time::GetTimeScale()
+{
+    return timeScale;
+}
+
+void Time::SetTimeScale(double value)
+{
+    timeScale = value;
 }
