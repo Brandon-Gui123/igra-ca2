@@ -28,6 +28,10 @@ public:
     // Normalizes the given vector.
     static void Normalize(Vector2f &vector);
 
+    // Linearly interpolates between two vectors with a specified interpolant ranged between 0 to 1,
+    // returning a Vector3f between the given ones.
+    static Vector2f Lerp(const Vector2f &start, const Vector2f &end, float interpolant);
+
     float x;
     float y;
 

@@ -37,6 +37,28 @@ void Vector2f::Normalize(Vector2f &vector)
     }
 }
 
+Vector2f Vector2f::Lerp(const Vector2f &start, const Vector2f &end, float interpolant)
+{
+    float clampedInterpolant{};
+
+    if (interpolant > 1.f)
+    {
+        clampedInterpolant = 1.f;
+    }
+    else if (interpolant < 0.f)
+    {
+        clampedInterpolant = 0.f;
+    }
+    else
+    {
+        clampedInterpolant = interpolant;
+    }
+
+    // linearly interpolate all 2 values
+    // and return the interpolated vector
+    return (end - start) * clampedInterpolant + start;
+}
+
 Vector2f::Vector2f() : x{0}, y{0}
 {}
 
