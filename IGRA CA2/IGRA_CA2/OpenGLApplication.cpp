@@ -107,6 +107,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             SwapBuffers(hDC);
             program.ResetInputKeyUpDownStatus();
             program.ResetMouseButtonUpDownStatus();
+            program.DoDestroyCycle();
             program.QueryDeltaTime();
         }
     }
