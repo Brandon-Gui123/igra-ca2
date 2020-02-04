@@ -67,15 +67,21 @@ float cubeTextureMap[][2]{
 void Mesh::Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca)
 {
 	glPushMatrix();
+	{
 		glTranslatef(pos.x, pos.y, pos.z);
+
 		glRotatef(rot.x, 1, 0, 0);
 		glRotatef(rot.y, 0, 1, 0);
 		glRotatef(rot.z, 0, 0, 1);
+
 		glScalef(sca.x, sca.y, sca.z);
 
 		glEnable(GL_LIGHTING);
+		{
 			DrawShape();
+		}
 		glDisable(GL_LIGHTING);
+	}
 	glPopMatrix();
 }
 
