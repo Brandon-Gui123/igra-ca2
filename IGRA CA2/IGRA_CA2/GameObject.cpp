@@ -79,7 +79,7 @@ GameObject::~GameObject()
 
 int GameObject::GetComponentCount()
 {
-    return components.size();
+    return components.size() + newlyAddedComponents.size() + componentsToStart.size();
 }
 
 void GameObject::Start() {
