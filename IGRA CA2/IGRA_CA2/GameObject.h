@@ -29,6 +29,11 @@ public:
 	// If none are found, a null pointer is returned.
 	static GameObject* Find(std::string n);
 
+	// Creates a GameObject with the given name, placed at the specified position
+	// with the specified rotation and scale.
+	// The created GameObject will be placed in the scene automatically for you.
+	static GameObject& Create(const std::string &name, const Vector3f &position, const Vector3f &rotation, const Vector3f &scale);
+
 	std::string name;
 
 	// Stores the Position of the Object

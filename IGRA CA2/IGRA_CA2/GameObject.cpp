@@ -24,6 +24,13 @@ GameObject* GameObject::Find(std::string n)
 	return nullptr;
 }
 
+GameObject& GameObject::Create(const std::string &name, const Vector3f &position, const Vector3f &rotation, const Vector3f &scale)
+{
+	GameObject *instance{new GameObject{name, position, rotation, scale}};
+	Program::program->selectedScene->newlyAddedGameObjects.push_back(instance);
+	return *instance;
+}
+
 GameObject::GameObject(std::string n) : name(n){
 	Vector3f sca(1.0f, 1.0f, 1.0f); //Scale Defaults at 1 per axis
 	scale = sca;
