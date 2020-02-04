@@ -51,6 +51,8 @@ public:
 
 	GameObject(std::string n);
 	GameObject(std::string n, const Vector3f &pos, const Vector3f &rot, const Vector3f &sca);
+	// Frees up memory occupied by the GameObject's components and mesh.
+	// You can no longer use the components and meshes after this is done.
 	~GameObject();
 
 	// Returns the number of components attached to this GameObject.
