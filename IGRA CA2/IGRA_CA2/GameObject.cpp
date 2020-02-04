@@ -24,7 +24,8 @@ GameObject::GameObject(std::string n) : name(n){
 }
 
 GameObject::GameObject(std::string n, const Vector3f& pos, const Vector3f& rot, const Vector3f& sca)
-	: name(n), position(pos), rotation(rot), scale(sca){}
+	: name(n), position(pos), rotation(rot), scale(sca){
+}
 
 GameObject::~GameObject()
 {

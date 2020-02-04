@@ -91,9 +91,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     program.InitializeScenes();
 
-	program.Start();
-
     program.StartInternalTimer();
+
+	program.Start();
     
     // Main message loop:
     while (GetMessage(&msg, nullptr, 0, 0))

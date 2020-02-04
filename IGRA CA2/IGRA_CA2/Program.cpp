@@ -8,6 +8,7 @@
 #include "PlayerMesh.h"
 #include "LilypadMesh.h"
 #include "Vector3f.h"
+#include "GameManager.h"
 
 #include "framework.h"
 #include <gl/GL.h>  // OpenGL 32-bit library
@@ -47,18 +48,19 @@ void Program::InitializeScenes()
 	//////////////////////INIT SCENE OBJECTS AND COMPONENTS//////////////////////
 	Scene* testScene{new Scene{}};
 	scenes.push_back(testScene);
+	selectedScene = testScene;
 
-	GameObject* testGameObject{new GameObject{"Player", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one}};
+	//GameObject* testGameObject{new GameObject{"Player", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one}};
 	GameObject* testGameObject2{ new GameObject{"Lilypad", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one} };
-	testScene->gameObjects.push_back(testGameObject);
+	//testScene->gameObjects.push_back(testGameObject);
+	GameObject* testGameObject = Instantiate("Player", Vector3f::zero, Vector3f{ 0, 0, 0 }, Vector3f::one);
 	testScene->gameObjects.push_back(testGameObject2);
 	testGameObject->AddComponent<Player>();
+	testGameObject2->AddComponent<GameManager>();
 	PlayerMesh* playerMesh{ new PlayerMesh{} };
 	testGameObject->mesh = playerMesh;
 	LilypadMesh* lilypadMesh{ new LilypadMesh{} };
 	testGameObject2->mesh = lilypadMesh;
-
-	selectedScene = testScene;
 }
 
 void Program::QueryDeltaTime()
@@ -104,6 +106,13 @@ void Program::SendMouseButtonUp(MouseButton mouseButton)
 void Program::SendMousePosition(int x, int y)
 {
 	Input::windowsMousePosition.Set(x, y);
+}
+
+GameObject* Program::Instantiate(std::string n, const Vector3f & pos, const Vector3f & rot, const Vector3f & sca)
+{
+	GameObject* initgo{ new GameObject{n, pos, rot, sca} };
+	selectedScene->gameObjects.push_back(initgo);
+	return selectedScene->gameObjects.back();
 }
 
 void Program::CreateCheckerBoardTexture() {

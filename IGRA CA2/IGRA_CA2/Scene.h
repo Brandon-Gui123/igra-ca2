@@ -1,6 +1,8 @@
 #pragma once
 
 #include "GameObject.h"
+#include "Program.h"
+#include "GameManager.h"
 
 #include <vector>
 
@@ -23,5 +25,6 @@ public:
 
 	friend class Program;
 	friend class GameObject;
+	friend class GameManager;
 };
 
