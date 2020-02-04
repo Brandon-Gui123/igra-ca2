@@ -15,6 +15,9 @@ private:
 
 	bool hasGameObjectsToDestroy{false};
 
+	// Moves the newly-added GameObjects to the standard GameObjects vector.
+	void MoveNewToMain();
+
 public:
 
 	Scene();

@@ -63,3 +63,13 @@ void Scene::DoDestroyCycle()
 		}
 	}
 }
+
+void Scene::MoveNewToMain()
+{
+	for (GameObject *&goPtr : newlyAddedGameObjects)
+	{
+		gameObjects.push_back(goPtr);
+	}
+
+	newlyAddedGameObjects.clear();
+}
