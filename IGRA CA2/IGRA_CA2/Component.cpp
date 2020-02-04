@@ -2,7 +2,7 @@
 
 #include "GameObject.h"     // for GameObject class
 
-Component::Component(GameObject &go) : gameObject(go)
+Component::Component(GameObject &go) : gameObject{go}
 {}
 
 Component::~Component()
