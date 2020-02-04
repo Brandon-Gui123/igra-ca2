@@ -32,6 +32,7 @@ public:
 	void InitializeScenes();
 
 	void DoDestroyCycle();
+	void MoveNewGOsToMain();	// Moves the newly-created GameObjects in the scene to the standard GameObjects vector.
 	void QueryDeltaTime();
 	void ResetInputKeyUpDownStatus();
 	void ResetMouseButtonUpDownStatus();

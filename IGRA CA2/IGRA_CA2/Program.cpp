@@ -69,6 +69,11 @@ void Program::DoDestroyCycle()
 	}
 }
 
+void Program::MoveNewGOsToMain()
+{
+	selectedScene->MoveNewToMain();
+}
+
 void Program::QueryDeltaTime()
 {
 	Time::unscaledDeltaTime = Time::internalTimer.GetTimePassedSinceLastTime();
