@@ -44,10 +44,10 @@ public:
 	Vector3f rotation;	// The current rotation of the GameObject relative to the world.
 	Vector3f scale;		// The current scale of the GameObject relative to the world.
 
-
-
-	Mesh *mesh;
 	// The pointer to the mesh of the GameObject, which determines what this GameObject will show.
+	Mesh *mesh{nullptr};
+
+
 
 	GameObject(std::string n);
 	GameObject(std::string n, const Vector3f &pos, const Vector3f &rot, const Vector3f &sca);
