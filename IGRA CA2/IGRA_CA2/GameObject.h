@@ -20,6 +20,10 @@ private:
 	bool markedForDestruction{false};
 
 public:
+	// Marks the GameObject for destruction, where the GameObject is
+	// destroyed after the current Update loop.
+	static void Destroy(GameObject &gameObject);
+
 	// Gets the first occurence of the GameObject with the specifc name.
 	// If none are found, a null pointer is returned.
 	static GameObject* Find(std::string n);
