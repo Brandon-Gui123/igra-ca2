@@ -2,6 +2,7 @@
 
 #include "Component.h"	// for class Component (resolve complete class type errors)
 #include "Mesh.h"		// for class Mesh, which allows displaying the GameObject with shapes
+#include "Scene.h"		// for friending Scene class
 #include "Vector3f.h"	// for class Vector3f, which allows storing positions, rotations and scaling
 
 #include <vector>		// for std::vector
@@ -58,6 +59,8 @@ public:
 	void Draw();
 
 	void OnMeshSelected();
+
+	friend class Scene;
 };
 
 template<typename T>
