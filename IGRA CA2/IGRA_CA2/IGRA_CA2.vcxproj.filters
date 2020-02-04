@@ -102,6 +102,9 @@
     <ClInclude Include="LilypadMesh.h">
       <Filter>Header Files\Meshes</Filter>
     </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Component.cpp">
@@ -151,6 +154,9 @@
     </ClCompile>
     <ClCompile Include="LilypadMesh.cpp">
       <Filter>Source Files\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Source Files\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
