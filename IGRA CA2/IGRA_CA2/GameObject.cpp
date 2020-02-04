@@ -45,6 +45,10 @@ GameObject::~GameObject()
 
     // clear the vector, which contains null pointers
     components.clear();
+
+	// free up memory occupied by the mesh
+	delete mesh;
+	mesh = nullptr;
 }
 
 int GameObject::GetComponentCount()
