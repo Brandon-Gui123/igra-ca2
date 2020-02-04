@@ -60,8 +60,12 @@ void PlayerMesh::DrawShape()
 {
 	glPushMatrix();
 	glTranslatef(0, 0.8f, 0); //Offset
-	GLfloat matcolour[] = { 1, 1, 0, 1 };
-	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matcolour);
+
+	//GLfloat matcolour[] = { 1, 1, 0, 1 };
+	//glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matcolour);
+	
+	bodyMaterial.SetMaterial();
+
 	glEnable(GL_CULL_FACE);
 	glFrontFace(GL_CW); // Front face is clockwise
 	glPolygonMode(GL_FRONT, GL_FILL);
@@ -103,8 +107,11 @@ void PlayerMesh::DrawShape()
 
 	/////////// ORANGE ////////////
 
-	GLfloat matcolour2[] = { 1, 0.5, 0, 1 };
-	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matcolour2);
+	//GLfloat matcolour2[] = { 1, 0.5, 0, 1 };
+	//glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matcolour2);
+
+	billMaterial.SetMaterial();
+
 	glEnable(GL_CULL_FACE);
 	glFrontFace(GL_CW); // Front face is clockwise
 	glPolygonMode(GL_FRONT, GL_FILL);
@@ -128,6 +135,7 @@ void PlayerMesh::DrawShape()
 	}
 
 	/////////// LEG1 ////////////
+	legsMaterial.SetMaterial();
 	index = 0;
 
 	for (int qd = 0; qd < 6; qd++) {
@@ -163,8 +171,11 @@ void PlayerMesh::DrawShape()
 
 	/////////// BLACK ////////////
 
-	GLfloat matcolour3[] = { 0, 0, 0, 1 };
-	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matcolour3);
+	//GLfloat matcolour3[] = { 0, 0, 0, 1 };
+	//glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matcolour3);
+
+	eyeMaterial.SetMaterial();
+
 	glEnable(GL_CULL_FACE);
 	glFrontFace(GL_CW); // Front face is clockwise
 	glPolygonMode(GL_FRONT, GL_FILL);
