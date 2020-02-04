@@ -66,10 +66,18 @@ public:
 
 #pragma region Messages
 
+	// Called once for each GameObject after all GameObjects and its components are loaded.
+	// This is also called after the end of the Draw loop for all GameObjects created during the
+	// Update loop.
 	void Start();
+
+	// Called once per frame. This will call Update on all components attached to this GameObject.
 	void Update();
+
+	// Called once per frame. This will draw the mesh on this GameObject, if it has one.
 	void Draw();
 
+	// Called when the mesh of this GameObject is selected by the mouse cursor.
 	void OnMeshSelected();
 
 #pragma endregion
