@@ -86,7 +86,7 @@ void Mesh::Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca)
 }
 
 void Mesh::DrawShape() {
-	GLfloat matcolour[] = { 1, 1, 1, 1 };
+	GLfloat matcolour[] { 1, 1, 1, 1 };
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matcolour);
 
 	glEnable(GL_CULL_FACE);
