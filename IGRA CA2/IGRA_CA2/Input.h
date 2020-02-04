@@ -16,7 +16,7 @@ class Input
 {
 private:
 
-    static Vector2f windowsMousePosition;
+#pragma region Structs
 
     struct KeyStatus
     {
@@ -37,6 +37,10 @@ private:
 		KeyCode negative;
 		float value;
 	};
+
+#pragma endregion
+
+    static Vector2f windowsMousePosition;
 
     static MouseButtonStatus leftMouseButtonStatus;
     static MouseButtonStatus middleMouseButtonStatus;
