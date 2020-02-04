@@ -14,5 +14,8 @@ private:
     GLfloat specular[4];
     GLfloat shininess;
 
+public:
+
+    Material();
 };
 
