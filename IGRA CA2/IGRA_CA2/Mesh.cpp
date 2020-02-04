@@ -1,16 +1,15 @@
 #include "Mesh.h"
 
-#include "Program.h"
-#include "Vector3f.h"
+#include "Program.h"	// for Program class
+#include "Vector3f.h"	// for Vector3f class
 
-#include "framework.h"
-#include <gl/GL.h>  // OpenGL 32-bit library
-#include <gl/GLU.h> // OpenGL Utilities 32-bit library
+#include "framework.h"	// to define the Windows stuff inside the OpenGL header file
+#include <gl/GL.h>		// OpenGL 32-bit library
+#include <gl/GLU.h>		// OpenGL Utilities 32-bit library
 
-#include <iostream>   // std::cout
-#include <string>     // std::string, std::to_string
-#include <vector>
-
+#include <iostream>		// std::cout
+#include <string>		// std::string, std::to_string
+#include <vector>		// for std::vector
 
 Mesh::Mesh()
 {
@@ -68,48 +67,63 @@ float cubeTextureMap[][2]{
 void Mesh::Draw(const Vector3f &pos, const Vector3f &rot, const Vector3f &sca)
 {
 	glPushMatrix();
-	glTranslatef(pos.x, pos.y, pos.z);
-	glRotatef(rot.x, 1, 0, 0);
-	glRotatef(rot.y, 0, 1, 0);
-	glRotatef(rot.z, 0, 0, 1);
-	glScalef(sca.x, sca.y, sca.z);
-	glEnable(GL_LIGHTING);
-	DrawShape();
-	glDisable(GL_LIGHTING);
+	{
+		glTranslatef(pos.x, pos.y, pos.z);
+
+		glRotatef(rot.x, 1, 0, 0);
+		glRotatef(rot.y, 0, 1, 0);
+		glRotatef(rot.z, 0, 0, 1);
+
+		glScalef(sca.x, sca.y, sca.z);
+
+		glEnable(GL_LIGHTING);
+		{
+			DrawShape();
+		}
+		glDisable(GL_LIGHTING);
+	}
 	glPopMatrix();
 }
 
 void Mesh::DrawShape() {
-	GLfloat matcolour[] = { 1, 1, 1, 1 };
+	GLfloat matcolour[] { 1, 1, 1, 1 };
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matcolour);
-	glEnable(GL_CULL_FACE);
-	glFrontFace(GL_CW); // Front face is clockwise
-	glPolygonMode(GL_FRONT, GL_FILL);	
-	glEnable(GL_TEXTURE_2D);
-	//glColor3f(1, 1, 1);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB,
-		64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, Program::placeholderTexture);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-	glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T, GL_CLAMP);
-	glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	// The index in cubeIndices array
-	// points to next vertex to draw.
-	int index = 0;
-	// Draw the cube quad by quad
-	for (int qd = 0; qd < 6; qd++) {
-		glBegin(GL_POLYGON);
-		glNormal3f(cubeNormals[qd][0], cubeNormals[qd][1], cubeNormals[qd][2]);
-		for (int v = 0; v < 4; v++) {// Four vertices for one quad
-			glTexCoord2f(cubeTextureMap[v][0], cubeTextureMap[v][1]);
-			glVertex3f(cubeVertices[cubeIndices[index]][0],
-				cubeVertices[cubeIndices[index]][1],
-				cubeVertices[cubeIndices[index]][2]);
-			index++; // Move to next vertex in quad
-		}
 
-		glEnd();
+	glEnable(GL_CULL_FACE);
+	{
+		glFrontFace(GL_CW); // Front face is clockwise
+		glPolygonMode(GL_FRONT, GL_FILL);	
+
+		glEnable(GL_TEXTURE_2D);
+		{
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB,
+				64, 64, 0, GL_RGB, GL_UNSIGNED_BYTE, Program::placeholderTexture);
+			glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+			glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T, GL_CLAMP);
+			glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+			glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
+			// The index in cubeIndices array
+			// points to next vertex to draw.
+			int index = 0;
+
+			// Draw the cube quad by quad
+			for (int qd = 0; qd < 6; qd++) {
+				glBegin(GL_POLYGON);
+				{
+					glNormal3f(cubeNormals[qd][0], cubeNormals[qd][1], cubeNormals[qd][2]);
+					for (int v = 0; v < 4; v++) {// Four vertices for one quad
+						glTexCoord2f(cubeTextureMap[v][0], cubeTextureMap[v][1]);
+						glVertex3f(cubeVertices[cubeIndices[index]][0],
+							cubeVertices[cubeIndices[index]][1],
+							cubeVertices[cubeIndices[index]][2]);
+						index++; // Move to next vertex in quad
+					}
+				}
+				glEnd();
+			}
+		}
+		glDisable(GL_TEXTURE_2D);
 	}
-	glDisable(GL_TEXTURE_2D);
 	glDisable(GL_CULL_FACE);
 }
