@@ -11,7 +11,12 @@ class Scene
 {
 private:
 	std::vector<GameObject*> gameObjects;
+	std::vector<GameObject*> newlyAddedGameObjects;
+
 	bool hasGameObjectsToDestroy{false};
+
+	// Moves the newly-added GameObjects to the standard GameObjects vector.
+	void MoveNewToMain();
 
 public:
 
