@@ -6,7 +6,7 @@
 #include "Vector3f.h"	// for class Vector3f, which allows storing positions, rotations and scaling
 
 #include <vector>		// for std::vector
-#include <string>
+#include <string>		// for std::string.compare
 
 // GameObject and Component has a circular dependency between each other 
 // where GameObject needs to know Component,
@@ -34,18 +34,27 @@ public:
 	// The created GameObject will be placed in the scene automatically for you.
 	static GameObject& Create(const std::string &name, const Vector3f &position, const Vector3f &rotation, const Vector3f &scale);
 
+	// A string representation of this GameObject.
+	// This gives the GameObject an identity, but does not exactly identify it.
+	// For instance, a GameObject can be identified by this name, but the GameObject identified
+	// may not exactly be this GameObject.
 	std::string name;
 
-	// Stores the Position of the Object
-	Vector3f position;
-	Vector3f rotation;
-	Vector3f scale;
+	Vector3f position;	// The current position of the GameObject relative to the world.
+	Vector3f rotation;	// The current rotation of the GameObject relative to the world.
+	Vector3f scale;		// The current scale of the GameObject relative to the world.
 
-	// Stores the Mesh data of the Object
-	Mesh *mesh;
+	// The pointer to the mesh of the GameObject, which determines what this GameObject will show.
+	Mesh *mesh{nullptr};
 
-	GameObject(std::string n);
-	GameObject(std::string n, const Vector3f &pos, const Vector3f &rot, const Vector3f &sca);
+	// Constructs a new GameObject with the specified name and the default position, rotation and scaling values.
+	GameObject(const std::string &name);
+
+	// Constructs a new GameObject with the specified name, position, rotation and scaling.
+	GameObject(const std::string &name, const Vector3f &position, const Vector3f &rotation, const Vector3f &scale);
+
+	// Frees up memory occupied by the GameObject's components and mesh.
+	// You can no longer use the components and meshes after this is done.
 	~GameObject();
 
 	// Returns the number of components attached to this GameObject.
@@ -59,11 +68,23 @@ public:
 	template <typename T>
 	T* GetComponent();
 
+#pragma region Messages
+
+	// Called once for each GameObject after all GameObjects and its components are loaded.
+	// This is also called after the end of the Draw loop for all GameObjects created during the
+	// Update loop.
 	void Start();
+
+	// Called once per frame. This will call Update on all components attached to this GameObject.
 	void Update();
+
+	// Called once per frame. This will draw the mesh on this GameObject, if it has one.
 	void Draw();
 
+	// Called when the mesh of this GameObject is selected by the mouse cursor.
 	void OnMeshSelected();
+
+#pragma endregion
 
 	friend class Scene;
 };
