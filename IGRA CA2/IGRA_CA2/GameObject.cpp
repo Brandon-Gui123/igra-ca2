@@ -19,6 +19,14 @@ void GameObject::MoveNewComponentsToStartVector()
 	newlyAddedComponents.clear();
 }
 
+void GameObject::ExecuteComponentsInStartVector()
+{
+	for (Component *&comp : componentsToStart)
+	{
+		comp->Start();
+	}
+}
+
 void GameObject::Destroy(GameObject &gameObject)
 {
 	Program::program->selectedScene->hasGameObjectsToDestroy = true;

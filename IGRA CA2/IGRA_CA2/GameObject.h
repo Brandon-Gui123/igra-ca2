@@ -32,6 +32,9 @@ private:
 	// vector of components whose Start must be called.
 	void MoveNewComponentsToStartVector();
 
+	// Calls the Start method in all components in the start vector.
+	void ExecuteComponentsInStartVector();
+
 public:
 	// Marks the GameObject for destruction, where the GameObject is
 	// destroyed after the current Update loop.
