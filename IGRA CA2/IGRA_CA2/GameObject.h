@@ -19,6 +19,8 @@ private:
 	std::vector<Component*> components{};
 
 public:
+	// Gets the first occurence of the GameObject with the specifc name.
+	// If none are found, a null pointer is returned.
 	static GameObject* Find(std::string n);
 
 	std::string name;
