@@ -22,6 +22,7 @@ private:
 public:
 	void Update() override;
 	void Start() override;
+	void PlayerLand();
 	GameManager(GameObject &go);
 	~GameManager();
 };

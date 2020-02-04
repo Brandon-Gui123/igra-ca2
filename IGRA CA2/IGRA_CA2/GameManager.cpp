@@ -32,6 +32,11 @@ void GameManager::Start()
 	}
 }
 
+//Called when player makes a jump
+void GameManager::PlayerLand()
+{
+}
+
 void GameManager::CreateNextLilyPad()
 {
 	Vector3f nextPos = latestLilyPad->position;
