@@ -64,11 +64,15 @@ public:
 	template <typename T>
 	T* GetComponent();
 
+#pragma region Messages
+
 	void Start();
 	void Update();
 	void Draw();
 
 	void OnMeshSelected();
+
+#pragma endregion
 
 	friend class Scene;
 };
