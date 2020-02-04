@@ -1,16 +1,15 @@
 #include "Mesh.h"
 
-#include "Program.h"
-#include "Vector3f.h"
+#include "Program.h"	// for Program class
+#include "Vector3f.h"	// for Vector3f class
 
-#include "framework.h"
-#include <gl/GL.h>  // OpenGL 32-bit library
-#include <gl/GLU.h> // OpenGL Utilities 32-bit library
+#include "framework.h"	// to define the Windows stuff inside the OpenGL header file
+#include <gl/GL.h>		// OpenGL 32-bit library
+#include <gl/GLU.h>		// OpenGL Utilities 32-bit library
 
-#include <iostream>   // std::cout
-#include <string>     // std::string, std::to_string
-#include <vector>
-
+#include <iostream>		// std::cout
+#include <string>		// std::string, std::to_string
+#include <vector>		// for std::vector
 
 Mesh::Mesh()
 {
