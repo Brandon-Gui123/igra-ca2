@@ -25,11 +25,11 @@ void Player::JumpStart(bool left) {
 	if (!isJumping) {
 		PrevPos = gameObject.position;
 		if (left) {
-			direction = { *new Vector3f(0, 0, 1) };
+			direction = { *new Vector3f(0, 0, 2) };
 			gameObject.rotation = { *new Vector3f(0, 0, 0) };
 		}
 		else {
-			direction = { *new Vector3f(1, 0, 0) };
+			direction = { *new Vector3f(2, 0, 0) };
 			gameObject.rotation = { *new Vector3f(0, 90, 0) };
 		}
 		isJumping = true;
