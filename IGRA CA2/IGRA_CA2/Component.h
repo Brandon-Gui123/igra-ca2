@@ -18,7 +18,8 @@ public:
 
 	/// Messages ///
 
-	// Called once when the component is created and after the last frame finishes.
+	// Called once when the component is created and for 
+	// components created during Update, after the last frame finishes.
 	virtual void Start();
 
 	// Called on every frame.
