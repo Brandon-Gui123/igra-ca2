@@ -11,6 +11,8 @@ class Scene
 {
 private:
 	std::vector<GameObject*> gameObjects;
+	std::vector<GameObject*> newlyAddedGameObjects;
+
 	bool hasGameObjectsToDestroy{false};
 
 public:
