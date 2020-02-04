@@ -17,6 +17,7 @@ class GameObject
 {
 private:
 	std::vector<Component*> components{};
+	bool markedForDestruction{false};
 
 public:
 	// Gets the first occurence of the GameObject with the specifc name.
