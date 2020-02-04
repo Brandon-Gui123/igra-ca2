@@ -18,6 +18,14 @@ class GameObject
 {
 private:
 	std::vector<Component*> components{};
+
+	// We're using 2 vectors to deal with newly-added components
+	// so that we can handle the case where new components are added during
+	// Start, which will interfere with iterating the vector since adding
+	// new components to it will invalidate all iterators.
+	std::vector<Component*> newlyAddedComponents{};
+	std::vector<Component*> componentsToStart{};
+
 	bool markedForDestruction{false};
 
 public:
