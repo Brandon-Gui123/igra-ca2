@@ -11,3 +11,10 @@ Material::Material() :
     specular    {0.8f, 0.8f, 0.8f, 1.f}, 
     shininess   {32.f}
 {}
+
+Material::Material(const Color4f &ambient, const Color4f &diffuse, const Color4f &specular, GLfloat shininess) : 
+    ambient    {ambient.red,  ambient.green,  ambient.blue,  ambient.alpha},
+    diffuse     {diffuse.red ,  diffuse.green,   diffuse.blue,   diffuse.alpha}, 
+    specular   {specular.red, specular.green, specular.blue, specular.alpha}, 
+    shininess  {shininess}
+{}

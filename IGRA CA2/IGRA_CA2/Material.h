@@ -17,5 +17,6 @@ private:
 public:
 
     Material();
+    Material(const Color4f &ambient, const Color4f &diffuse, const Color4f &specular, GLfloat shininess);
 };
 
