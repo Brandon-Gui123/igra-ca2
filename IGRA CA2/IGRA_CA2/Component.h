@@ -16,7 +16,7 @@ public:
 	Component(GameObject &go);
 	virtual ~Component();
 
-	/// Messages ///
+#pragma region Messages
 
 	// Called once when the component is created and for 
 	// components created during Update, after the last frame finishes.
@@ -27,4 +27,6 @@ public:
 
 	// Called when the mesh of the GameObject is selected.
 	virtual void OnGameObjectSelected();
+
+#pragma endregion
 };
