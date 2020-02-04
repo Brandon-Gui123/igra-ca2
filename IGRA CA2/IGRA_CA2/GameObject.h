@@ -34,15 +34,20 @@ public:
 	// The created GameObject will be placed in the scene automatically for you.
 	static GameObject& Create(const std::string &name, const Vector3f &position, const Vector3f &rotation, const Vector3f &scale);
 
+	// A string representation of this GameObject.
+	// This gives the GameObject an identity, but does not exactly identify it.
+	// For instance, a GameObject can be identified by this name, but the GameObject identified
+	// may not exactly be this GameObject.
 	std::string name;
 
-	// Stores the Position of the Object
-	Vector3f position;
-	Vector3f rotation;
-	Vector3f scale;
+	Vector3f position;	// The current position of the GameObject relative to the world.
+	Vector3f rotation;	// The current rotation of the GameObject relative to the world.
+	Vector3f scale;		// The current scale of the GameObject relative to the world.
 
-	// Stores the Mesh data of the Object
+
+
 	Mesh *mesh;
+	// The pointer to the mesh of the GameObject, which determines what this GameObject will show.
 
 	GameObject(std::string n);
 	GameObject(std::string n, const Vector3f &pos, const Vector3f &rot, const Vector3f &sca);
