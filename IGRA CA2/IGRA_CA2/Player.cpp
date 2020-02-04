@@ -18,6 +18,7 @@ Player::~Player()
 
 void Player::Start()
 {
+
 }
 
 void Player::JumpStart(bool left) {

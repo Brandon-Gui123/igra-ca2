@@ -10,7 +10,7 @@ void GameManager::Update()
 
 void GameManager::Start()
 {
-	Program::program->Instantiate("Lilypad", Vector3f::zero, Vector3f{ 0, 0, 0 }, Vector3f::one);
+	GameObject &instance{ GameObject::Create("test", Vector3f::zero, Vector3f{ 1, 0, 0 }, Vector3f::one) };
 }
 
 GameManager::GameManager(GameObject &go) : Component(go)

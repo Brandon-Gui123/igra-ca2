@@ -8,6 +8,7 @@
 #include "PlayerMesh.h"
 #include "LilypadMesh.h"
 #include "Vector3f.h"
+#include "GameManager.h"
 
 #include "framework.h"
 #include <gl/GL.h>  // OpenGL 32-bit library
@@ -57,7 +58,7 @@ void Program::InitializeScenes()
 	testGameObject->mesh = playerMesh;
 	LilypadMesh* lilypadMesh{ new LilypadMesh{} };
 	testGameObject2->mesh = lilypadMesh;
-
+	testGameObject2->AddComponent<GameManager>();
 	selectedScene = testScene;
 }
 
