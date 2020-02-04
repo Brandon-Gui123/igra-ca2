@@ -31,13 +31,12 @@ GameObject& GameObject::Create(const std::string &name, const Vector3f &position
 	return *instance;
 }
 
-GameObject::GameObject(std::string n) : name(n){
-	Vector3f sca(1.0f, 1.0f, 1.0f); //Scale Defaults at 1 per axis
-	scale = sca;
-}
+GameObject::GameObject(const std::string &name) : name{name}, position{Vector3f::zero}, rotation{Vector3f::zero}, scale{Vector3f::one}
+{}
 
-GameObject::GameObject(std::string n, const Vector3f& pos, const Vector3f& rot, const Vector3f& sca)
-	: name(n), position(pos), rotation(rot), scale(sca){}
+GameObject::GameObject(const std::string &name, const Vector3f &position, const Vector3f &rotation, const Vector3f &scale)
+	: name(name), position(position), rotation(rotation), scale(scale)
+{}
 
 GameObject::~GameObject()
 {

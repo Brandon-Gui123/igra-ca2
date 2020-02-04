@@ -47,10 +47,12 @@ public:
 	// The pointer to the mesh of the GameObject, which determines what this GameObject will show.
 	Mesh *mesh{nullptr};
 
+	// Constructs a new GameObject with the specified name and the default position, rotation and scaling values.
+	GameObject(const std::string &name);
 
+	// Constructs a new GameObject with the specified name, position, rotation and scaling.
+	GameObject(const std::string &name, const Vector3f &position, const Vector3f &rotation, const Vector3f &scale);
 
-	GameObject(std::string n);
-	GameObject(std::string n, const Vector3f &pos, const Vector3f &rot, const Vector3f &sca);
 	// Frees up memory occupied by the GameObject's components and mesh.
 	// You can no longer use the components and meshes after this is done.
 	~GameObject();
