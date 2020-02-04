@@ -1,5 +1,6 @@
 #pragma once
 
+#include "GameObject.h"		// to friend the GameObject class
 #include "MouseButton.h"
 #include "Time.h"
 
@@ -30,6 +31,7 @@ public:
 
 	void InitializeScenes();
 
+	void DoDestroyCycle();
 	void QueryDeltaTime();
 	void ResetInputKeyUpDownStatus();
 	void ResetMouseButtonUpDownStatus();
@@ -44,5 +46,7 @@ public:
 	void Start();
 	void Update();
 	void Draw();
+
+	friend class GameObject;
 };
 

@@ -44,3 +44,22 @@ void Scene::Draw()
 		(*it)->Draw();
 	}
 }
+
+void Scene::DoDestroyCycle()
+{
+	std::vector<GameObject*>::iterator iterator{gameObjects.begin()};
+
+	while (iterator != gameObjects.end())
+	{
+		if ((*iterator)->markedForDestruction)
+		{
+			// to ensure that all components are freed of its memory
+			(*iterator)->~GameObject();
+			iterator = gameObjects.erase(iterator);
+		}
+		else
+		{
+			++iterator;
+		}
+	}
+}

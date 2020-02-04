@@ -11,6 +11,7 @@ class Scene
 {
 private:
 	std::vector<GameObject*> gameObjects;
+	bool hasGameObjectsToDestroy{false};
 
 public:
 
@@ -20,6 +21,7 @@ public:
 	void Start();
 	void Update();
 	void Draw();
+	void DoDestroyCycle();
 
 	friend class Program;
 	friend class GameObject;

@@ -7,6 +7,12 @@
 #include <vector>
 #include <string>
 
+void GameObject::Destroy(GameObject &gameObject)
+{
+	Program::program->selectedScene->hasGameObjectsToDestroy = true;
+	gameObject.markedForDestruction = true;
+}
+
 GameObject* GameObject::Find(std::string n)
 {
 	std::vector<GameObject*> &gos = Program::program->selectedScene->gameObjects;

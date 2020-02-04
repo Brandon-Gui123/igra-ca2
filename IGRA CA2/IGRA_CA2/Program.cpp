@@ -61,6 +61,14 @@ void Program::InitializeScenes()
 	selectedScene = testScene;
 }
 
+void Program::DoDestroyCycle()
+{
+	if (selectedScene->hasGameObjectsToDestroy)
+	{
+		selectedScene->DoDestroyCycle();
+	}
+}
+
 void Program::QueryDeltaTime()
 {
 	Time::unscaledDeltaTime = Time::internalTimer.GetTimePassedSinceLastTime();

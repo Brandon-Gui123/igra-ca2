@@ -2,6 +2,7 @@
 
 #include "Component.h"	// for class Component (resolve complete class type errors)
 #include "Mesh.h"		// for class Mesh, which allows displaying the GameObject with shapes
+#include "Scene.h"		// for friending Scene class
 #include "Vector3f.h"	// for class Vector3f, which allows storing positions, rotations and scaling
 
 #include <vector>		// for std::vector
@@ -17,8 +18,13 @@ class GameObject
 {
 private:
 	std::vector<Component*> components{};
+	bool markedForDestruction{false};
 
 public:
+	// Marks the GameObject for destruction, where the GameObject is
+	// destroyed after the current Update loop.
+	static void Destroy(GameObject &gameObject);
+
 	// Gets the first occurence of the GameObject with the specifc name.
 	// If none are found, a null pointer is returned.
 	static GameObject* Find(std::string n);
@@ -53,6 +59,8 @@ public:
 	void Draw();
 
 	void OnMeshSelected();
+
+	friend class Scene;
 };
 
 template<typename T>
