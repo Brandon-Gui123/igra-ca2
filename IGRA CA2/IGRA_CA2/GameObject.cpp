@@ -7,6 +7,18 @@
 #include <vector>			// for std::vector
 #include <string>			// for std::string.compare
 
+void GameObject::MoveNewComponentsToStartVector()
+{
+	for (Component *&comp : newlyAddedComponents)
+	{
+		componentsToStart.push_back(comp);
+	}
+
+	// so that existing components inside aren't considered
+	// new as their Start methods are going to be executed
+	newlyAddedComponents.clear();
+}
+
 void GameObject::Destroy(GameObject &gameObject)
 {
 	Program::program->selectedScene->hasGameObjectsToDestroy = true;

@@ -28,6 +28,10 @@ private:
 
 	bool markedForDestruction{false};
 
+	// Moves the newly-added components from its vector to the
+	// vector of components whose Start must be called.
+	void MoveNewComponentsToStartVector();
+
 public:
 	// Marks the GameObject for destruction, where the GameObject is
 	// destroyed after the current Update loop.
