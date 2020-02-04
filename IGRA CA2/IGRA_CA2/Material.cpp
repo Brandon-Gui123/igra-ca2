@@ -21,3 +21,11 @@ Material::Material(const Color4f &ambient, const Color4f &diffuse, const Color4f
 
 Material::~Material()
 {}
+
+void Material::SetMaterial()
+{
+    glMaterialfv(GL_FRONT, GL_AMBIENT, this->ambient);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, this->diffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, this->specular);
+    glMaterialf(GL_FRONT, GL_SHININESS, this->shininess);
+}
