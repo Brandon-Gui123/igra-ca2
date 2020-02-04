@@ -6,7 +6,7 @@
 #include "Vector3f.h"	// for class Vector3f, which allows storing positions, rotations and scaling
 
 #include <vector>		// for std::vector
-#include <string>
+#include <string>		// for std::string.compare
 
 // GameObject and Component has a circular dependency between each other 
 // where GameObject needs to know Component,

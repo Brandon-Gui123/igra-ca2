@@ -1,11 +1,11 @@
 #include "GameObject.h"
 
 #include "Component.h"      // for Component class
-#include "Program.h"
-#include "Scene.h"
+#include "Program.h"		// for Program class
+#include "Scene.h"			// for Scene class
 
-#include <vector>
-#include <string>
+#include <vector>			// for std::vector
+#include <string>			// for std::string.compare
 
 void GameObject::Destroy(GameObject &gameObject)
 {
