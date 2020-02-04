@@ -20,8 +20,11 @@ void LilypadMesh::DrawShape()
 	quadratic = gluNewQuadric();          // Create A Pointer To The Quadric Object ( NEW )
 	gluQuadricNormals(quadratic, GLU_SMOOTH);   // Create Smooth Normals ( NEW )
 	gluQuadricTexture(quadratic, GL_TRUE);
-	GLfloat matcolour[] = { 0, 1, 0.4, 1 };
-	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matcolour);
+	/*GLfloat matcolour[] = { 0, 1, 0.4, 1 };
+	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matcolour);*/
+
+	lilypadMaterial.SetMaterial();
+
 	glEnable(GL_CULL_FACE);
 	glFrontFace(GL_CW); // Front face is clockwise
 	glPolygonMode(GL_FRONT, GL_FILL);
