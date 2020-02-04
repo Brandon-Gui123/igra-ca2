@@ -21,6 +21,7 @@ public:
 	void Start();
 	void Update();
 	void Draw();
+	void DoDestroyCycle();
 
 	friend class Program;
 	friend class GameObject;
