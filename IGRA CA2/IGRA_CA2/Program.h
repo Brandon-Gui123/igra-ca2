@@ -50,19 +50,25 @@ public:
 	Program();
 	~Program();
 
-	void InitializeScenes();
 
 	void DoDestroyCycle();
 	void DoStartOnAddedComponents();	// Tells the currently loaded scene to tell its GameObjects to call Start on all newly-added components.
 	void MoveNewGOsToMain();	// Moves the newly-created GameObjects in the scene to the standard GameObjects vector.
 	void QueryDeltaTime();
 
-	void StartInternalTimer();
 	
-	void SetupLight();
 
 	void DrawPickableMeshes();
 
+#pragma region Initialization - stuff done during initialization
+
+	void SetupLight();
+
+	void InitializeScenes();
+
+	void StartInternalTimer();
+
+#pragma endregion
 #pragma region Input Handling - dealing with inputs to Input class
 
 	// Sends the key down event to the Input class for it to handle.
