@@ -137,6 +137,10 @@ public:
 	const Phase& GetCurrentPhase();
 #pragma region Back buffer - methods that utilize the back buffer for various purposes
 
+	// Draws all pickable meshes into the back buffer, then checks to see which mesh is the one that is selected by the mouse.
+	// Upon selection, the mesh tells its GameObject that is has been selected.
+	// The GameObject will then tell all of its components that it has been selected.
+	// You can listen in on this event by overriding the OnGameObjectSelected method.
 	void DrawPickableMeshes();
 
 #pragma endregion
