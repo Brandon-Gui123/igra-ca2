@@ -62,13 +62,18 @@ public:
 
 #pragma region Initialization - stuff done during initialization
 
+	// Sets up lighting to be used for all scenes.
 	void SetupLight();
 
+	// Initializes all scenes and their GameObjects, Components, Meshes and everything else that are
+	// placed inside the method.
 	void InitializeScenes();
 
+	// Starts the program's internal timer where timed operations frequently request from.
 	void StartInternalTimer();
 
 #pragma endregion
+
 #pragma region Input Handling - dealing with inputs to Input class
 
 	// Sends the key down event to the Input class for it to handle.
