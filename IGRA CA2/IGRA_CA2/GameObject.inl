@@ -3,6 +3,7 @@
  * Contains template implementations of the template functions.
  */
 
+// Adds the component of type T to this GameObject. T must be a type derived from the Component class.
 template<typename T>
 inline T& GameObject::AddComponent()
 {
@@ -20,6 +21,7 @@ inline T& GameObject::AddComponent()
 	return *instance;
 }
 
+// Gets the first occurence of a component of type T from this GameObject. T must be a type derived from the Component class.
 template<typename T>
 inline T* GameObject::GetComponent()
 {
