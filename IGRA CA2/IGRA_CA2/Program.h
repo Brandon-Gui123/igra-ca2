@@ -46,11 +46,12 @@ public:
 
 	std::vector<Scene*> scenes;
 	Scene *selectedScene;
-	static void CreateCheckerBoardTexture();
-	static GLubyte placeholderTexture[64][64][3];
 
 	Program();
 	~Program();
+
+	static void CreateCheckerBoardTexture();
+	static GLubyte placeholderTexture[64][64][3];
 
 	void InitializeScenes();
 
