@@ -21,7 +21,8 @@ inline T& GameObject::AddComponent()
 	return *instance;
 }
 
-// Gets the first occurence of a component of type T from this GameObject. T must be a type derived from the Component class.
+// Gets the first occurence of a component that inherits from type T from this GameObject.
+// A null pointer is returned if no such component is found.
 template<typename T>
 inline T* GameObject::GetComponent()
 {
