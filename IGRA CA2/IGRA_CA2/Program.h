@@ -45,6 +45,7 @@ public:
 	void InitializeScenes();
 
 	void DoDestroyCycle();
+	void DoStartOnAddedComponents();	// Tells the currently loaded scene to tell its GameObjects to call Start on all newly-added components.
 	void MoveNewGOsToMain();	// Moves the newly-created GameObjects in the scene to the standard GameObjects vector.
 	void QueryDeltaTime();
 	void ResetInputKeyUpDownStatus();

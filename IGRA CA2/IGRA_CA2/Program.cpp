@@ -69,6 +69,13 @@ void Program::DoDestroyCycle()
 	}
 }
 
+void Program::DoStartOnAddedComponents()
+{
+	selectedScene->MoveNewComponentsToStartVector();
+	selectedScene->StartAllNewComponents();
+	selectedScene->MoveStartedComponentsToMain();
+}
+
 void Program::MoveNewGOsToMain()
 {
 	selectedScene->MoveNewToMain();
