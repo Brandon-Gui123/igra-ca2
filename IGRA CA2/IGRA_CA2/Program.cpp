@@ -9,8 +9,6 @@
 #include "LilypadMesh.h"
 #include "Vector3f.h"
 #include "PickableMesh.h"
-#include "ObstacleComponent.h"
-#include "Obstacle.h"
 
 #include "framework.h"
 #include <gl/GL.h>  // OpenGL 32-bit library
@@ -66,11 +64,6 @@ void Program::InitializeScenes()
 	testGameObject->mesh = playerMesh;
 	LilypadMesh* lilypadMesh{ new LilypadMesh{} };
 	testGameObject2->mesh = lilypadMesh;
-
-	GameObject* instance{new GameObject{"Obstacle", Vector3f::zero, Vector3f::zero, Vector3f::one}};
-	instance->AddComponent<ObstacleComponent>();
-	instance->mesh = new Obstacle{*instance};
-	testScene->gameObjects.push_back(instance);
 
 	selectedScene = testScene;
 }
