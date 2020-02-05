@@ -50,6 +50,8 @@ public:
 	Program();
 	~Program();
 
+	// Gets the current phase of the program.
+	// Note that the returned value of this method cannot be modified.
 	const Phase& GetCurrentPhase();
 
 #pragma region Initialization - stuff done during initialization
