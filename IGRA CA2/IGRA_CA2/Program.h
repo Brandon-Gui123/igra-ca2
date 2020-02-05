@@ -68,9 +68,13 @@ public:
 
 	void DrawPickableMeshes();
 
+#pragma region Messages - calls corresponding methods in GameObjects
+
 	void Start();
 	void Update();
 	void Draw();
+
+#pragma endregion
 
 	const Phase& GetCurrentPhase();
 
