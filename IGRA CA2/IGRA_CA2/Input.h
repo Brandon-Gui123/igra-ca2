@@ -106,6 +106,9 @@ private:
     static std::unordered_map<int, KeyStatus> inputKeys;
     static std::vector<KeyStatus*> keyStatusesToReset;
 
+    // For the Program class to call the send input methods (SendKeyDown, SendKeyUp etc.)
+    // so that the Input class can update the statuses of the keys it is keeping
+    // track of.
     friend class Program;
 };
 
