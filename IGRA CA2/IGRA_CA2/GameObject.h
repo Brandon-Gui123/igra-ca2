@@ -33,6 +33,9 @@ private:
 	// vector of components whose Start must be called.
 	void MoveNewComponentsToStartVector();
 
+	// Moves the components from the Start vector to the main vector.
+	void MoveStartedComponentsToMain();
+
 	// Calls the Start method in all components in the start vector.
 	void ExecuteComponentsInStartVector();
 

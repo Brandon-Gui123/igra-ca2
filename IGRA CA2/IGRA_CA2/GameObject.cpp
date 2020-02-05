@@ -19,6 +19,16 @@ void GameObject::MoveNewComponentsToStartVector()
 	newlyAddedComponents.clear();
 }
 
+void GameObject::MoveStartedComponentsToMain()
+{
+	for (Component *&comp : componentsToStart)
+	{
+		components.push_back(comp);
+	}
+
+	componentsToStart.clear();
+}
+
 void GameObject::ExecuteComponentsInStartVector()
 {
 	for (Component *&comp : componentsToStart)
