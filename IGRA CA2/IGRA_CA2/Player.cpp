@@ -5,6 +5,7 @@
 #include "Time.h"
 #include "GameObject.h"
 #include "Math.h"
+#include "GameManager.h"
 
 Player::Player(GameObject &go) : Component(go)
 {
@@ -18,17 +19,24 @@ Player::~Player()
 
 void Player::Start()
 {
+	gameManager = GameObject::Find("GameManager")->GetComponent<GameManager>();
+	dead = false;
+}
+
+void Player::Die()
+{
+	dead = true;
 }
 
 void Player::JumpStart(bool left) {
 	if (!isJumping) {
 		PrevPos = gameObject.position;
 		if (left) {
-			direction = { *new Vector3f(0, 0, 1) };
+			direction = { *new Vector3f(0, 0, 2) };
 			gameObject.rotation = { *new Vector3f(0, 0, 0) };
 		}
 		else {
-			direction = { *new Vector3f(1, 0, 0) };
+			direction = { *new Vector3f(2, 0, 0) };
 			gameObject.rotation = { *new Vector3f(0, 90, 0) };
 		}
 		isJumping = true;
@@ -50,23 +58,31 @@ void Player::Jump() {
 		jumpTimer = 0;
 		gameObject.position = PrevPos + direction;
 		gameObject.position.y = 0;
+		bool left;
+		if (direction.x != 0) {
+			left = false;
+		} else{
+			left = true;
+		}
+		gameManager->PlayerLand(left);
 	}
 }
 
 void Player::Update()
 {
-	if (isJumping) {
-		Jump();
-	}
+	if (!dead) {
+		if (isJumping) {
+			Jump();
+		}
 
-	if (Input::GetKeyDown(KeyCode::A)) {
-		JumpStart(true);
-	}
+		if (Input::GetKeyDown(KeyCode::A)) {
+			JumpStart(true);
+		}
 
-	if (Input::GetKeyDown(KeyCode::D)) {
-		JumpStart(false);
+		if (Input::GetKeyDown(KeyCode::D)) {
+			JumpStart(false);
+		}
 	}
-
 	/*Vector3f delta(Input::GetAxis(Input::x), 0, Input::GetAxis(Input::y));
 	Vector3f newPos = delta.GetNormalized() * speed * Time::GetDeltaTime() + gameObject.position;
 	gameObject.position = newPos;*/

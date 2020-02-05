@@ -26,6 +26,7 @@ public:
 private:
 
 	Phase currentPhase{Phase::Initializing};
+	GameObject * camera;
 
 public:
 

@@ -9,6 +9,7 @@
 #include "LilypadMesh.h"
 #include "Vector3f.h"
 #include "PickableMesh.h"
+#include "GameManager.h"
 
 #include "framework.h"
 #include <gl/GL.h>  // OpenGL 32-bit library
@@ -55,17 +56,20 @@ void Program::InitializeScenes()
 	Scene* testScene{new Scene{}};
 	scenes.push_back(testScene);
 
-	GameObject* testGameObject{new GameObject{"Player", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one}};
-	GameObject* testGameObject2{ new GameObject{"Lilypad", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one} };
-	testScene->gameObjects.push_back(testGameObject);
-	testScene->gameObjects.push_back(testGameObject2);
-	testGameObject->AddComponent<Player>();
+	GameObject* playerGO{new GameObject{"Player", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one}};
+	GameObject* gameManagerGO{ new GameObject{"GameManager", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one} };
+	GameObject* cameraGO{ new GameObject{"Camera", Vector3f{10, 10, 10}, Vector3f{0, -135, -45}, Vector3f::one} };
+	testScene->gameObjects.push_back(playerGO);
+	testScene->gameObjects.push_back(gameManagerGO);
+	testScene->gameObjects.push_back(cameraGO);
+	playerGO->AddComponent<Player>();
 	PlayerMesh* playerMesh{ new PlayerMesh{} };
-	testGameObject->mesh = playerMesh;
+	playerGO->mesh = playerMesh;
 	LilypadMesh* lilypadMesh{ new LilypadMesh{} };
-	testGameObject2->mesh = lilypadMesh;
-
+	gameManagerGO->mesh = lilypadMesh;
+	gameManagerGO->AddComponent<GameManager>();
 	selectedScene = testScene;
+	camera = cameraGO;
 }
 
 void Program::DoDestroyCycle()
@@ -256,11 +260,14 @@ void Program::Draw() {
 	glLoadIdentity();
 	// we need to do this because our camera is originally positioned at the origin so we won't see anything
 	// position the camera at (1, 1, 1), then look at the origin
-	gluLookAt(
-		10, 10, 10, // Camera's position (we move the camera further down the z-axis to see our cube)
-		0, 0, 0,    // Camera's target to look at
-		0, 1, 0     // Orientation of the camera
-	);
+	glRotatef(-camera->rotation.z, 1, 0, 0);
+	glRotatef(camera->rotation.y + 180, 0, 1, 0);
+	glRotatef(camera->rotation.x, 0, 0, 1);
+	glTranslatef(camera->position.z, -camera->position.y, -camera->position.x);
+
+	gluLookAt(0, 0, 0,
+			  -1, 0, 0,
+			  0, 1, 0);
 
 	if (selectedScene) selectedScene->Draw();
 
