@@ -5,6 +5,7 @@
 #include "Time.h"
 #include "GameObject.h"
 #include "Math.h"
+#include "GameManager.h"
 
 Player::Player(GameObject &go) : Component(go)
 {
@@ -18,7 +19,7 @@ Player::~Player()
 
 void Player::Start()
 {
-
+	gameManager = GameObject::Find("GameManager")->GetComponent<GameManager>();
 }
 
 void Player::JumpStart(bool left) {
@@ -51,6 +52,7 @@ void Player::Jump() {
 		jumpTimer = 0;
 		gameObject.position = PrevPos + direction;
 		gameObject.position.y = 0;
+		gameManager->PlayerLand();
 	}
 }
 

@@ -2,6 +2,7 @@
 
 #include "Component.h"
 #include "Vector3f.h"
+#include "GameManager.h"
 
 class Player : public Component
 {
@@ -12,6 +13,7 @@ private:
 	void Jump();
 	Vector3f PrevPos;
 	Vector3f direction;
+	GameManager * gameManager;
 
 public:
 	void Update() override;

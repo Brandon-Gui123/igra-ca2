@@ -50,7 +50,7 @@ void Program::InitializeScenes()
 	scenes.push_back(testScene);
 
 	GameObject* testGameObject{new GameObject{"Player", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one}};
-	GameObject* testGameObject2{ new GameObject{"Lilypad", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one} };
+	GameObject* testGameObject2{ new GameObject{"GameManager", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one} };
 	testScene->gameObjects.push_back(testGameObject);
 	testScene->gameObjects.push_back(testGameObject2);
 	testGameObject->AddComponent<Player>();
