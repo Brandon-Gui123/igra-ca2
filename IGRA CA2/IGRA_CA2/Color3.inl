@@ -1,3 +1,9 @@
+/* Color3.inl
+ * ----------
+ * Inline file to separate function template implementation from the header
+ * file Color3.h
+ */
+
 template<typename T>
 inline Color3<T>::Color3() : red{0}, green{0}, blue{0}
 {}
