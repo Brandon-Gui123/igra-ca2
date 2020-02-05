@@ -122,12 +122,16 @@ public:
 
 #pragma region Post-Update - stuff done after the Update loops
 
+	// Moves the newly-created GameObjects in the currently active scene to the standard GameObjects vector.
 	void MoveNewGOsToMain();
 
+	// Tells the currently loaded scene to tell its GameObjects to call Start on all newly-added components.
 	void DoStartOnAddedComponents();
 	
+	// Removes all GameObjects that are marked for destruction in the currently active scene.
 	void DoDestroyCycle();
 
+	// Queries the time passed since the last Update loop from the internal timer.
 	void QueryDeltaTime();
 
 #pragma endregion
