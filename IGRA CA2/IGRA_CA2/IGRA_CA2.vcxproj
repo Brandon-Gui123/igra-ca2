@@ -213,6 +213,7 @@
   <ItemGroup>
     <None Include="Color3.inl" />
     <None Include="Color4.inl" />
+    <None Include="GameObject.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

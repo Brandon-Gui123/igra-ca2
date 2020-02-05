@@ -179,5 +179,8 @@
     <None Include="Color4.inl">
       <Filter>Source Files\Core</Filter>
     </None>
+    <None Include="GameObject.inl">
+      <Filter>Source Files\Core</Filter>
+    </None>
   </ItemGroup>
 </Project>
