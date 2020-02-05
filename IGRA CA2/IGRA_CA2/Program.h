@@ -56,23 +56,43 @@ public:
 	void DoStartOnAddedComponents();	// Tells the currently loaded scene to tell its GameObjects to call Start on all newly-added components.
 	void MoveNewGOsToMain();	// Moves the newly-created GameObjects in the scene to the standard GameObjects vector.
 	void QueryDeltaTime();
+
 	void StartInternalTimer();
 	
 	void SetupLight();
 
 	void DrawPickableMeshes();
 
-#pragma region Input Handling - sending inputs to Input class
-	
+#pragma region Input Handling - dealing with inputs to Input class
+
+	// Sends the key down event to the Input class for it to handle.
+	// This method serves as an abstraction between the Input class and the WndProc method.
 	void SendKeyDown(const WPARAM &wParam);
+
+	// Sends the key up event to the Input class for it to handle.
+	// This method serves as an abstraction between the Input class and the WndProc method.
 	void SendKeyUp(const WPARAM &wParam);
+
+	// Sends the mouse button down event to the Input class for it to handle.
+	// This method serves as an abstraction between the Input class and the WndProc method.
 	void SendMouseButtonDown(MouseButton mouseButton);
+
+	// Sends the mouse button up event to the Input class for it to handle.
+	// This method serves as an abstraction between the Input class and the WndProc method.
 	void SendMouseButtonUp(MouseButton mouseButton);
+
+	// Sends the mouse position coordinates to the Input class for it to store.
+	// This method serves as an abstraction between the Input class and the WndProc method.
 	void SendMousePosition(int x, int y);
 
+	// Resets the statuses of all keys in the Input class, so that it no longer is down or up for the next frame.
+	// This method serves as an abstraction between the Input class and the WndProc method.
 	void ResetInputKeyUpDownStatus();
 
+	// Resets the statuses of all mouse buttons in the Input class, so that it is no longer down or up for the next frame.
+	// This method serves as an abstraction between the Input class and the WndProc method.
 	void ResetMouseButtonUpDownStatus();
+
 #pragma endregion
 
 #pragma region Messages - calls corresponding methods in GameObjects
