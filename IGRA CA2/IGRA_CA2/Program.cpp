@@ -92,6 +92,9 @@ void Program::ResetMouseButtonUpDownStatus()
 void Program::StartInternalTimer()
 {
 	Time::internalTimer.StartTimer();
+
+	// program starts to run
+	currentPhase = Phase::Running;
 }
 
 void Program::SendKeyDown(const WPARAM &wParam)
@@ -224,4 +227,9 @@ void Program::Draw() {
 	glVertex3f(0, 0, 100);
 
 	glEnd();
+}
+
+const Program::Phase &Program::GetCurrentPhase()
+{
+    return currentPhase;
 }

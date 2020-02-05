@@ -14,8 +14,21 @@ class Scene;
 
 class Program
 {
-private:
 public:
+
+	enum class Phase
+	{
+		Initializing,
+		Running
+	};
+
+
+private:
+
+	Phase currentPhase{Phase::Initializing};
+
+public:
+
 	static Program *program;
 
 	static constexpr int initialWindowWidth{800};
@@ -47,6 +60,8 @@ public:
 	void Start();
 	void Update();
 	void Draw();
+
+	const Phase& GetCurrentPhase();
 
 	friend class GameObject;
 };
