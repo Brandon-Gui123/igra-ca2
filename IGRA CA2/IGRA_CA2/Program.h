@@ -34,6 +34,8 @@ public:
 	static constexpr int initialWindowWidth{800};
 	static constexpr int initialWindowHeight{600};
 
+	GLubyte (*backBufferImage)[initialWindowWidth][3];
+
 	std::vector<Scene*> scenes;
 	Scene *selectedScene;
 	static void CreateCheckerBoardTexture();

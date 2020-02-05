@@ -9,6 +9,8 @@
 #include "LilypadMesh.h"
 #include "Vector3f.h"
 #include "PickableMesh.h"
+#include "ObstacleComponent.h"
+#include "Obstacle.h"
 
 #include "framework.h"
 #include <gl/GL.h>  // OpenGL 32-bit library
@@ -24,6 +26,8 @@ Program *Program::program;
 Program::Program()
 {
 	Program::program = this;
+
+	backBufferImage = new GLubyte[initialWindowHeight][initialWindowWidth][3];
 }
 
 Program::~Program()
@@ -38,6 +42,10 @@ Program::~Program()
 
 	// clear the vector of scene pointers
 	scenes.clear();
+
+	// free up memory occupied by the back buffer image
+	delete[] backBufferImage;
+	backBufferImage = nullptr;
 }
 
 void Program::InitializeScenes()
@@ -58,6 +66,11 @@ void Program::InitializeScenes()
 	testGameObject->mesh = playerMesh;
 	LilypadMesh* lilypadMesh{ new LilypadMesh{} };
 	testGameObject2->mesh = lilypadMesh;
+
+	GameObject* instance{new GameObject{"Obstacle", Vector3f::zero, Vector3f::zero, Vector3f::one}};
+	instance->AddComponent<ObstacleComponent>();
+	instance->mesh = new Obstacle{*instance};
+	testScene->gameObjects.push_back(instance);
 
 	selectedScene = testScene;
 }
@@ -192,6 +205,12 @@ void Program::SetupLight() {
 
 void Program::DrawPickableMeshes()
 {
+	if (PickableMesh::pickableMeshes.empty())
+	{
+		// nothing to draw, so don't bother reading the back buffer
+		return;
+	}
+
 	for (PickableMesh *&pickableMeshPtr : PickableMesh::pickableMeshes)
 	{
 		const GameObject &pickableMeshGameObject{pickableMeshPtr->gameObject};
@@ -200,16 +219,14 @@ void Program::DrawPickableMeshes()
 		pickableMeshPtr->DrawToBackBuffer(pickableMeshGameObject.position, pickableMeshGameObject.rotation, pickableMeshGameObject.scale);
 	}
 
-	auto image = new GLubyte[initialWindowHeight][initialWindowWidth][3];
-
 	// read back buffer to image
 	glReadBuffer(GL_BACK);
-	glReadPixels(0, 0, initialWindowWidth, initialWindowHeight, GL_RGB, GL_UNSIGNED_BYTE, image);
+	glReadPixels(0, 0, initialWindowWidth, initialWindowHeight, GL_RGB, GL_UNSIGNED_BYTE, backBufferImage);
 
 	const Vector2f &mousePosition{Input::GetWindowsMousePosition()};
 
 	const Color4ub colorAtCursor{
-		image[static_cast<int>(initialWindowHeight - mousePosition.y)][static_cast<int>(mousePosition.x)][0],
+		backBufferImage[static_cast<int>(initialWindowHeight - mousePosition.y)][static_cast<int>(mousePosition.x)][0],
 		0,
 		0,
 		1
@@ -225,9 +242,6 @@ void Program::DrawPickableMeshes()
 			return;
 		}
 	}
-
-	// clear the array
-	delete[] image;
 }
 
 void Program::Start() {
