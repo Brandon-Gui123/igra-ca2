@@ -10,6 +10,7 @@
 #include "Vector3f.h"
 #include "PickableMesh.h"
 #include "GameManager.h"
+#include "Camera.h"
 
 #include "framework.h"
 #include <gl/GL.h>  // OpenGL 32-bit library
@@ -50,7 +51,7 @@ Program::~Program()
 void Program::InitializeScenes()
 {
 	/////////////////////////////////INIT INPUT/////////////////////////////////
-
+	
 
 	//////////////////////INIT SCENE OBJECTS AND COMPONENTS//////////////////////
 	Scene* testScene{new Scene{}};
@@ -63,6 +64,7 @@ void Program::InitializeScenes()
 	testScene->gameObjects.push_back(gameManagerGO);
 	testScene->gameObjects.push_back(cameraGO);
 	playerGO->AddComponent<Player>();
+	cameraGO->AddComponent<Camera>();
 	PlayerMesh* playerMesh{ new PlayerMesh{} };
 	playerGO->mesh = playerMesh;
 	LilypadMesh* lilypadMesh{ new LilypadMesh{} };
