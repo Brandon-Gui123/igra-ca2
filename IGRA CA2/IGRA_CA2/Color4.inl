@@ -1,3 +1,9 @@
+/* Color4.inl
+ * ----------
+ * Inline file to separate function template implementation from the header
+ * file Color4.h
+ */
+
 template<typename T>
 inline Color4<T>::Color4() : red{0}, green{0}, blue{0}, alpha{0}
 {}
