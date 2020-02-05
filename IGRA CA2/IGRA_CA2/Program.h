@@ -56,17 +56,24 @@ public:
 	void DoStartOnAddedComponents();	// Tells the currently loaded scene to tell its GameObjects to call Start on all newly-added components.
 	void MoveNewGOsToMain();	// Moves the newly-created GameObjects in the scene to the standard GameObjects vector.
 	void QueryDeltaTime();
-	void ResetInputKeyUpDownStatus();
-	void ResetMouseButtonUpDownStatus();
 	void StartInternalTimer();
+	
+	void SetupLight();
+
+	void DrawPickableMeshes();
+
+#pragma region Input Handling - sending inputs to Input class
+	
 	void SendKeyDown(const WPARAM &wParam);
 	void SendKeyUp(const WPARAM &wParam);
 	void SendMouseButtonDown(MouseButton mouseButton);
 	void SendMouseButtonUp(MouseButton mouseButton);
 	void SendMousePosition(int x, int y);
-	void SetupLight();
 
-	void DrawPickableMeshes();
+	void ResetInputKeyUpDownStatus();
+
+	void ResetMouseButtonUpDownStatus();
+#pragma endregion
 
 #pragma region Messages - calls corresponding methods in GameObjects
 
