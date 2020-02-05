@@ -55,8 +55,6 @@ public:
 
 	
 
-	void DrawPickableMeshes();
-
 #pragma region Initialization - stuff done during initialization
 
 	// Sets up lighting to be used for all scenes.
@@ -137,6 +135,11 @@ public:
 #pragma endregion
 
 	const Phase& GetCurrentPhase();
+#pragma region Back buffer - methods that utilize the back buffer for various purposes
+
+	void DrawPickableMeshes();
+
+#pragma endregion
 
 	
 	// TODO Replace with Texture class
