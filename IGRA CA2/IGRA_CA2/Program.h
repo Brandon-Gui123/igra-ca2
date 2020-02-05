@@ -16,8 +16,8 @@ class Program
 {
 public:
 
-	static constexpr int initialWindowWidth{800};	// The initial width of the window, in pixels.
-	static constexpr int initialWindowHeight{600};	// The initial height of the window, in pixels.
+	static inline constexpr int initialWindowWidth{800};	// The initial width of the window, in pixels.
+	static inline constexpr int initialWindowHeight{600};	// The initial height of the window, in pixels.
 
 	enum class Phase
 	{
