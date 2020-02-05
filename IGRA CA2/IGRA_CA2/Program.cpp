@@ -92,9 +92,6 @@ void Program::ResetMouseButtonUpDownStatus()
 void Program::StartInternalTimer()
 {
 	Time::internalTimer.StartTimer();
-
-	// program starts to run
-	currentPhase = Phase::Running;
 }
 
 void Program::SendKeyDown(const WPARAM &wParam)
@@ -186,6 +183,10 @@ void Program::SetupLight() {
 }
 
 void Program::Start() {
+
+	// the program starts running after start
+	currentPhase = Phase::Running;
+
 	if (selectedScene) selectedScene->Start();
 }
 
