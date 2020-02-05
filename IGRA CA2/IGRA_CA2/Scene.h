@@ -18,6 +18,10 @@ private:
 	// Moves the newly-added GameObjects to the standard GameObjects vector.
 	void MoveNewToMain();
 
+	// Tells all GameObjects in the scene to move newly-added components to the vector
+	// where all components in there have their Start method called
+	void MoveNewComponentsToStartVector();
+
 public:
 
 	Scene();

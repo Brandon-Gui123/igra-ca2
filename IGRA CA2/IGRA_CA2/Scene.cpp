@@ -73,3 +73,12 @@ void Scene::MoveNewToMain()
 
 	newlyAddedGameObjects.clear();
 }
+
+void Scene::MoveNewComponentsToStartVector()
+{
+	for (GameObject *&gameObjectPtr : gameObjects)
+	{
+		gameObjectPtr->MoveNewComponentsToStartVector();
+	}
+}
+
