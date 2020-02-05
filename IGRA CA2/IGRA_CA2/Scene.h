@@ -39,7 +39,10 @@ public:
 	void Draw();
 	void DoDestroyCycle();
 
+	// To allow the Program class to call component-handling methods (e.g. MoveStartedComponentsToMain()).
 	friend class Program;
+
+	// To allow the GameObject class to access the GameObjects in the currently selected scene.
 	friend class GameObject;
 };
 
