@@ -2,6 +2,7 @@
 
 #include "Component.h"	// for class Component (resolve complete class type errors)
 #include "Mesh.h"		// for class Mesh, which allows displaying the GameObject with shapes
+#include "Program.h"	// for accessing Program's current phase
 #include "Scene.h"		// for friending Scene class
 #include "Vector3f.h"	// for class Vector3f, which allows storing positions, rotations and scaling
 
@@ -18,7 +19,25 @@ class GameObject
 {
 private:
 	std::vector<Component*> components{};
+
+	// We're using 2 vectors to deal with newly-added components
+	// so that we can handle the case where new components are added during
+	// Start, which will interfere with iterating the vector since adding
+	// new components to it will invalidate all iterators.
+	std::vector<Component*> newlyAddedComponents{};
+	std::vector<Component*> componentsToStart{};
+
 	bool markedForDestruction{false};
+
+	// Moves the newly-added components from its vector to the
+	// vector of components whose Start must be called.
+	void MoveNewComponentsToStartVector();
+
+	// Moves the components from the Start vector to the main vector.
+	void MoveStartedComponentsToMain();
+
+	// Calls the Start method in all components in the start vector.
+	void ExecuteComponentsInStartVector();
 
 public:
 	// Marks the GameObject for destruction, where the GameObject is
@@ -93,14 +112,54 @@ template<typename T>
 inline T& GameObject::AddComponent()
 {
 	T* instance{new T{*this}};
-	components.push_back(instance);
+
+	if (Program::program->GetCurrentPhase() == Program::Phase::Initializing)
+	{
+		components.push_back(instance);
+	}
+	else
+	{
+		newlyAddedComponents.push_back(instance);
+	}
+
 	return *instance;
 }
 
 template<typename T>
 inline T* GameObject::GetComponent()
 {
+	// search in the standard components vector first
 	for (Component *&component : components)
+	{
+		// attempt to downcast from Component to type T (casting to a more specific type)
+		// if the downcast is successful, we will get the component as type T
+		// if the downcast fails, we will get a null pointer to type T
+		T* instance{dynamic_cast<T*>(component)};
+
+		if (instance != nullptr)
+		{
+			// we already found the component, so return it
+			return instance;
+		}
+	}
+
+	// then search in the components that are about to be Start-ed
+	for (Component *&component : componentsToStart)
+	{
+		// attempt to downcast from Component to type T (casting to a more specific type)
+		// if the downcast is successful, we will get the component as type T
+		// if the downcast fails, we will get a null pointer to type T
+		T* instance{dynamic_cast<T*>(component)};
+
+		if (instance != nullptr)
+		{
+			// we already found the component, so return it
+			return instance;
+		}
+	}
+
+	// and finally, the newly-added components
+	for (Component *&component : newlyAddedComponents)
 	{
 		// attempt to downcast from Component to type T (casting to a more specific type)
 		// if the downcast is successful, we will get the component as type T

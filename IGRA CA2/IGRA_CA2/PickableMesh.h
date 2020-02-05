@@ -4,6 +4,7 @@
 #include "GameObject.h" // for GameObject class
 #include "Mesh.h"       // for Mesh class
 #include "Program.h"    // for friending the Program class and giving it access to the pickableMeshes vector
+#include "Vector3f.h"   // for Vector3f class
 
 #include <vector>       // for std::vector class
 
@@ -26,7 +27,7 @@ public:
 
     void Select();
     
-    virtual void DrawToBackBuffer() = 0;
+    virtual void DrawToBackBuffer(const Vector3f &position, const Vector3f &rotation, const Vector3f &scale) = 0;
 
     friend class Program;
 };
