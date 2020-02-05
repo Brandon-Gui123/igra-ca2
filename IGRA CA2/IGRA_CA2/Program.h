@@ -51,10 +51,7 @@ public:
 	~Program();
 
 
-	void DoDestroyCycle();
-	void DoStartOnAddedComponents();	// Tells the currently loaded scene to tell its GameObjects to call Start on all newly-added components.
-	void MoveNewGOsToMain();	// Moves the newly-created GameObjects in the scene to the standard GameObjects vector.
-	void QueryDeltaTime();
+	
 
 	
 
@@ -120,6 +117,18 @@ public:
 	// This method is intended to call Draw on all GameObjects in the currently loaded scene
 	// so that the GameObjects get to draw their meshes.
 	void Draw();
+
+#pragma endregion
+
+#pragma region Post-Update - stuff done after the Update loops
+
+	void MoveNewGOsToMain();
+
+	void DoStartOnAddedComponents();
+	
+	void DoDestroyCycle();
+
+	void QueryDeltaTime();
 
 #pragma endregion
 
