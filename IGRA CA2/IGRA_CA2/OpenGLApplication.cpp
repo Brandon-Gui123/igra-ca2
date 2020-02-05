@@ -157,10 +157,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // Store instance handle in our global variable
 
-   hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW, 0, 0, Program::initialWindowWidth, Program::initialWindowHeight, nullptr, nullptr, hInstance, nullptr);
+   //hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW, 0, 0, Program::initialWindowWidth, Program::initialWindowHeight, nullptr, nullptr, hInstance, nullptr);
 
    // uncomment and comment the text above to create a window suitable for mouse input
-   // hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW, 0, 0, width + EXTRA_WIDTH, height + EXTRA_HEIGHT, nullptr, nullptr, hInstance, nullptr);
+   hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW, 0, 0, Program::initialWindowWidth + EXTRA_WIDTH, Program::initialWindowHeight + EXTRA_HEIGHT, nullptr, nullptr, hInstance, nullptr);
 
    InitOpenGL();
 
