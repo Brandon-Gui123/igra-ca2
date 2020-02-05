@@ -19,10 +19,12 @@ public:
 	static inline constexpr int initialWindowWidth{800};	// The initial width of the window, in pixels.
 	static inline constexpr int initialWindowHeight{600};	// The initial height of the window, in pixels.
 
+	// An enumeration of phases that the program can be in, such as
+	// when it is initializing objects or running.
 	enum class Phase
 	{
-		Initializing,
-		Running
+		Initializing,	// The program is initializing GameObjects and their components and meshes.
+		Running			// The program is currently running the game.
 	};
 
 private:
