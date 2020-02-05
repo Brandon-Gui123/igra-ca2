@@ -69,6 +69,13 @@ void Program::DoDestroyCycle()
 	}
 }
 
+void Program::DoStartOnAddedComponents()
+{
+	selectedScene->MoveNewComponentsToStartVector();
+	selectedScene->StartAllNewComponents();
+	selectedScene->MoveStartedComponentsToMain();
+}
+
 void Program::MoveNewGOsToMain()
 {
 	selectedScene->MoveNewToMain();
@@ -183,6 +190,10 @@ void Program::SetupLight() {
 }
 
 void Program::Start() {
+
+	// the program starts running after start
+	currentPhase = Phase::Running;
+
 	if (selectedScene) selectedScene->Start();
 }
 
@@ -224,4 +235,9 @@ void Program::Draw() {
 	glVertex3f(0, 0, 100);
 
 	glEnd();
+}
+
+const Program::Phase &Program::GetCurrentPhase()
+{
+    return currentPhase;
 }

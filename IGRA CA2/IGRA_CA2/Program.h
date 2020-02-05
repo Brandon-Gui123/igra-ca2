@@ -14,8 +14,21 @@ class Scene;
 
 class Program
 {
-private:
 public:
+
+	enum class Phase
+	{
+		Initializing,
+		Running
+	};
+
+
+private:
+
+	Phase currentPhase{Phase::Initializing};
+
+public:
+
 	static Program *program;
 
 	static constexpr int initialWindowWidth{800};
@@ -32,6 +45,7 @@ public:
 	void InitializeScenes();
 
 	void DoDestroyCycle();
+	void DoStartOnAddedComponents();	// Tells the currently loaded scene to tell its GameObjects to call Start on all newly-added components.
 	void MoveNewGOsToMain();	// Moves the newly-created GameObjects in the scene to the standard GameObjects vector.
 	void QueryDeltaTime();
 	void ResetInputKeyUpDownStatus();
@@ -47,6 +61,8 @@ public:
 	void Start();
 	void Update();
 	void Draw();
+
+	const Phase& GetCurrentPhase();
 
 	friend class GameObject;
 };

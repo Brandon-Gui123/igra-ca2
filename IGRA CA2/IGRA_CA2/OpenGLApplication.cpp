@@ -108,6 +108,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             program.ResetInputKeyUpDownStatus();
             program.ResetMouseButtonUpDownStatus();
             program.MoveNewGOsToMain();
+            program.DoStartOnAddedComponents();
             program.DoDestroyCycle();
             program.QueryDeltaTime();
         }
