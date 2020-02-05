@@ -2,6 +2,7 @@
 
 #include "Component.h"	// for class Component (resolve complete class type errors)
 #include "Mesh.h"		// for class Mesh, which allows displaying the GameObject with shapes
+#include "Program.h"	// for accessing Program's current phase
 #include "Scene.h"		// for friending Scene class
 #include "Vector3f.h"	// for class Vector3f, which allows storing positions, rotations and scaling
 
@@ -108,7 +109,16 @@ template<typename T>
 inline T& GameObject::AddComponent()
 {
 	T* instance{new T{*this}};
-	components.push_back(instance);
+
+	if (Program::program->GetCurrentPhase() == Program::Phase::Initializing)
+	{
+		components.push_back(instance);
+	}
+	else
+	{
+		newlyAddedComponents.push_back(instance);
+	}
+
 	return *instance;
 }
 
