@@ -50,9 +50,6 @@ public:
 	Program();
 	~Program();
 
-	static void CreateCheckerBoardTexture();
-	static GLubyte placeholderTexture[64][64][3];
-
 	void InitializeScenes();
 
 	void DoDestroyCycle();
@@ -76,5 +73,10 @@ public:
 	void Draw();
 
 	const Phase& GetCurrentPhase();
+
+	
+	// TODO Replace with Texture class
+	static void CreateCheckerBoardTexture();
+	static GLubyte placeholderTexture[64][64][3];
 };
 
