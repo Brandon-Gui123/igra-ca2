@@ -70,8 +70,17 @@ public:
 
 #pragma region Messages - calls corresponding methods in GameObjects
 
+	// Called once right after all scenes, GameObjects and their components have been initialized.
+	// This method is intended to call Start on all GameObjects in the currently loaded scene.
 	void Start();
+
+	// Called once per frame.
+	// This method is intended to call Update on all GameObjects in the currently loaded scene.
 	void Update();
+
+	// Called once per frame, after the Update method. This draws all meshes onto the screen.
+	// This method is intended to call Draw on all GameObjects in the currently loaded scene
+	// so that the GameObjects get to draw their meshes.
 	void Draw();
 
 #pragma endregion
