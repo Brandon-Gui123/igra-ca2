@@ -34,6 +34,8 @@ public:
 	static constexpr int initialWindowWidth{800};
 	static constexpr int initialWindowHeight{600};
 
+	GLubyte (*backBufferImage)[initialWindowWidth][3];
+
 	std::vector<Scene*> scenes;
 	Scene *selectedScene;
 	static void CreateCheckerBoardTexture();
@@ -57,6 +59,8 @@ public:
 	void SendMouseButtonUp(MouseButton mouseButton);
 	void SendMousePosition(int x, int y);
 	void SetupLight();
+
+	void DrawPickableMeshes();
 
 	void Start();
 	void Update();

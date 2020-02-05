@@ -239,6 +239,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_LBUTTONDOWN:
     {
         program.SendMouseButtonDown(MouseButton::Left);
+        program.DrawPickableMeshes();
         break;
     }
     case WM_LBUTTONUP:
