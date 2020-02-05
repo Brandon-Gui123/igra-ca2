@@ -90,3 +90,10 @@ void Scene::StartAllNewComponents()
 	}
 }
 
+void Scene::MoveStartedComponentsToMain()
+{
+	for (GameObject *&gameObjectPtr : gameObjects)
+	{
+		gameObjectPtr->MoveStartedComponentsToMain();
+	}
+}
