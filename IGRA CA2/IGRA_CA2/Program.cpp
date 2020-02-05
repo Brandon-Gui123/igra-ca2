@@ -59,7 +59,7 @@ void Program::InitializeScenes()
 
 	GameObject* playerGO{new GameObject{"Player", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one}};
 	GameObject* gameManagerGO{ new GameObject{"GameManager", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one} };
-	GameObject* cameraGO{ new GameObject{"Camera", Vector3f{10, 10, 10}, Vector3f{0, -135, -45}, Vector3f::one} };
+	GameObject* cameraGO{ new GameObject{"Camera", Vector3f{10, 10, 10}, Vector3f{0, -135, -40}, Vector3f::one} };
 	testScene->gameObjects.push_back(playerGO);
 	testScene->gameObjects.push_back(gameManagerGO);
 	testScene->gameObjects.push_back(cameraGO);
