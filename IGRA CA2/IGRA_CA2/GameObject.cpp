@@ -47,7 +47,7 @@ GameObject* GameObject::Find(std::string n)
 {
 	std::vector<GameObject*> &gos = Program::program->selectedScene->gameObjects;
 	for (std::vector<GameObject*>::iterator it = gos.begin(); it != gos.end(); ++it) {
-		if (n.compare((*it)->name)) {
+		if (n.compare((*it)->name) == 0) {
 			return (*it);
 		}
 	}
