@@ -16,12 +16,14 @@ class Program
 {
 public:
 
+	static constexpr int initialWindowWidth{800};	// The initial width of the window, in pixels.
+	static constexpr int initialWindowHeight{600};	// The initial height of the window, in pixels.
+
 	enum class Phase
 	{
 		Initializing,
 		Running
 	};
-
 
 private:
 
@@ -31,9 +33,6 @@ private:
 public:
 
 	static Program *program;
-
-	static constexpr int initialWindowWidth{800};
-	static constexpr int initialWindowHeight{600};
 
 	GLubyte (*backBufferImage)[initialWindowWidth][3];
 
