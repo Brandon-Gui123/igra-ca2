@@ -33,11 +33,16 @@ private:
 
 	GameObject *camera;
 
+	// A dynamically-allocated three-dimensional array (height, row and color channel values) that
+	// stores the colour values of what is shown on screen in the program.
+	//
+	// The reason it is dynamically-allocated is because storing this on the stack will cause a stack overflow
+	// since the array is too huge for the stack to handle.
+	GLubyte (*backBufferImage)[initialWindowWidth][3];
+
 public:
 
 	static Program *program;
-
-	GLubyte (*backBufferImage)[initialWindowWidth][3];
 
 	std::vector<Scene*> scenes;
 	Scene *selectedScene;
