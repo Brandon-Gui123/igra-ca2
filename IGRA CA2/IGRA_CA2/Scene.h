@@ -22,6 +22,9 @@ private:
 	// where all components in there have their Start method called
 	void MoveNewComponentsToStartVector();
 
+	// Tells all GameObjects in the scene to Start all components in the start vector
+	void StartAllNewComponents();
+
 public:
 
 	Scene();

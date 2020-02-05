@@ -82,3 +82,11 @@ void Scene::MoveNewComponentsToStartVector()
 	}
 }
 
+void Scene::StartAllNewComponents()
+{
+	for (GameObject *&gameObjectPtr : gameObjects)
+	{
+		gameObjectPtr->ExecuteComponentsInStartVector();
+	}
+}
+
