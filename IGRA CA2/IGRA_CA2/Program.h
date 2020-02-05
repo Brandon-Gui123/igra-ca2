@@ -50,10 +50,7 @@ public:
 	Program();
 	~Program();
 
-
-	
-
-	
+	const Phase& GetCurrentPhase();
 
 #pragma region Initialization - stuff done during initialization
 
@@ -134,7 +131,6 @@ public:
 
 #pragma endregion
 
-	const Phase& GetCurrentPhase();
 #pragma region Back buffer - methods that utilize the back buffer for various purposes
 
 	// Draws all pickable meshes into the back buffer, then checks to see which mesh is the one that is selected by the mouse.
@@ -145,7 +141,6 @@ public:
 
 #pragma endregion
 
-	
 	// TODO Replace with Texture class
 	static void CreateCheckerBoardTexture();
 	static GLubyte placeholderTexture[64][64][3];
