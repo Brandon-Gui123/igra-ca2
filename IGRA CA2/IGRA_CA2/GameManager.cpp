@@ -4,17 +4,21 @@
 #include "GameObject.h"
 #include "Scene.h"
 #include "LilypadMesh.h"
+#include "Player.h"
 
 #include <vector>
 #include <time.h>
 #include <functional>
-
 
 void GameManager::Start()
 {
 	/*GameObject &instance{ GameObject::Create("test", Vector3f{ 1, 0, 0 }, Vector3f{ 0, 0, 0 }, Vector3f::one) };
 	LilypadMesh* lilypadMesh{ new LilypadMesh{} };
 	instance.mesh = lilypadMesh;*/
+	currentMap = 0;
+	latestMap = 0;
+
+	player = GameObject::Find("Player");
 
 	srand(time(0));
 
@@ -33,8 +37,23 @@ void GameManager::Start()
 }
 
 //Called when player makes a jump
-void GameManager::PlayerLand()
+void GameManager::PlayerLand(bool left)
 {
+	int landedLily = map.at(currentMap);
+	bool landed;
+
+	if (landedLily == 0 || landedLily == 2) {
+		landed = left;
+	} else{
+		landed = !left;
+	}
+
+	if (!landed) {
+		player->GetComponent<Player>()->Die();
+	}
+
+	currentMap++;
+	currentLilyPad = lilyPads.at(currentMap);
 }
 
 void GameManager::CreateNextLilyPad()

@@ -4,10 +4,13 @@
 #include "Vector3f.h"
 #include "GameManager.h"
 
+class GameManager;
+
 class Player : public Component
 {
 private:
 	bool isJumping;
+	bool dead;
 	float jumpTimer;
 	void JumpStart(bool left);
 	void Jump();
@@ -18,6 +21,7 @@ private:
 public:
 	void Update() override;
 	void Start() override;
+	void Die();
 
 	float speed = 3.0f;
 

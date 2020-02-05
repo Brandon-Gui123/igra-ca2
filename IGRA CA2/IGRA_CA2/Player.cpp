@@ -20,6 +20,12 @@ Player::~Player()
 void Player::Start()
 {
 	gameManager = GameObject::Find("GameManager")->GetComponent<GameManager>();
+	dead = false;
+}
+
+void Player::Die()
+{
+	dead = true;
 }
 
 void Player::JumpStart(bool left) {
@@ -52,24 +58,31 @@ void Player::Jump() {
 		jumpTimer = 0;
 		gameObject.position = PrevPos + direction;
 		gameObject.position.y = 0;
-		gameManager->PlayerLand();
+		bool left;
+		if (direction.x != 0) {
+			left = false;
+		} else{
+			left = true;
+		}
+		gameManager->PlayerLand(left);
 	}
 }
 
 void Player::Update()
 {
-	if (isJumping) {
-		Jump();
-	}
+	if (!dead) {
+		if (isJumping) {
+			Jump();
+		}
 
-	if (Input::GetKeyDown(KeyCode::A)) {
-		JumpStart(true);
-	}
+		if (Input::GetKeyDown(KeyCode::A)) {
+			JumpStart(true);
+		}
 
-	if (Input::GetKeyDown(KeyCode::D)) {
-		JumpStart(false);
+		if (Input::GetKeyDown(KeyCode::D)) {
+			JumpStart(false);
+		}
 	}
-
 	/*Vector3f delta(Input::GetAxis(Input::x), 0, Input::GetAxis(Input::y));
 	Vector3f newPos = delta.GetNormalized() * speed * Time::GetDeltaTime() + gameObject.position;
 	gameObject.position = newPos;*/

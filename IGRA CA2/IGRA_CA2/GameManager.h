@@ -1,5 +1,6 @@
 #pragma once
 #include "Component.h"
+#include "Player.h"
 
 #include <vector>
 
@@ -11,6 +12,7 @@ private:
 	GameObject * currentLilyPad;
 	//Latest Lilypad Drawn to Screen
 	GameObject * latestLilyPad;
+	GameObject * player;
 	int currentMap;
 	int latestMap;
 	//Stores future map data
@@ -22,8 +24,10 @@ private:
 public:
 	void Update() override;
 	void Start() override;
-	void PlayerLand();
+	void PlayerLand(bool left);
 	GameManager(GameObject &go);
 	~GameManager();
+
+	friend class Player;
 };
 
