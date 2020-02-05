@@ -58,6 +58,8 @@ public:
 	void SendMousePosition(int x, int y);
 	void SetupLight();
 
+	void DrawPickableMeshes();
+
 	void Start();
 	void Update();
 	void Draw();

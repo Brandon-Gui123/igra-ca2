@@ -8,6 +8,7 @@
 #include "PlayerMesh.h"
 #include "LilypadMesh.h"
 #include "Vector3f.h"
+#include "PickableMesh.h"
 
 #include "framework.h"
 #include <gl/GL.h>  // OpenGL 32-bit library
@@ -187,6 +188,46 @@ void Program::SetupLight() {
 	glLightfv(GL_LIGHT0, GL_SPECULAR, LightSpecular);
 	glLightfv(GL_LIGHT0, GL_POSITION, LightPosition);
 	glEnable(GL_LIGHT0);
+}
+
+void Program::DrawPickableMeshes()
+{
+	for (PickableMesh *&pickableMeshPtr : PickableMesh::pickableMeshes)
+	{
+		const GameObject &pickableMeshGameObject{pickableMeshPtr->gameObject};
+
+		// draw the pickable mesh at its GameObject's position
+		pickableMeshPtr->DrawToBackBuffer(pickableMeshGameObject.position, pickableMeshGameObject.rotation, pickableMeshGameObject.scale);
+	}
+
+	auto image = new GLubyte[initialWindowHeight][initialWindowWidth][3];
+
+	// read back buffer to image
+	glReadBuffer(GL_BACK);
+	glReadPixels(0, 0, initialWindowWidth, initialWindowHeight, GL_RGB, GL_UNSIGNED_BYTE, image);
+
+	const Vector2f &mousePosition{Input::GetWindowsMousePosition()};
+
+	const Color4ub colorAtCursor{
+		image[static_cast<int>(initialWindowHeight - mousePosition.y)][static_cast<int>(mousePosition.x)][0],
+		0,
+		0,
+		1
+	};
+
+	// compare the clicked colour with all our other pickable meshes to
+	// see which one we select
+	for (PickableMesh *&pickableMeshPtr : PickableMesh::pickableMeshes)
+	{
+		if (colorAtCursor.red == pickableMeshPtr->pickingColor.red)
+		{
+			pickableMeshPtr->Select();
+			return;
+		}
+	}
+
+	// clear the array
+	delete[] image;
 }
 
 void Program::Start() {
