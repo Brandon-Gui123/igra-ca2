@@ -29,6 +29,8 @@ public:
     
     virtual void DrawToBackBuffer(const Vector3f &position, const Vector3f &rotation, const Vector3f &scale) = 0;
 
+    // To allow the Program class to access the static vector of PickableMeshes objects
+    // so that it can draw all pickable meshes to the back buffer.
     friend class Program;
 };
 

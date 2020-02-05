@@ -68,7 +68,5 @@ public:
 	void Draw();
 
 	const Phase& GetCurrentPhase();
-
-	friend class GameObject;
 };
 

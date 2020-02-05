@@ -105,6 +105,8 @@ public:
 
 #pragma endregion
 
+	// To allow the scene to call the private methods in GameObject, especially the ones
+	// that handle components.
 	friend class Scene;
 };
 
