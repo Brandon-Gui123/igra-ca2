@@ -21,5 +21,15 @@ public:
     ~Material();
 
     void SetMaterial();
+
+    Color4f GetAmbient();
+    Color4f GetDiffuse();
+    Color4f GetSpecular();
+    GLfloat GetShininess();
+
+    void SetAmbient(const Color4f &newAmbient);
+    void SetDiffuse(const Color4f &newDiffuse);
+    void SetSpecular(const Color4f &newSpecular);
+    void SetShininess(const GLfloat &newShininess);
 };
 
