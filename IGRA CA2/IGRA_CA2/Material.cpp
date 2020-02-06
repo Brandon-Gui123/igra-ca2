@@ -50,3 +50,31 @@ GLfloat Material::GetShininess()
     return shininess;
 }
 
+void Material::SetAmbient(const Color4f &newAmbient)
+{
+    ambient[0] = newAmbient.red;
+    ambient[1] = newAmbient.green;
+    ambient[2] = newAmbient.blue;
+    ambient[3] = newAmbient.alpha;
+}
+
+void Material::SetDiffuse(const Color4f &newDiffuse)
+{
+    diffuse[0] = newDiffuse.red;
+    diffuse[1] = newDiffuse.green;
+    diffuse[2] = newDiffuse.blue;
+    diffuse[3] = newDiffuse.alpha;
+}
+
+void Material::SetSpecular(const Color4f &newSpecular)
+{
+    specular[0] = newSpecular.red;
+    specular[1] = newSpecular.green;
+    specular[2] = newSpecular.blue;
+    specular[3] = newSpecular.alpha;
+}
+
+void Material::SetShininess(const GLfloat &newShininess)
+{
+    shininess = newShininess;
+}
