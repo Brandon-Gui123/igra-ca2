@@ -29,3 +29,24 @@ void Material::SetMaterial()
     glMaterialfv(GL_FRONT, GL_SPECULAR, this->specular);
     glMaterialf(GL_FRONT, GL_SHININESS, this->shininess);
 }
+
+Color4f Material::GetAmbient()
+{
+    return Color4f(ambient[0], ambient[1], ambient[2], ambient[3]);
+}
+
+Color4f Material::GetDiffuse()
+{
+    return Color4f(diffuse[0], diffuse[1], diffuse[2], diffuse[3]);
+}
+
+Color4f Material::GetSpecular()
+{
+    return Color4f(specular[0], specular[1], specular[2], specular[3]);
+}
+
+GLfloat Material::GetShininess()
+{
+    return shininess;
+}
+
