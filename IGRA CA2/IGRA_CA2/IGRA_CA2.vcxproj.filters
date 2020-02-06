@@ -111,6 +111,9 @@
     <ClInclude Include="Camera.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
+    <ClInclude Include="Lily.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Component.cpp">
@@ -168,6 +171,9 @@
       <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Lily.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
   </ItemGroup>

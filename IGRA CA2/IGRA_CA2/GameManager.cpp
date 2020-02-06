@@ -5,6 +5,7 @@
 #include "Scene.h"
 #include "LilypadMesh.h"
 #include "Player.h"
+#include "Lily.h"
 
 #include <vector>
 #include <time.h>
@@ -51,9 +52,14 @@ void GameManager::PlayerLand(bool left)
 	if (!landed) {
 		player->GetComponent<Player>()->Die();
 	}
-
+	Lily * dLily = currentLilyPad->GetComponent<Lily>();
+	if (dLily) {
+		dLily->Drop();
+	}
 	currentMap++;
 	currentLilyPad = lilyPads.at(currentMap);
+	map.push_back(rand() % 4);
+	CreateNextLilyPad();
 }
 
 void GameManager::CreateNextLilyPad()
@@ -78,6 +84,7 @@ void GameManager::CreateNextLilyPad()
 	GameObject &instance{ GameObject::Create("lily", nextPos, Vector3f{ 0, (float)(rand() % 360), 0 }, Vector3f::one) };
 	LilypadMesh* lilypadMesh{ new LilypadMesh{} };
 	instance.mesh = lilypadMesh;
+	instance.AddComponent<Lily>();
 
 	lilyPads.push_back(&instance);
 	latestLilyPad = &instance;
