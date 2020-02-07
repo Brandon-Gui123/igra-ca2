@@ -9,6 +9,7 @@ private:
 	bool isDropping;
 	float dropTimer;
 public:
+	bool hasObstacle{false};
 	void Start() override;
 	void Update() override;
 	void Drop();
