@@ -14,6 +14,8 @@ private:
 
     static std::vector<PickableMesh*> pickableMeshes;
 
+    bool markedForDestruction{false};
+
 protected:
 
     Color4ub pickingColor;
