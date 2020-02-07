@@ -8,3 +8,6 @@ Obstacle::Obstacle(GameObject &gameObject) : Component{gameObject}
 Obstacle::~Obstacle()
 {}
 
+void Obstacle::OnGameObjectSelected()
+{
+}
