@@ -7,4 +7,6 @@ class Obstacle : public Component
 {
 public:
     Obstacle(GameObject &gameObject);
+    ~Obstacle();
+
 };
