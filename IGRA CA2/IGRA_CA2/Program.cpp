@@ -89,6 +89,25 @@ void Program::DoStartOnAddedComponents()
 	selectedScene->MoveStartedComponentsToMain();
 }
 
+void Program::DoDestroyCycleForPickableMeshes()
+{
+	std::vector<PickableMesh*>::iterator iterator{PickableMesh::pickableMeshes.begin()};
+
+	while (iterator != PickableMesh::pickableMeshes.end())
+	{
+		if ((*iterator)->markedForDestruction)
+		{
+			// to ensure that everything is freed
+			(*iterator)->~PickableMesh();
+			iterator = PickableMesh::pickableMeshes.erase(iterator);
+		}
+		else
+		{
+			++iterator;
+		}
+	}
+}
+
 void Program::MoveNewGOsToMain()
 {
 	selectedScene->MoveNewToMain();
