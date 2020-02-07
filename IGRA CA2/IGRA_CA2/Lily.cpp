@@ -17,7 +17,7 @@ void Lily::Update()
 		dropTimer -= Time::GetDeltaTime();
 		if (dropTimer <= 0) {
 			isDropping = false;
-			GameObject::Destory(gameObject);
+			GameObject::Destroy(gameObject);
 		}
 	}
 }
