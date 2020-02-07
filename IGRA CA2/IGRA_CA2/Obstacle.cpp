@@ -10,4 +10,5 @@ Obstacle::~Obstacle()
 
 void Obstacle::OnGameObjectSelected()
 {
+    GameObject::Destroy(gameObject);
 }
