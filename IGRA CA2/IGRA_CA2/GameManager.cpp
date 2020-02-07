@@ -6,6 +6,8 @@
 #include "LilypadMesh.h"
 #include "Player.h"
 #include "Lily.h"
+#include "Obstacle.h"		// for Obstacle component class
+#include "ObstacleMesh.h"	// for Obstacle mesh class
 
 #include <vector>
 #include <time.h>
@@ -85,6 +87,14 @@ void GameManager::CreateNextLilyPad()
 	LilypadMesh* lilypadMesh{ new LilypadMesh{} };
 	instance.mesh = lilypadMesh;
 	instance.AddComponent<Lily>();
+
+	if ((static_cast<float>(rand()) / RAND_MAX) > 0.5f)
+	{
+		instance.GetComponent<Lily>()->hasObstacle = true;
+		GameObject &obstacle{GameObject::Create("Obstacle", nextPos, Vector3f{-90.f, 0.f, 0.f}, Vector3f::one)};
+		obstacle.mesh = new ObstacleMesh{obstacle};
+		obstacle.AddComponent<Obstacle>();
+	}
 
 	lilyPads.push_back(&instance);
 	latestLilyPad = &instance;
