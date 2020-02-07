@@ -11,6 +11,8 @@
 #include "PickableMesh.h"
 #include "GameManager.h"
 #include "Camera.h"
+#include "ObstacleMesh.h"
+#include "Obstacle.h"
 
 #include "framework.h"
 #include <gl/GL.h>  // OpenGL 32-bit library
@@ -70,6 +72,12 @@ void Program::InitializeScenes()
 	LilypadMesh* lilypadMesh{ new LilypadMesh{} };
 	gameManagerGO->mesh = lilypadMesh;
 	gameManagerGO->AddComponent<GameManager>();
+
+	GameObject *obstacle{new GameObject{"Obstacle", Vector3f::zero, Vector3f{-90.f, 0.f, 0.f}, Vector3f::one}};
+	obstacle->AddComponent<Obstacle>();
+	obstacle->mesh = new ObstacleMesh{*obstacle};
+	testScene->gameObjects.push_back(obstacle);
+
 	selectedScene = testScene;
 	camera = cameraGO;
 }
