@@ -11,7 +11,10 @@ ObstacleMesh::~ObstacleMesh()
 {}
 
 void ObstacleMesh::DrawShape()
-{}
+{
+    obstacleMaterial.SetMaterial();
+    gluCylinder(quadric, 0.25, 0.25, 1, 12, 12);
+}
 
 void ObstacleMesh::DrawToBackBuffer(const Vector3f & position, const Vector3f & rotation, const Vector3f & scale)
 {}
