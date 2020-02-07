@@ -109,6 +109,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             program.ResetMouseButtonUpDownStatus();
             program.MoveNewGOsToMain();
             program.DoStartOnAddedComponents();
+            program.DoDestroyCycleForPickableMeshes();
             program.DoDestroyCycle();
             program.QueryDeltaTime();
         }
