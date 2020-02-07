@@ -13,3 +13,5 @@ ObstacleMesh::~ObstacleMesh()
 void ObstacleMesh::DrawShape()
 {}
 
+void ObstacleMesh::DrawToBackBuffer(const Vector3f & position, const Vector3f & rotation, const Vector3f & scale)
+{}

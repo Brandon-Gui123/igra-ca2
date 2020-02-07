@@ -19,5 +19,6 @@ public:
 
     virtual void DrawShape() override;
 
+    virtual void DrawToBackBuffer(const Vector3f &position, const Vector3f &rotation, const Vector3f &scale) override;
 };
 
