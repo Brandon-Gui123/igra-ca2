@@ -114,6 +114,9 @@
     <ClInclude Include="Lily.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
+    <ClInclude Include="ObstacleMesh.h">
+      <Filter>Header Files\Meshes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Component.cpp">
@@ -175,6 +178,9 @@
     </ClCompile>
     <ClCompile Include="Lily.cpp">
       <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ObstacleMesh.cpp">
+      <Filter>Source Files\Meshes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
