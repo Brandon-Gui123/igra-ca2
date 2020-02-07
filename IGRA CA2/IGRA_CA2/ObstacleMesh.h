@@ -17,5 +17,7 @@ public:
     ObstacleMesh(GameObject &gameObject);
     ~ObstacleMesh();
 
+    virtual void DrawShape() override;
+
 };
 

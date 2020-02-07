@@ -10,3 +10,6 @@ ObstacleMesh::ObstacleMesh(GameObject &gameObject) : PickableMesh{gameObject}, q
 ObstacleMesh::~ObstacleMesh()
 {}
 
+void ObstacleMesh::DrawShape()
+{}
+
