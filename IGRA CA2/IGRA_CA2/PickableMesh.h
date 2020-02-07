@@ -34,5 +34,9 @@ public:
     // To allow the Program class to access the static vector of PickableMeshes objects
     // so that it can draw all pickable meshes to the back buffer.
     friend class Program;
+
+    // To allow the GameObject class to also mark the pickable mesh for destruction if its
+    // GameObject is marked for destruction.
+    friend class GameObject;
 };
 
