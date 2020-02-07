@@ -117,6 +117,9 @@
     <ClInclude Include="ObstacleMesh.h">
       <Filter>Header Files\Meshes</Filter>
     </ClInclude>
+    <ClInclude Include="Obstacle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Component.cpp">
@@ -181,6 +184,9 @@
     </ClCompile>
     <ClCompile Include="ObstacleMesh.cpp">
       <Filter>Source Files\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="Obstacle.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
