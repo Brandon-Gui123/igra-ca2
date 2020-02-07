@@ -13,5 +13,7 @@ private:
 
     GLUquadric *quadric;
 
+public:
+    ObstacleMesh(GameObject &gameObject);
 };
 
