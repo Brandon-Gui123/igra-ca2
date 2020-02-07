@@ -125,6 +125,9 @@ public:
 	// Tells the currently loaded scene to tell its GameObjects to call Start on all newly-added components.
 	void DoStartOnAddedComponents();
 	
+	// Removes all PickableMeshes from GameObjects that are going to be destroyed.
+	void DoDestroyCycleForPickableMeshes();
+
 	// Removes all GameObjects that are marked for destruction in the currently active scene.
 	void DoDestroyCycle();
 

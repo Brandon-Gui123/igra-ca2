@@ -1,6 +1,7 @@
 #include "GameObject.h"
 
 #include "Component.h"      // for Component class
+#include "PickableMesh.h"	// for PickableMesh class
 #include "Program.h"		// for Program class
 #include "Scene.h"			// for Scene class
 
@@ -41,6 +42,19 @@ void GameObject::Destroy(GameObject &gameObject)
 {
 	Program::program->selectedScene->hasGameObjectsToDestroy = true;
 	gameObject.markedForDestruction = true;
+
+	// only do the procedure if there's a mesh attached to the GameObject
+	if (gameObject.mesh != nullptr)
+	{
+		PickableMesh *pickableMesh{dynamic_cast<PickableMesh*>(gameObject.mesh)};
+
+		// if pickableMesh is not a null pointer, it means that the GameObject's mesh
+		// inherits PickableMesh class in some way
+		if (pickableMesh != nullptr)
+		{
+			pickableMesh->markedForDestruction = true;
+		}
+	}
 }
 
 GameObject* GameObject::Find(std::string n)
