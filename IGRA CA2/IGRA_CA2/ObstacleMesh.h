@@ -1,6 +1,8 @@
 #pragma once
 
+#include "Color4.h"         // for Color4f, a type alias of Color4 which uses GLfloats
 #include "GameObject.h"     // for GameObject class
+#include "Material.h"       // for Material class
 #include "PickableMesh.h"   // to inherit from base class PickableMesh
 
 #include "framework.h"      // to define the Windows stuff inside the OpenGL library
@@ -12,6 +14,7 @@ class ObstacleMesh : public PickableMesh
 private:
 
     GLUquadric *quadric;
+    Material obstacleMaterial{Color4f{1.f, 0.f, 0.f, 1.f}, Color4f{1.f, 0.f, 0.f, 1.f}, Color4f{1.f, 1.f, 1.f, 1.f}, 32};
 
 public:
     ObstacleMesh(GameObject &gameObject);
