@@ -15,5 +15,7 @@ private:
 
 public:
     ObstacleMesh(GameObject &gameObject);
+    ~ObstacleMesh();
+
 };
 

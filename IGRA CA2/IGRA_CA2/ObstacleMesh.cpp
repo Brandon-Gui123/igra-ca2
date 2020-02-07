@@ -7,3 +7,6 @@
 ObstacleMesh::ObstacleMesh(GameObject &gameObject) : PickableMesh{gameObject}, quadric{gluNewQuadric()}
 {}
 
+ObstacleMesh::~ObstacleMesh()
+{}
+
