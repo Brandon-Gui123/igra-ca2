@@ -1,26 +1,27 @@
 #include "Program.h"
 
-#include "GameObject.h"
-#include "Input.h"			// for Input class
-#include "Scene.h"
+#include "Input.h"			// Input class
+#include "GameObject.h"		// GameObject class
+#include "PickableMesh.h"	// PickableMesh class
+#include "Scene.h"			// Scene class
+#include "Vector3f.h"		// Vector3f class
+
 #include "TestComponent.h"
 #include "Player.h"
 #include "PlayerMesh.h"
 #include "LilypadMesh.h"
-#include "Vector3f.h"
-#include "PickableMesh.h"
 #include "GameManager.h"
 #include "Camera.h"
 #include "ObstacleMesh.h"
 #include "Obstacle.h"
 
-#include "framework.h"
-#include <gl/GL.h>  // OpenGL 32-bit library
-#include <gl/GLU.h> // OpenGL Utilities 32-bit library
+#include "framework.h"		// to define the Windows stuff in gl/GL.h
+#include <gl/GL.h>			// OpenGL 32-bit library
+#include <gl/GLU.h>			// OpenGL Utilities 32-bit library
 
-#include <iostream>   // std::cout
-#include <string>     // std::string, std::to_string
-#include <vector>
+#include <iostream>			// std::cout
+#include <string>			// std::string, std::to_string
+#include <vector>			// std::vector
 
 GLubyte Program::placeholderTexture[64][64][3];
 Program *Program::program;
