@@ -147,7 +147,7 @@ public:
 #pragma endregion
 
 	// TODO Replace with Texture class
-	static void CreateCheckerBoardTexture();
-	static GLubyte placeholderTexture[64][64][3];
+	static void CreateWoodTexture();
+	static GLubyte woodTexture[64][64][3];
 };
 
