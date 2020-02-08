@@ -11,6 +11,8 @@ Player::Player(GameObject &go) : Component(go)
 {
 	isJumping = false;
 	jumpTimer = 0;
+	isDropping = false;
+	dropTimer = 0.5f;
 }
 
 Player::~Player()
@@ -26,6 +28,7 @@ void Player::Start()
 void Player::Die()
 {
 	dead = true;
+	isDropping = true;
 }
 
 void Player::JumpStart(bool left) {
@@ -81,6 +84,15 @@ void Player::Update()
 
 		if (Input::GetKeyDown(KeyCode::D)) {
 			JumpStart(false);
+		}
+	}
+
+	if (isDropping) {
+		gameObject.position += Vector3f{ 0, -3, 0 } *Time::GetDeltaTime();
+		gameObject.rotation += Vector3f{ 180, 0, 0 } *Time::GetDeltaTime();
+		dropTimer -= Time::GetDeltaTime();
+		if (dropTimer <= 0) {
+			isDropping = false;
 		}
 	}
 	/*Vector3f delta(Input::GetAxis(Input::x), 0, Input::GetAxis(Input::y));

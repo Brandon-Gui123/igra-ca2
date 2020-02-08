@@ -11,7 +11,9 @@ class Player : public Component
 private:
 	bool isJumping;
 	bool dead;
+	bool isDropping;
 	float jumpTimer;
+	float dropTimer;
 	void JumpStart(bool left);
 	void Jump();
 	Vector3f PrevPos;
