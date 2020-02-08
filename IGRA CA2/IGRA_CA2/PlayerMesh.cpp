@@ -68,8 +68,7 @@ void PlayerMesh::DrawShape()
 
 	glEnable(GL_CULL_FACE);
 	glFrontFace(GL_CW); // Front face is clockwise
-	glPolygonMode(GL_FRONT, GL_FILL);
-	glEnable(GL_TEXTURE_2D);
+	glPolygonMode(GL_FRONT, GL_FILL);//glEnable(GL_TEXTURE_2D);
 	int index = 0;
 
 	/////////// HEAD ////////////
@@ -115,7 +114,6 @@ void PlayerMesh::DrawShape()
 	glEnable(GL_CULL_FACE);
 	glFrontFace(GL_CW); // Front face is clockwise
 	glPolygonMode(GL_FRONT, GL_FILL);
-	glEnable(GL_TEXTURE_2D);
 
 	/////////// BEAK ////////////
 	index = 0;
@@ -179,7 +177,7 @@ void PlayerMesh::DrawShape()
 	glEnable(GL_CULL_FACE);
 	glFrontFace(GL_CW); // Front face is clockwise
 	glPolygonMode(GL_FRONT, GL_FILL);
-	glEnable(GL_TEXTURE_2D);
+
 
 	/////////// EYE1 ////////////
 	index = 0;
@@ -215,7 +213,6 @@ void PlayerMesh::DrawShape()
 		glEnd();
 	}
 
-	glDisable(GL_TEXTURE_2D);
 	glDisable(GL_CULL_FACE);
 	glPopMatrix();
 }
