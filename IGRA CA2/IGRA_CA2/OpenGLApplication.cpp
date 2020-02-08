@@ -58,6 +58,7 @@ ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
+INT_PTR CALLBACK    Credits(HWND, UINT, WPARAM, LPARAM);
 void ReSizeGLScene(GLsizei width, GLsizei height);
 int InitOpenGL();
 void DrawGLScene();
@@ -204,6 +205,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             case IDM_EXIT:
                 DestroyWindow(hWnd);
                 break;
+
+            case ID_INFO_CREDITS:
+                DialogBox(hInst, MAKEINTRESOURCE(IDD_CREDITS), hWnd, Credits);
+                break;
+
             default:
                 return DefWindowProc(hWnd, message, wParam, lParam);
             }
@@ -293,6 +299,25 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
             return (INT_PTR)TRUE;
         }
         break;
+    }
+    return (INT_PTR)FALSE;
+}
+
+INT_PTR CALLBACK Credits(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+    UNREFERENCED_PARAMETER(lParam);
+    switch (message)
+    {
+        case WM_INITDIALOG:
+            return (INT_PTR)TRUE;
+
+        case WM_COMMAND:
+            if (LOWORD(wParam) == IDCLOSE || LOWORD(wParam) == IDCANCEL)
+            {
+                EndDialog(hDlg, LOWORD(wParam));
+                return (INT_PTR)TRUE;
+            }
+            break;
     }
     return (INT_PTR)FALSE;
 }
