@@ -26,29 +26,34 @@ void GameManager::Start()
 	srand(time(0));
 
 	//Generate Map
-	for (int i = 0; i < 100; i++) {
-		map.push_back(rand() % 4);
+	for (int i = 0; i < 20; i++) {
+		if (rand() % 2 == 1) {
+			map.push_back(left);
+		}
+		else {
+			map.push_back(right);
+		}
 	}
 
 	lilyPads.push_back(&gameObject);
 	currentLilyPad = &gameObject;
 	latestLilyPad = &gameObject;
 
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < 20; i++) {
 		CreateNextLilyPad();
 	}
 }
 
 //Called when player makes a jump
-void GameManager::PlayerLand(bool left)
+void GameManager::PlayerLand(bool mleft)
 {
 	int landedLily = map.at(currentMap);
 	bool landed;
 
-	if (landedLily == 0 || landedLily == 2) {
-		landed = left;
+	if (landedLily == left) {
+		landed = mleft;
 	} else{
-		landed = !left;
+		landed = !mleft;
 	}
 
 	if (!landed) {
@@ -60,7 +65,12 @@ void GameManager::PlayerLand(bool left)
 	}
 	currentMap++;
 	currentLilyPad = lilyPads.at(currentMap);
-	map.push_back(rand() % 4);
+	if (rand() % 2 == 1) {
+		map.push_back(left);
+	}
+	else {
+		map.push_back(right);
+	}
 	CreateNextLilyPad();
 }
 
@@ -69,16 +79,10 @@ void GameManager::CreateNextLilyPad()
 	Vector3f nextPos = latestLilyPad->position;
 	//0 = left, 1  right, 2 = left + obstacle, 3 = right + obstacle
 	switch (map.at(latestMap)) {
-		case 0:
+		case left:
 			nextPos += Vector3f{ 0, 0, 2 };
 			break;
-		case 1:
-			nextPos += Vector3f{ 2, 0, 0 };
-			break;
-		case 2:
-			nextPos += Vector3f{ 0, 0, 2 };
-			break;
-		case 3:
+		case right:
 			nextPos += Vector3f{ 2, 0, 0 };
 			break;
 	}
@@ -88,7 +92,7 @@ void GameManager::CreateNextLilyPad()
 	instance.mesh = lilypadMesh;
 	instance.AddComponent<Lily>();
 
-	if ((static_cast<float>(rand()) / RAND_MAX) > 0.5f)
+	if ((static_cast<float>(rand()) / RAND_MAX) > 0.8f)
 	{
 		instance.GetComponent<Lily>()->hasObstacle = true;
 		GameObject &obstacle{GameObject::Create("Obstacle", nextPos, Vector3f{-90.f, 0.f, 0.f}, Vector3f::one)};
