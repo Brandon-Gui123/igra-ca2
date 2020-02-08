@@ -18,6 +18,7 @@
 #include "LilypadMesh.h"
 #include "ObstacleMesh.h"
 #include "PlayerMesh.h"
+#include "PlankMesh.h"
 #pragma endregion
 
 #include "framework.h"		// to define the Windows stuff in gl/GL.h
@@ -28,7 +29,7 @@
 #include <string>			// std::string, std::to_string
 #include <vector>			// std::vector
 
-GLubyte Program::placeholderTexture[64][64][3];
+GLubyte Program::woodTexture[64][64][3];
 Program *Program::program;
 
 Program::Program()
@@ -76,7 +77,8 @@ void Program::InitializeScenes()
 	PlayerMesh* playerMesh{ new PlayerMesh{} };
 	playerGO->mesh = playerMesh;
 	LilypadMesh* lilypadMesh{ new LilypadMesh{} };
-	gameManagerGO->mesh = lilypadMesh;
+	PlankMesh* plankMesh{ new PlankMesh{} };
+	gameManagerGO->mesh = plankMesh;
 	gameManagerGO->AddComponent<GameManager>();
 
 	GameObject *obstacle{new GameObject{"Obstacle", Vector3f::zero, Vector3f{-90.f, 0.f, 0.f}, Vector3f::one}};
@@ -172,7 +174,7 @@ void Program::SendMousePosition(int x, int y)
 	Input::windowsMousePosition.Set(x, y);
 }
 
-void Program::CreateCheckerBoardTexture() {
+void Program::CreateWoodTexture() {
 	int nrOfCheckersOnRow = 8;
 	float dim = 64.0 / nrOfCheckersOnRow;
 	int red = 0;
@@ -186,38 +188,42 @@ void Program::CreateCheckerBoardTexture() {
 			int row = (int)(i / dim);
 			int col = (int)(j / dim);
 			int c = 0;
-			if (row % 2 == 0) { // Even rows start with black
-				if (col % 2 == 0) {
+			if (row % 3 == 0) { // Even rows start with black
+				if (col % 4 == 0) {
 					// All even column will be black
-					red = green = blue = 0;
+					green = 20;
+					blue = 0;
+					red = 40;
 				}
 				else {
-					green = 100;
+					green = 40;
 					blue = 0;
-					red = 255;
+					red = 80;
 				}
 			}
 			else {
 				// Odd rows start with red
-				if (col % 2 == 0) {
+				if (col % 3 == 0) {
 					// All even column will be red
-					green = 100;
+					green = 40;
 					blue = 0;
-					red = 255;
+					red = 80;
 				}
 				else {
-					red = green = blue = 0;
+					green = 30;
+					blue = 0;
+					red = 60;
 				}
 			}
-			// Drawing a green border around the image
+			// Drawing a dark brown border around the image
 			if (i == 0 || i == 63 || j == 0 || j == 63) {
-				red = 0;
-				green = 255;
+				red = 60;
+				green = 30;
 				blue = 0;
 			}
-			placeholderTexture[i][j][0] = (GLubyte)red;
-			placeholderTexture[i][j][1] = (GLubyte)green;
-			placeholderTexture[i][j][2] = (GLubyte)blue;
+			woodTexture[i][j][0] = (GLubyte)red;
+			woodTexture[i][j][1] = (GLubyte)green;
+			woodTexture[i][j][2] = (GLubyte)blue;
 		}
 	}
 }
