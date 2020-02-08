@@ -118,7 +118,7 @@
       <Filter>Header Files\Meshes</Filter>
     </ClInclude>
     <ClInclude Include="Obstacle.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -186,7 +186,7 @@
       <Filter>Source Files\Meshes</Filter>
     </ClCompile>
     <ClCompile Include="Obstacle.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
