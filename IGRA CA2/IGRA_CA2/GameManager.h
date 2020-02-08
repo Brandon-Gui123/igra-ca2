@@ -4,6 +4,11 @@
 
 #include <vector>
 
+enum LilyMap {
+	left,
+	right
+};
+
 class GameManager : public Component
 {
 private:
@@ -15,9 +20,7 @@ private:
 	GameObject * player;
 	int currentMap;
 	int latestMap;
-	//Stores future map data
-	//0 = left, 1  right, 2 = left + obstacle, 3 = right + obstacle
-	std::vector<int> map;
+	std::vector<LilyMap> map;
 	//The next move the player should take
 	bool nextMove;
 	void CreateNextLilyPad();
