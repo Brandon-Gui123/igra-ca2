@@ -6,14 +6,19 @@
 #include "Scene.h"			// Scene class
 #include "Vector3f.h"		// Vector3f class
 
-#include "TestComponent.h"
-#include "Player.h"
-#include "PlayerMesh.h"
-#include "LilypadMesh.h"
-#include "GameManager.h"
+#pragma region Component Includes
 #include "Camera.h"
-#include "ObstacleMesh.h"
+#include "GameManager.h"
 #include "Obstacle.h"
+#include "Player.h"
+#include "TestComponent.h"
+#pragma endregion
+
+#pragma region Mesh Includes
+#include "LilypadMesh.h"
+#include "ObstacleMesh.h"
+#include "PlayerMesh.h"
+#pragma endregion
 
 #include "framework.h"		// to define the Windows stuff in gl/GL.h
 #include <gl/GL.h>			// OpenGL 32-bit library
