@@ -11,4 +11,7 @@ Obstacle::~Obstacle()
 void Obstacle::OnGameObjectSelected()
 {
     GameObject::Destroy(gameObject);
+    
+    if (lily)
+        lily->hasObstacle = false;
 }

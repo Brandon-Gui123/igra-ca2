@@ -65,12 +65,19 @@ void GameManager::PlayerLand(bool mleft)
 	}
 	currentMap++;
 	currentLilyPad = lilyPads.at(currentMap);
+	
 	if (rand() % 2 == 1) {
 		map.push_back(left);
 	}
 	else {
 		map.push_back(right);
 	}
+
+	if (currentLilyPad->GetComponent<Lily>()->hasObstacle)
+	{
+		player->GetComponent<Player>()->Die();
+	}
+
 	CreateNextLilyPad();
 }
 
@@ -97,7 +104,7 @@ void GameManager::CreateNextLilyPad()
 		instance.GetComponent<Lily>()->hasObstacle = true;
 		GameObject &obstacle{GameObject::Create("Obstacle", nextPos, Vector3f{-90.f, 0.f, 0.f}, Vector3f::one)};
 		obstacle.mesh = new ObstacleMesh{obstacle};
-		obstacle.AddComponent<Obstacle>();
+		obstacle.AddComponent<Obstacle>().lily = instance.GetComponent<Lily>();
 	}
 
 	lilyPads.push_back(&instance);
