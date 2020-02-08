@@ -65,12 +65,20 @@ void GameManager::PlayerLand(bool mleft)
 	}
 	currentMap++;
 	currentLilyPad = lilyPads.at(currentMap);
+	
 	if (rand() % 2 == 1) {
 		map.push_back(left);
 	}
 	else {
 		map.push_back(right);
 	}
+
+	if (currentLilyPad->GetComponent<Lily>()->hasObstacle)
+	{
+		player->GetComponent<Player>()->Die();
+	}
+
+	map.push_back(rand() % 4);
 	CreateNextLilyPad();
 }
 
