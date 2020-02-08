@@ -1,13 +1,13 @@
 #pragma once
 
 #include "GameObject.h"		// to friend the GameObject class
-#include "MouseButton.h"
-#include "Time.h"
+#include "MouseButton.h"	// for MouseButton enum class
+#include "Time.h"			// for Time class
 
-#include "framework.h"
-#include <gl/GL.h>  // OpenGL 32-bit library
+#include "framework.h"		// to define the Windows stuff inside gl/GL.h
+#include <gl/GL.h>			// for OpenGL 32-bit library
 
-#include <vector>
+#include <vector>			// for std::vector
 
 // To break circular dependency between Scene and Program
 class Scene;
