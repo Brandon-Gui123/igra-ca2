@@ -177,6 +177,7 @@
     <ClInclude Include="ObstacleMesh.h" />
     <ClInclude Include="OpenGLApplication.h" />
     <ClInclude Include="PickableMesh.h" />
+    <ClInclude Include="PlankMesh.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerMesh.h" />
     <ClInclude Include="Program.h" />
@@ -203,6 +204,7 @@
     <ClCompile Include="ObstacleMesh.cpp" />
     <ClCompile Include="OpenGLApplication.cpp" />
     <ClCompile Include="PickableMesh.cpp" />
+    <ClCompile Include="PlankMesh.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerMesh.cpp" />
     <ClCompile Include="Program.cpp" />
