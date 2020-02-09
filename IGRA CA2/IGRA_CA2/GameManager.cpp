@@ -105,7 +105,7 @@ Lily& GameManager::CreateNextLilyPad()
 	instance.mesh = lilypadMesh;
 	instance.AddComponent<Lily>();
 
-	if ((static_cast<float>(rand()) / RAND_MAX) > 0.8f)
+	if ((static_cast<float>(rand()) / RAND_MAX) > 1.0f - Obstacle::GetSpawnChance())
 	{
 		instance.GetComponent<Lily>()->hasObstacle = true;
 		GameObject &obstacle{GameObject::Create("Obstacle", nextPos, Vector3f{-90.f, 0.f, 0.f}, Vector3f::one)};
