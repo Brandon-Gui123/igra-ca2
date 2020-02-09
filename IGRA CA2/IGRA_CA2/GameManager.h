@@ -1,6 +1,8 @@
 #pragma once
+
 #include "Component.h"
 #include "Player.h"
+#include "Lily.h"
 
 #include <vector>
 
@@ -23,7 +25,7 @@ private:
 	std::vector<LilyMap> map;
 	//The next move the player should take
 	bool nextMove;
-	void CreateNextLilyPad();
+	Lily& CreateNextLilyPad();
 public:
 	void Update() override;
 	void Start() override;

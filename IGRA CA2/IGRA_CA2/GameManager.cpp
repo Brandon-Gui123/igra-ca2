@@ -81,7 +81,7 @@ void GameManager::PlayerLand(bool mleft)
 	CreateNextLilyPad();
 }
 
-void GameManager::CreateNextLilyPad()
+Lily& GameManager::CreateNextLilyPad()
 {
 	Vector3f nextPos = latestLilyPad->position;
 	//0 = left, 1  right, 2 = left + obstacle, 3 = right + obstacle
@@ -110,6 +110,7 @@ void GameManager::CreateNextLilyPad()
 	lilyPads.push_back(&instance);
 	latestLilyPad = &instance;
 	latestMap++;
+	return *(instance.GetComponent<Lily>());
 }
 
 void GameManager::Update()
