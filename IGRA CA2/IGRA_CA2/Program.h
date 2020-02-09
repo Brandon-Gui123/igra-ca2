@@ -46,6 +46,7 @@ public:
 
 	std::vector<Scene*> scenes;
 	Scene *selectedScene;
+	bool willRestart{false};
 
 	Program();
 	~Program();
