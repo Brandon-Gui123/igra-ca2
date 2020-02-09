@@ -46,6 +46,7 @@ public:
 
 	std::vector<Scene*> scenes;
 	Scene *selectedScene;
+	bool willRestart{false};
 
 	Program();
 	~Program();
@@ -145,6 +146,9 @@ public:
 	void DrawPickableMeshes();
 
 #pragma endregion
+
+	// Restarts the program.
+	void RestartProgram();
 
 	// TODO Replace with Texture class
 	static void CreateWoodTexture();

@@ -113,6 +113,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             program.DoDestroyCycleForPickableMeshes();
             program.DoDestroyCycle();
             program.QueryDeltaTime();
+
+            if (program.willRestart)
+            {
+                program.willRestart = false;
+                program.RestartProgram();
+            }
         }
     }
 
