@@ -43,6 +43,7 @@ void Lily::Update()
 }
 
 void Lily::Drop() {
+	Program::program->score += GetAwardedScore();
 	isDropping = true;
 }
 
