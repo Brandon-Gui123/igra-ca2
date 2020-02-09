@@ -9,6 +9,8 @@
 #include "Obstacle.h"		// for Obstacle component class
 #include "ObstacleMesh.h"	// for Obstacle mesh class
 
+#include "framework.h"		// for Windows stuff
+
 #include <vector>
 #include <time.h>
 #include <functional>
@@ -75,6 +77,10 @@ void GameManager::PlayerLand(bool mleft)
 	if (currentLilyPad->GetComponent<Lily>()->hasObstacle)
 	{
 		player->GetComponent<Player>()->Die();
+	}
+	else if (currentLilyPad->GetComponent<Lily>()->isGoal)
+	{
+		MessageBox(NULL, L"You won!", L"Success", MB_OK);
 	}
 }
 
