@@ -188,6 +188,7 @@
     <ClInclude Include="TestComponent.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="TimerBarMesh.h" />
     <ClInclude Include="Vector2f.h" />
     <ClInclude Include="Vector3f.h" />
   </ItemGroup>
@@ -213,6 +214,7 @@
     <ClCompile Include="TestComponent.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="TimerBarMesh.cpp" />
     <ClCompile Include="Vector2f.cpp" />
     <ClCompile Include="Vector3f.cpp" />
   </ItemGroup>
