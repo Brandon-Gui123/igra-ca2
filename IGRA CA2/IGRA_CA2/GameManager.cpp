@@ -81,6 +81,7 @@ void GameManager::PlayerLand(bool mleft)
 	else if (currentLilyPad->GetComponent<Lily>()->isGoal)
 	{
 		MessageBox(NULL, L"You won!", L"Success", MB_OK);
+		Program::program->willRestart = true;
 	}
 }
 
