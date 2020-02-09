@@ -81,10 +81,6 @@ void Program::InitializeScenes()
 	gameManagerGO->mesh = plankMesh;
 	gameManagerGO->AddComponent<GameManager>();
 
-	GameObject *obstacle{new GameObject{"Obstacle", Vector3f::zero, Vector3f{-90.f, 0.f, 0.f}, Vector3f::one}};
-	obstacle->AddComponent<Obstacle>();
-	obstacle->mesh = new ObstacleMesh{*obstacle};
-	testScene->gameObjects.push_back(obstacle);
 
 	selectedScene = testScene;
 	camera = cameraGO;
