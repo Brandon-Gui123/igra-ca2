@@ -1,6 +1,7 @@
 #include "GameManager.h"
 
 #include "Program.h"
+#include "GameDifficulty.h"
 #include "GameObject.h"
 #include "Scene.h"
 #include "LilypadMesh.h"
@@ -28,7 +29,7 @@ void GameManager::Start()
 	srand(time(0));
 
 	//Generate Map
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < GetCurrentLilypadSpawnQuantity(); i++) {
 		if (rand() % 2 == 1) {
 			map.push_back(left);
 		}
@@ -41,11 +42,11 @@ void GameManager::Start()
 	currentLilyPad = &gameObject;
 	latestLilyPad = &gameObject;
 
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < GetCurrentLilypadSpawnQuantity(); i++) {
 		Lily &lily{CreateNextLilyPad()};
 
 		// last lily
-		if (i == 19)
+		if (i == GetCurrentLilypadSpawnQuantity() - 1)
 		{
 			lily.isGoal = true;
 		}
@@ -117,6 +118,25 @@ Lily& GameManager::CreateNextLilyPad()
 	latestLilyPad = &instance;
 	latestMap++;
 	return *(instance.GetComponent<Lily>());
+}
+
+int GameManager::GetCurrentLilypadSpawnQuantity()
+{
+	switch (Program::program->currentDifficulty)
+	{
+		case GameDifficulty::Easy:
+			return easyLilySpawnQuantity;
+
+		case GameDifficulty::Normal:
+			return normalLilySpawnQuantity;
+
+		case GameDifficulty::Hard:
+			return hardLilySpawnQuantity;
+
+		default:
+			// unknown difficulty
+			return 0;
+	}
 }
 
 void GameManager::Update()

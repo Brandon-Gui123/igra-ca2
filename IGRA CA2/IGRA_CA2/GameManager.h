@@ -14,6 +14,11 @@ enum LilyMap {
 class GameManager : public Component
 {
 private:
+
+	static constexpr int easyLilySpawnQuantity{20};
+	static constexpr int normalLilySpawnQuantity{30};
+	static constexpr int hardLilySpawnQuantity{40};
+
 	std::vector<GameObject*> lilyPads;
 	//Lilypad Player is currently on
 	GameObject * currentLilyPad;
@@ -27,6 +32,7 @@ private:
 	bool nextMove;
 	Lily& CreateNextLilyPad();
 public:
+	int GetCurrentLilypadSpawnQuantity();
 	void Update() override;
 	void Start() override;
 	void PlayerLand(bool left);
