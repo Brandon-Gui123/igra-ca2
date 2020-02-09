@@ -1,3 +1,5 @@
+// Done by Brandon Gui (1828865) from DIT/FT/2B/05
+
 #include "ObstacleMesh.h"
 
 #include "framework.h"      // to define the Windows stuff inside the OpenGL library

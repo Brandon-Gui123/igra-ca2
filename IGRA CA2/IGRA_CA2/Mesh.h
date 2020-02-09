@@ -1,3 +1,5 @@
+// Done by Ryan Tan (1829105) from DIT/FT/2B/05
+
 #pragma once
 
 #include "Vector3f.h"	// for Vector3f class

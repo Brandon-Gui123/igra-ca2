@@ -1,3 +1,6 @@
+// Color4.h
+// Done by Brandon Gui (1828865) from DIT/FT/2B/05
+
 #pragma once
 
 #include "framework.h"  // for the Windows stuff in gl/GL.h file

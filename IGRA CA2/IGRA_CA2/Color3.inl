@@ -2,6 +2,8 @@
  * ----------
  * Inline file to separate function template implementation from the header
  * file Color3.h
+ * ----------
+ * Done by Brandon Gui (1828865) from DIT/FT/2B/05
  */
 
 template<typename T>
