@@ -9,6 +9,7 @@ class GameManager;
 class Player : public Component
 {
 private:
+	bool hasJumpedBefore{false};
 	bool isJumping;
 	bool dead;
 	bool isDropping;
