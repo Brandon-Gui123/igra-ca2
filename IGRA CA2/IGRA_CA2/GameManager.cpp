@@ -40,7 +40,13 @@ void GameManager::Start()
 	latestLilyPad = &gameObject;
 
 	for (int i = 0; i < 20; i++) {
-		CreateNextLilyPad();
+		Lily &lily{CreateNextLilyPad()};
+
+		// last lily
+		if (i == 19)
+		{
+			lily.isGoal = true;
+		}
 	}
 }
 
