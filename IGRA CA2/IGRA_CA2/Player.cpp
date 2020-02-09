@@ -7,6 +7,8 @@
 #include "Math.h"
 #include "GameManager.h"
 
+#include "framework.h"	// for the Windows stuff
+
 Player::Player(GameObject &go) : Component(go)
 {
 	isJumping = false;
@@ -93,6 +95,7 @@ void Player::Update()
 		dropTimer -= Time::GetDeltaTime();
 		if (dropTimer <= 0) {
 			isDropping = false;
+			MessageBox(NULL, L"You lost!", L"Loss", MB_OK);
 		}
 	}
 	/*Vector3f delta(Input::GetAxis(Input::x), 0, Input::GetAxis(Input::y));
