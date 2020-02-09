@@ -191,6 +191,8 @@ void Program::SendMousePosition(int x, int y)
 
 void Program::RestartProgram()
 {
+	timeLeft = GetTimeLimit();
+
 	score = 0;
 
 	// clear vector
