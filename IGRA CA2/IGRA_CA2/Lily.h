@@ -8,6 +8,11 @@ class Lily : public Component
 private:
 	bool isDropping;
 	float dropTimer;
+
+	int easyScore{50};
+	int normalScore{100};
+	int hardScore{150};
+
 public:
 	bool isGoal{false};
 	bool hasObstacle{false};
