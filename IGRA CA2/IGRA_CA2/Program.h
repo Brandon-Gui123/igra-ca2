@@ -1,5 +1,6 @@
 #pragma once
 
+#include "GameDifficulty.h"	// for GameDifficulty enum class
 #include "GameObject.h"		// to friend the GameObject class
 #include "MouseButton.h"	// for MouseButton enum class
 #include "Time.h"			// for Time class
@@ -50,6 +51,7 @@ public:
 	Scene *selectedScene;
 	bool willRestart{false};
 	double timeLeft{0.0};
+	GameDifficulty currentDifficulty{GameDifficulty::Easy};
 
 	Program();
 	~Program();
