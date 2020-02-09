@@ -18,6 +18,8 @@ public:
 
     Lily *lily; // The lily that this obstacle is on.
 
+    static float GetSpawnChance();
+
     // Called when the mesh of the GameObject is selected.
 	void OnGameObjectSelected() override;
 };
