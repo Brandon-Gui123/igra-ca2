@@ -8,6 +8,7 @@
 #include "Lily.h"
 #include "Obstacle.h"		// for Obstacle component class
 #include "ObstacleMesh.h"	// for Obstacle mesh class
+#include "Vector3f.h"
 
 #include "framework.h"		// for Windows stuff
 
@@ -24,6 +25,7 @@ void GameManager::Start()
 	latestMap = 0;
 
 	player = GameObject::Find("Player");
+	timerBar = GameObject::Find("Timer Bar");
 
 	srand(time(0));
 
@@ -120,7 +122,7 @@ Lily& GameManager::CreateNextLilyPad()
 
 void GameManager::Update()
 {
-
+	timerBar->position = player->position + Vector3f{ 0, 3, 0 };
 }
 
 GameManager::GameManager(GameObject &go) : Component(go)

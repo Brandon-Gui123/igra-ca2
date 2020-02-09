@@ -20,6 +20,7 @@ private:
 	//Latest Lilypad Drawn to Screen
 	GameObject * latestLilyPad;
 	GameObject * player;
+	GameObject * timerBar;
 	int currentMap;
 	int latestMap;
 	std::vector<LilyMap> map;
