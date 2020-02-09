@@ -372,24 +372,6 @@ void Program::Draw() {
 
 	if (selectedScene) selectedScene->Draw();
 
-	//----------------------------------------------------------------------------------
-	//ANYTHING BELOW THIS LINE IS FOR TESTING AND SHOULD BE REMOVED IN THE FINAL PRODUCT
-	//----------------------------------------------------------------------------------
-
-	glBegin(GL_LINES);
-	// Draw positive x-axis as red
-	glColor3f(1.0, 0.0, 0.0);
-	glVertex3f(0, 0, 0);
-	glVertex3f(100, 0, 0);
-	// Draw positive x-axis as green
-	glColor3f(0.0, 1.0, 0.0);
-	glVertex3f(0, 0, 0);
-	glVertex3f(0, 100, 0);
-	// Draw positive z-axis as blue
-	glColor3f(0.0, 0.0, 1.0);
-	glVertex3f(0, 0, 0);
-	glVertex3f(0, 0, 100);
-
 	glEnd();
 }
 
