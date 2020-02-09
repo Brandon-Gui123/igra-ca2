@@ -225,11 +225,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 break;
 
             case ID_GAME_STOP:
+            {
                 Time::SetTimeScale(0.0);
-				MessageBox(NULL, L"Ended with a score of " + (wchar_t)program.score, L"Game Stopped", MB_OK);
+                std::wstring gameStopMessage{L"Game ended with a score of "};
+                std::wstring points{std::to_wstring(program.score)};
+				MessageBox(NULL, (gameStopMessage + points).c_str(), L"Game Stopped", MB_OK);
                 program.willRestart = true;
                 Time::SetTimeScale(1.0);
                 break;
+            }
 
             default:
                 return DefWindowProc(hWnd, message, wParam, lParam);
