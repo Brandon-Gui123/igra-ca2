@@ -16,6 +16,9 @@ private:
 public:
 	bool isGoal{false};
 	bool hasObstacle{false};
+
+	int GetAwardedScore();
+
 	void Start() override;
 	void Update() override;
 	void Drop();
