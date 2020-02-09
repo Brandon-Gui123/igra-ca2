@@ -1,3 +1,5 @@
+// Done by Brandon Gui (1828865) and Ryan Tan (1829105) from DIT/FT/2B/05
+
 #include "Input.h"
 
 #include "Vector2f.h"   // for Vector2f class
