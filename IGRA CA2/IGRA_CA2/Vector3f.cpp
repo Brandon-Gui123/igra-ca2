@@ -1,3 +1,6 @@
+// Vector3f.cpp
+// Done by Brandon Gui (1828865) from DIT/FT/2B/05
+
 #include "Vector3f.h"
 
 #include "Vector2f.h"   // for knowing how to construct a Vector2f in the process of casting Vector3f to Vector2f
