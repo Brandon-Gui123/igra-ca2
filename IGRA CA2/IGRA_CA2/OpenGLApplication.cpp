@@ -3,6 +3,7 @@
 
 #include "OpenGLApplication.h"
 
+#include "GameDifficulty.h" // for GameDifficulty enum class
 #include "Input.h"      // for Input class
 #include "MouseButton.h"// for MouseButton enum class
 #include "Program.h"
@@ -234,6 +235,21 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 Time::SetTimeScale(1.0);
                 break;
             }
+
+            case ID_START_EASY:
+                program.currentDifficulty = GameDifficulty::Easy;
+                program.willRestart = true;
+                break;
+
+            case ID_START_NORMAL:
+                program.currentDifficulty = GameDifficulty::Normal;
+                program.willRestart = true;
+                break;
+
+            case ID_START_HARD:
+                program.currentDifficulty = GameDifficulty::Hard;
+                program.willRestart = true;
+                break;
 
             default:
                 return DefWindowProc(hWnd, message, wParam, lParam);
