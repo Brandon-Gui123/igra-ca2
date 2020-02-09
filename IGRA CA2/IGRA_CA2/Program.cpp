@@ -19,6 +19,7 @@
 #include "ObstacleMesh.h"
 #include "PlayerMesh.h"
 #include "PlankMesh.h"
+#include "TimerBarMesh.h"
 #pragma endregion
 
 #include "framework.h"		// to define the Windows stuff in gl/GL.h
@@ -69,22 +70,21 @@ void Program::InitializeScenes()
 	GameObject* playerGO{new GameObject{"Player", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one}};
 	GameObject* gameManagerGO{ new GameObject{"GameManager", Vector3f::zero, Vector3f{0, 0, 0}, Vector3f::one} };
 	GameObject* cameraGO{ new GameObject{"Camera", Vector3f{10, 10, 10}, Vector3f{0, -135, -40}, Vector3f::one} };
+	GameObject* timerBarGO{ new GameObject{"Timer Bar", Vector3f{0,4,0}, Vector3f{0,-45,0}, Vector3f::one} };
 	testScene->gameObjects.push_back(playerGO);
 	testScene->gameObjects.push_back(gameManagerGO);
 	testScene->gameObjects.push_back(cameraGO);
+	testScene->gameObjects.push_back(timerBarGO);
 	playerGO->AddComponent<Player>();
 	cameraGO->AddComponent<Camera>();
 	PlayerMesh* playerMesh{ new PlayerMesh{} };
 	playerGO->mesh = playerMesh;
 	LilypadMesh* lilypadMesh{ new LilypadMesh{} };
 	PlankMesh* plankMesh{ new PlankMesh{} };
+	TimerBarMesh* timerMesh{ new TimerBarMesh{} };
+	timerBarGO->mesh = timerMesh;
 	gameManagerGO->mesh = plankMesh;
 	gameManagerGO->AddComponent<GameManager>();
-
-	GameObject *obstacle{new GameObject{"Obstacle", Vector3f::zero, Vector3f{-90.f, 0.f, 0.f}, Vector3f::one}};
-	obstacle->AddComponent<Obstacle>();
-	obstacle->mesh = new ObstacleMesh{*obstacle};
-	testScene->gameObjects.push_back(obstacle);
 
 	selectedScene = testScene;
 	camera = cameraGO;

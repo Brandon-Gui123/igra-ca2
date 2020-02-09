@@ -9,6 +9,7 @@
 #include "Lily.h"
 #include "Obstacle.h"		// for Obstacle component class
 #include "ObstacleMesh.h"	// for Obstacle mesh class
+#include "Vector3f.h"
 
 #include "framework.h"		// for Windows stuff
 
@@ -25,6 +26,7 @@ void GameManager::Start()
 	latestMap = 0;
 
 	player = GameObject::Find("Player");
+	timerBar = GameObject::Find("Timer Bar");
 
 	srand(time(0));
 
@@ -61,7 +63,7 @@ void GameManager::PlayerLand(bool mleft)
 
 	if (landedLily == left) {
 		landed = mleft;
-	} else{
+	} else{	
 		landed = !mleft;
 	}
 
@@ -73,6 +75,7 @@ void GameManager::PlayerLand(bool mleft)
 		dLily->Drop();
 	}
 	currentMap++;
+	Program::program->score = currentMap;
 	currentLilyPad = lilyPads.at(currentMap);
 	
 	if (currentLilyPad->GetComponent<Lily>()->hasObstacle)
@@ -81,9 +84,7 @@ void GameManager::PlayerLand(bool mleft)
 	}
 	else if (currentLilyPad->GetComponent<Lily>()->isGoal)
 	{
-		std::wstring gameWinMessage{L"Game won with a score of "};
-		std::wstring points{std::to_wstring(Program::program->score)};
-		MessageBox(NULL, (gameWinMessage + points).c_str(), L"Success", MB_OK);
+		MessageBox(NULL, L"You Won!", L"Success", MB_OK);
 		Program::program->willRestart = true;
 	}
 }
@@ -141,7 +142,7 @@ int GameManager::GetCurrentLilypadSpawnQuantity()
 
 void GameManager::Update()
 {
-
+	timerBar->position = player->position + Vector3f{ 0, 3, 0 };
 }
 
 GameManager::GameManager(GameObject &go) : Component(go)
