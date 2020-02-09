@@ -35,7 +35,7 @@ Program *Program::program;
 Program::Program()
 {
 	Program::program = this;
-
+	score = 0;
 	backBufferImage = new GLubyte[initialWindowHeight][initialWindowWidth][3];
 }
 

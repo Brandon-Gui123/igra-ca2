@@ -44,6 +44,8 @@ public:
 
 	static Program *program;
 
+	int score;
+
 	std::vector<Scene*> scenes;
 	Scene *selectedScene;
 	bool willRestart{false};
