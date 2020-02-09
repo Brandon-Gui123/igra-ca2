@@ -1,8 +1,28 @@
 #include "Lily.h"
 
+#include "GameDifficulty.h"
 #include "Vector3f.h"
 #include "GameObject.h"
 #include "Time.h"
+
+int Lily::GetAwardedScore()
+{
+	switch (Program::program->currentDifficulty)
+	{
+		case GameDifficulty::Easy:
+			return easyScore;
+
+		case GameDifficulty::Normal:
+			return normalScore;
+
+		case GameDifficulty::Hard:
+			return hardScore;
+
+		default:
+			// unknown difficulty
+			return 0;
+	}
+}
 
 void Lily::Start()
 {
@@ -23,6 +43,7 @@ void Lily::Update()
 }
 
 void Lily::Drop() {
+	Program::program->score += GetAwardedScore();
 	isDropping = true;
 }
 

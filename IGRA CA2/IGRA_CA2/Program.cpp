@@ -176,6 +176,8 @@ void Program::SendMousePosition(int x, int y)
 
 void Program::RestartProgram()
 {
+	score = 0;
+
 	// clear vector
 	PickableMesh::pickableMeshes.clear();
 
