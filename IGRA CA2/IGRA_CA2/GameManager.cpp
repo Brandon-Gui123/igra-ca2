@@ -80,7 +80,9 @@ void GameManager::PlayerLand(bool mleft)
 	}
 	else if (currentLilyPad->GetComponent<Lily>()->isGoal)
 	{
-		MessageBox(NULL, L"You won!", L"Success", MB_OK);
+		std::wstring gameWinMessage{L"Game won with a score of "};
+		std::wstring points{std::to_wstring(Program::program->score)};
+		MessageBox(NULL, (gameWinMessage + points).c_str(), L"Success", MB_OK);
 		Program::program->willRestart = true;
 	}
 }

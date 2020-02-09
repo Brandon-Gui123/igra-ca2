@@ -98,7 +98,9 @@ void Player::Update()
 		dropTimer -= Time::GetDeltaTime();
 		if (dropTimer <= 0) {
 			isDropping = false;
-			MessageBox(NULL, L"You lost!", L"Loss", MB_OK);
+			std::wstring lostMessage{L"Game lost with a score of "};
+			std::wstring points{std::to_wstring(Program::program->score)};
+			MessageBox(NULL, (lostMessage + points).c_str(), L"Loss", MB_OK);
 			Program::program->willRestart = true;
 		}
 	}
