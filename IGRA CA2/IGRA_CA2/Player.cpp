@@ -31,6 +31,7 @@ void Player::Die()
 {
 	dead = true;
 	isDropping = true;
+	hasJumpedBefore = false;	// just to stop the timer
 }
 
 void Player::JumpStart(bool left) {
@@ -82,10 +83,12 @@ void Player::Update()
 
 		if (Input::GetKeyDown(KeyCode::A)) {
 			JumpStart(true);
+			hasJumpedBefore = true;
 		}
 
 		if (Input::GetKeyDown(KeyCode::D)) {
 			JumpStart(false);
+			hasJumpedBefore = true;
 		}
 	}
 
@@ -98,6 +101,11 @@ void Player::Update()
 			MessageBox(NULL, L"You lost!", L"Loss", MB_OK);
 			Program::program->willRestart = true;
 		}
+	}
+
+	if (hasJumpedBefore)
+	{
+		Program::program->timeLeft -= Time::GetDeltaTime();
 	}
 	/*Vector3f delta(Input::GetAxis(Input::x), 0, Input::GetAxis(Input::y));
 	Vector3f newPos = delta.GetNormalized() * speed * Time::GetDeltaTime() + gameObject.position;
