@@ -60,7 +60,7 @@ void GameManager::PlayerLand(bool mleft)
 
 	if (landedLily == left) {
 		landed = mleft;
-	} else{
+	} else{	
 		landed = !mleft;
 	}
 
@@ -72,6 +72,7 @@ void GameManager::PlayerLand(bool mleft)
 		dLily->Drop();
 	}
 	currentMap++;
+	Program::program->score = currentMap;
 	currentLilyPad = lilyPads.at(currentMap);
 	
 	if (currentLilyPad->GetComponent<Lily>()->hasObstacle)
@@ -80,9 +81,7 @@ void GameManager::PlayerLand(bool mleft)
 	}
 	else if (currentLilyPad->GetComponent<Lily>()->isGoal)
 	{
-		std::wstring gameWinMessage{L"Game won with a score of "};
-		std::wstring points{std::to_wstring(Program::program->score)};
-		MessageBox(NULL, (gameWinMessage + points).c_str(), L"Success", MB_OK);
+		MessageBox(NULL, L"You Won!", L"Success", MB_OK);
 		Program::program->willRestart = true;
 	}
 }
