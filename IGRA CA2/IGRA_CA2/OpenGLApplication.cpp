@@ -224,6 +224,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 Time::SetTimeScale(1.0);
                 break;
 
+            case ID_GAME_STOP:
+                Time::SetTimeScale(0.0);
+                MessageBox(NULL, L"Enter text here when stopped", L"Game Stopped", MB_OK);
+                program.willRestart = true;
+                break;
+
             default:
                 return DefWindowProc(hWnd, message, wParam, lParam);
             }
