@@ -29,6 +29,8 @@
 #include <iostream>			// std::cout
 #include <string>			// std::string, std::to_string
 #include <vector>			// std::vector
+#include <random>
+#include <time.h>
 
 GLubyte Program::woodTexture[64][64][3];
 Program *Program::program;
@@ -238,6 +240,7 @@ double Program::GetTimeLimit()
 }
 
 void Program::CreateWoodTexture() {
+	srand(time(0));
 	int nrOfCheckersOnRow = 8;
 	float dim = 64.0 / nrOfCheckersOnRow;
 	int red = 0;
@@ -245,37 +248,31 @@ void Program::CreateWoodTexture() {
 	int blue = 0;
 	for (int i = 0; i < 64; i++) {
 		for (int j = 0; j < 64; j++) {
-
-			// Calculate in which checkerboard
-			//rectangle the pixel falls
 			int row = (int)(i / dim);
 			int col = (int)(j / dim);
 			int c = 0;
-			if (row % 3 == 0) { // Even rows start with black
+			if (row % 3 == 0) {
 				if (col % 4 == 0) {
-					// All even column will be black
-					green = 20;
+					green = 15 + rand() % 10;
 					blue = 0;
-					red = 40;
+					red = 35 + rand() % 10;
 				}
 				else {
-					green = 40;
+					green = 35 + rand() % 10;
 					blue = 0;
-					red = 80;
+					red = 75 + rand() % 10;
 				}
 			}
 			else {
-				// Odd rows start with red
 				if (col % 3 == 0) {
-					// All even column will be red
-					green = 40;
+					green = 35 + rand() % 10;
 					blue = 0;
-					red = 80;
+					red = 75 + rand() % 10;
 				}
 				else {
-					green = 30;
+					green = 25 + rand() % 10;
 					blue = 0;
-					red = 60;
+					red = 55 + rand() % 10;
 				}
 			}
 			// Drawing a dark brown border around the image
