@@ -14,7 +14,7 @@ class ObstacleMesh : public PickableMesh
 private:
 
     GLUquadric *quadric;
-    Material obstacleMaterial{Color4f{1.f, 0.f, 0.f, 1.f}, Color4f{1.f, 0.f, 0.f, 1.f}, Color4f{1.f, 1.f, 1.f, 1.f}, 32};
+    Material obstacleMaterial{Color4f{0.6f, 0.3f, 0.f, 1.f}, Color4f{1.f, 0.f, 0.f, 1.f}, Color4f{1.f, 1.f, 1.f, 1.f}, 32};
 
 public:
     ObstacleMesh(GameObject &gameObject);
