@@ -468,6 +468,6 @@ void DrawGLScene()
     program.Draw();
 
 	//SetWindowTextA(hWnd, std::to_string(Time::GetGameTime()).c_str()); // Debug to show the time elapsed
-    const Vector2f &mousePos{Input::GetWindowsMousePosition()};
-    SetWindowTextA(hWnd, std::to_string(program.timeLeft).c_str());
+
+    SetWindowTextA(hWnd, ("Lilypad Jump - Score: " + std::to_string(program.score)).c_str());
 }
