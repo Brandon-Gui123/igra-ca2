@@ -20,6 +20,10 @@ public:
 	static inline constexpr int initialWindowWidth{800};	// The initial width of the window, in pixels.
 	static inline constexpr int initialWindowHeight{600};	// The initial height of the window, in pixels.
 
+	static inline constexpr double timeForEasy{45.0};
+	static inline constexpr double timeForNormal{35.0};
+	static inline constexpr double timeForHard{30.0};
+
 	// An enumeration of phases that the program can be in, such as
 	// when it is initializing objects or running.
 	enum class Phase

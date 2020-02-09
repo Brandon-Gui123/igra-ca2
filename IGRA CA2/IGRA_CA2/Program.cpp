@@ -60,6 +60,21 @@ Program::~Program()
 
 void Program::InitializeScenes()
 {
+	switch (currentDifficulty)
+	{
+		case GameDifficulty::Easy:
+			timeLeft = timeForEasy;
+			break;
+
+		case GameDifficulty::Normal:
+			timeLeft = timeForNormal;
+			break;
+
+		case GameDifficulty::Hard:
+			timeLeft = timeForHard;
+			break;
+	}
+
 	/////////////////////////////////INIT INPUT/////////////////////////////////
 	
 
