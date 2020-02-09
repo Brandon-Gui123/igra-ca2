@@ -1,3 +1,6 @@
+// Component.h
+// Done by Brandon Gui (1828865) and Ryan Tan (1829105) from DIT/FT/2B/05
+
 #pragma once
 
 // GameObject and Component has a circular dependency between each other 
