@@ -1,6 +1,8 @@
 /* GameObject.inl
  * --------------
  * Contains template implementations of the template functions.
+ * --------------
+ * Done by Brandon Gui (1828865) from DIT/FT/2B/05.
  */
 
 // Adds the component of type T to this GameObject. T must be a type derived from the Component class.
