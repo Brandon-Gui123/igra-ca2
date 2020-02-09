@@ -29,7 +29,7 @@ void GameManager::Start()
 	srand(time(0));
 
 	//Generate Map
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < GetCurrentLilypadSpawnQuantity(); i++) {
 		if (rand() % 2 == 1) {
 			map.push_back(left);
 		}
@@ -42,11 +42,11 @@ void GameManager::Start()
 	currentLilyPad = &gameObject;
 	latestLilyPad = &gameObject;
 
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < GetCurrentLilypadSpawnQuantity(); i++) {
 		Lily &lily{CreateNextLilyPad()};
 
 		// last lily
-		if (i == 19)
+		if (i == GetCurrentLilypadSpawnQuantity() - 1)
 		{
 			lily.isGoal = true;
 		}
