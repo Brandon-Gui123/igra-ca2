@@ -1,3 +1,6 @@
+// Vector2f.h
+// Done by Brandon Gui (1828865) from DIT/FT/2B/05
+
 #pragma once
 
 // since we are casting from Vector2f to Vector3f and vice versa, Vector2f needs to know Vector3f
