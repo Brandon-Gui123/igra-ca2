@@ -28,18 +28,6 @@ void GameManager::Start()
 
 	player = GameObject::Find("Player");
 	timerBar = GameObject::Find("Timer Bar");
-	switch (Program::program->currentDifficulty) {
-	case GameDifficulty::Easy:
-		timeLimit = Program::timeForEasy;
-		break;
-	case GameDifficulty::Normal:
-		timeLimit = Program::timeForEasy;
-		break;
-	case GameDifficulty::Hard:
-		timeLimit = Program::timeForEasy;
-		break;
-	}
-	timeLeft = timeLimit;
 
 	srand(time(0));
 
@@ -157,10 +145,9 @@ void GameManager::Update()
 {
 	timerBar->position = player->position + Vector3f{ 0, 3, 0 };
 
-	if (currentMap != 0 && !currentLilyPad->GetComponent<Lily>()->isGoal && timeLeft > 0) {
-		timeLeft -= Time::GetDeltaTime();
-		timerBar->scale = Vector3f{ 1,1,timeLeft / timeLimit };
-		if (timeLeft <= 0) {
+	if (currentMap != 0 && !currentLilyPad->GetComponent<Lily>()->isGoal) {
+		timerBar->scale = Vector3f{ 1,1, static_cast<float>(Program::program->timeLeft / Program::program->GetTimeLimit()) };
+		if (Program::program->timeLeft <= 0) {
 			timerBar->scale = Vector3f{ 1,1,0};
 			player->GetComponent<Player>()->Die();
 		}

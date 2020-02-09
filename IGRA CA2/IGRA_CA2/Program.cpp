@@ -191,6 +191,8 @@ void Program::SendMousePosition(int x, int y)
 
 void Program::RestartProgram()
 {
+	timeLeft = GetTimeLimit();
+
 	score = 0;
 
 	// clear vector
@@ -211,6 +213,28 @@ void Program::RestartProgram()
 
 	// call Start
 	Start();
+}
+
+double Program::GetTimeLimit()
+{
+	switch (currentDifficulty)
+	{
+		case GameDifficulty::Easy:
+			return timeForEasy;
+			break;
+
+		case GameDifficulty::Normal:
+			return timeForNormal;
+			break;
+
+		case GameDifficulty::Hard:
+			return timeForHard;
+			break;
+
+		default:
+			// unknown difficulty
+			return 0;
+	}
 }
 
 void Program::CreateWoodTexture() {

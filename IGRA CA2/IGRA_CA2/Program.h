@@ -159,6 +159,9 @@ public:
 	// Restarts the program.
 	void RestartProgram();
 
+	// Gets the time limit for the current difficulty;
+	double GetTimeLimit();
+
 	// TODO Replace with Texture class
 	static void CreateWoodTexture();
 	static GLubyte woodTexture[64][64][3];
