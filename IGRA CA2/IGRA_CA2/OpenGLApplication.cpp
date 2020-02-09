@@ -210,6 +210,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 DialogBox(hInst, MAKEINTRESOURCE(IDD_CREDITS), hWnd, Credits);
                 break;
 
+            case ID_GAME_PAUSE:
+                Time::SetTimeScale(0.0);
+                break;
+
+            case ID_GAME_RESUME:
+                Time::SetTimeScale(1.0);
+                break;
+
             default:
                 return DefWindowProc(hWnd, message, wParam, lParam);
             }
