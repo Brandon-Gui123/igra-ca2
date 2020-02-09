@@ -147,6 +147,9 @@ public:
 
 #pragma endregion
 
+	// Restarts the program.
+	void RestartProgram();
+
 	// TODO Replace with Texture class
 	static void CreateWoodTexture();
 	static GLubyte woodTexture[64][64][3];

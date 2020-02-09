@@ -174,6 +174,28 @@ void Program::SendMousePosition(int x, int y)
 	Input::windowsMousePosition.Set(x, y);
 }
 
+void Program::RestartProgram()
+{
+	// clear vector
+	PickableMesh::pickableMeshes.clear();
+
+	// clean up everything in all scenes
+	for (Scene *&scenePtr : scenes)
+	{
+		delete scenePtr;
+		scenePtr = nullptr;
+	}
+
+	// clear vector (which is filled with null pointers)
+	scenes.clear();
+
+	// redo init
+	InitializeScenes();
+
+	// call Start
+	Start();
+}
+
 void Program::CreateWoodTexture() {
 	int nrOfCheckersOnRow = 8;
 	float dim = 64.0 / nrOfCheckersOnRow;
