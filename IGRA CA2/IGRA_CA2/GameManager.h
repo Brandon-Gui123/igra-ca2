@@ -32,6 +32,7 @@ private:
 	bool nextMove;
 	Lily& CreateNextLilyPad();
 public:
+	int GetCurrentLilypadSpawnQuantity();
 	void Update() override;
 	void Start() override;
 	void PlayerLand(bool left);

@@ -1,6 +1,7 @@
 #include "GameManager.h"
 
 #include "Program.h"
+#include "GameDifficulty.h"
 #include "GameObject.h"
 #include "Scene.h"
 #include "LilypadMesh.h"
@@ -117,6 +118,25 @@ Lily& GameManager::CreateNextLilyPad()
 	latestLilyPad = &instance;
 	latestMap++;
 	return *(instance.GetComponent<Lily>());
+}
+
+int GameManager::GetCurrentLilypadSpawnQuantity()
+{
+	switch (Program::program->currentDifficulty)
+	{
+		case GameDifficulty::Easy:
+			return easyLilySpawnQuantity;
+
+		case GameDifficulty::Normal:
+			return normalLilySpawnQuantity;
+
+		case GameDifficulty::Hard:
+			return hardLilySpawnQuantity;
+
+		default:
+			// unknown difficulty
+			return 0;
+	}
 }
 
 void GameManager::Update()
