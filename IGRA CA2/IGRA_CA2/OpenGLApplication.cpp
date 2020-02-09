@@ -1,5 +1,5 @@
 // OpenGLApplication.cpp : Defines the entry point for the application.
-//
+// Done by Brandon Gui (1828865) and Ryan Tan (1829105) from DIT/FT/2B/05
 
 #include "OpenGLApplication.h"
 
