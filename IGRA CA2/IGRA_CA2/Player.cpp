@@ -96,6 +96,7 @@ void Player::Update()
 		if (dropTimer <= 0) {
 			isDropping = false;
 			MessageBox(NULL, L"You lost!", L"Loss", MB_OK);
+			Program::program->willRestart = true;
 		}
 	}
 	/*Vector3f delta(Input::GetAxis(Input::x), 0, Input::GetAxis(Input::y));
