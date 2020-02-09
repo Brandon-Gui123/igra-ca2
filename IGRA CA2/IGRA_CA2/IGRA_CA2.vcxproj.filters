@@ -188,11 +188,11 @@
     <ClCompile Include="ObstacleMesh.cpp">
       <Filter>Source Files\Meshes</Filter>
     </ClCompile>
-    <ClCompile Include="Obstacle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PlankMesh.cpp">
       <Filter>Source Files\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="Obstacle.cpp">
+      <Filter>Source Files\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
