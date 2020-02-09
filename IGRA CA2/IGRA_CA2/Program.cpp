@@ -213,6 +213,28 @@ void Program::RestartProgram()
 	Start();
 }
 
+double Program::GetTimeLimit()
+{
+	switch (currentDifficulty)
+	{
+		case GameDifficulty::Easy:
+			return timeForEasy;
+			break;
+
+		case GameDifficulty::Normal:
+			return timeForNormal;
+			break;
+
+		case GameDifficulty::Hard:
+			return timeForHard;
+			break;
+
+		default:
+			// unknown difficulty
+			return 0;
+	}
+}
+
 void Program::CreateWoodTexture() {
 	int nrOfCheckersOnRow = 8;
 	float dim = 64.0 / nrOfCheckersOnRow;
