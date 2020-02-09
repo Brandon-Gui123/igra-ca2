@@ -28,6 +28,8 @@ private:
 	GameObject * timerBar;
 	int currentMap;
 	int latestMap;
+	float timeLimit;
+	float timeLeft;
 	std::vector<LilyMap> map;
 	//The next move the player should take
 	bool nextMove;
