@@ -9,6 +9,8 @@
 #include "Obstacle.h"		// for Obstacle component class
 #include "ObstacleMesh.h"	// for Obstacle mesh class
 
+#include "framework.h"		// for Windows stuff
+
 #include <vector>
 #include <time.h>
 #include <functional>
@@ -40,7 +42,13 @@ void GameManager::Start()
 	latestLilyPad = &gameObject;
 
 	for (int i = 0; i < 20; i++) {
-		CreateNextLilyPad();
+		Lily &lily{CreateNextLilyPad()};
+
+		// last lily
+		if (i == 19)
+		{
+			lily.isGoal = true;
+		}
 	}
 }
 
@@ -66,22 +74,17 @@ void GameManager::PlayerLand(bool mleft)
 	currentMap++;
 	currentLilyPad = lilyPads.at(currentMap);
 	
-	if (rand() % 2 == 1) {
-		map.push_back(left);
-	}
-	else {
-		map.push_back(right);
-	}
-
 	if (currentLilyPad->GetComponent<Lily>()->hasObstacle)
 	{
 		player->GetComponent<Player>()->Die();
 	}
-
-	CreateNextLilyPad();
+	else if (currentLilyPad->GetComponent<Lily>()->isGoal)
+	{
+		MessageBox(NULL, L"You won!", L"Success", MB_OK);
+	}
 }
 
-void GameManager::CreateNextLilyPad()
+Lily& GameManager::CreateNextLilyPad()
 {
 	Vector3f nextPos = latestLilyPad->position;
 	//0 = left, 1  right, 2 = left + obstacle, 3 = right + obstacle
@@ -110,6 +113,7 @@ void GameManager::CreateNextLilyPad()
 	lilyPads.push_back(&instance);
 	latestLilyPad = &instance;
 	latestMap++;
+	return *(instance.GetComponent<Lily>());
 }
 
 void GameManager::Update()
