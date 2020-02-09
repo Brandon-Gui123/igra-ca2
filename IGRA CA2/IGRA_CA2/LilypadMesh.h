@@ -1,3 +1,5 @@
+// Done by Ryan Tan (1829105) from DIT/FT/2B/05
+
 #pragma once
 
 #include "Color4.h"		// for Color4f, a type alias of Color4 that uses GLfloat
